@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#132f27">
+<title>Frontera | Camp More. Explore Further.</title>
+<meta name="description" content="Frontera is a camping and outdoor gear guide for every kind of adventurer. Discover beginner-friendly essentials, camping checklists, and gear from independent outdoor brands.">
+<style>
+:root{--forest:#132f27;--pine:#234a3a;--moss:#91a878;--lime:#d7ef85;--sand:#f5f1e7;--paper:#fffdf8;--ink:#17251e;--muted:#647168;--line:#e3e3d9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--sand);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit}.announcement{background:var(--forest);color:#f4f5ec;text-align:center;padding:9px 14px;font-size:12px;letter-spacing:.08em}
+header{max-width:1160px;margin:auto;padding:18px 22px;display:flex;align-items:center;gap:24px}.logo{font-size:28px;font-weight:900;letter-spacing:-1.5px;text-decoration:none;color:var(--forest)}.logo b{color:#91a878}
+nav{display:flex;gap:18px;margin-left:auto;font-size:13px}nav a{text-decoration:none;color:#425148}nav a:hover{color:var(--pine)}
+.hero{max-width:1120px;margin:10px auto 30px;padding:56px 48px;min-height:350px;border-radius:26px;background:linear-gradient(110deg,#132f27 0%,#254c3a 58%,#78916b 100%);color:white;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:3%;top:-15%;width:380px;height:380px;border:1px solid #ffffff44;border-radius:50%;box-shadow:0 0 0 38px #ffffff0c,0 0 0 78px #ffffff08}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--lime);font-weight:800}
+h1{font-size:clamp(38px,6vw,68px);line-height:.99;letter-spacing:-3px;max-width:600px;margin:16px 0}
+.hero p{max-width:510px;color:#e3e9e2;font-size:16px}.button{display:inline-block;border:0;border-radius:999px;padding:12px 18px;background:var(--lime);color:var(--forest);font-weight:800;text-decoration:none;cursor:pointer}.button.dark{background:var(--forest);color:white}.hero .button{position:relative;z-index:1;margin-top:10px}
+.container{max-width:1120px;margin:auto;padding:0 18px 60px}
+.intro{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center;margin:28px 0}.intro h2,.section-title h2{font-size:29px;letter-spacing:-1px;margin:0}.intro p,.section-title p{color:var(--muted);margin:7px 0 0}
+.promise{background:#e5e9dc;border-radius:18px;padding:22px}.promise strong{display:block;color:var(--forest);margin-bottom:5px}
+.section-title{margin:35px 0 17px}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.category{padding:18px;border-radius:16px;background:var(--paper);border:1px solid var(--line);text-decoration:none;min-height:128px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .15s}.category:hover{transform:translateY(-3px)}.category .emoji{font-size:30px}.category strong{font-size:14px}.category small{color:var(--muted)}
+.controls{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.chip{border:1px solid #cfd6cc;border-radius:24px;background:#fff;padding:8px 13px;color:#415046;font-size:12px;cursor:pointer}.chip.active{background:var(--forest);color:white;border-color:var(--forest)}
+.search{display:flex;gap:8px;margin:16px 0}.search input{flex:1;min-width:0;border:1px solid var(--line);border-radius:24px;padding:11px 15px;font-size:14px;background:white}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.product{border:1px solid var(--line);border-radius:17px;background:white;overflow:hidden}.product-art{min-height:160px;display:grid;place-items:center;background:linear-gradient(135deg,#e0e8d9,#b8c7b0);font-size:62px}.product:nth-child(3n+2) .product-art{background:linear-gradient(135deg,#eee3d1,#c8b398)}.product:nth-child(3n) .product-art{background:linear-gradient(135deg,#e1e7e8,#b1c0c1)}
+.product-body{padding:16px}.product-body .label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#718076;font-weight:800}.product h3{font-size:17px;margin:6px 0}.product p{font-size:13px;color:var(--muted);margin:7px 0 14px}.product .button{font-size:12px;padding:10px 14px}
+.note{background:#edf0e7;border-radius:15px;padding:17px;color:#526056;font-size:12px;line-height:1.6;margin-top:17px}
+.callout{margin:36px 0;background:var(--forest);color:white;border-radius:20px;padding:27px;display:flex;align-items:center;justify-content:space-between;gap:22px}.callout h2{margin:0 0 7px;font-size:25px}.callout p{margin:0;color:#d8e1d8;font-size:14px;max-width:650px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}.faq article{background:white;border:1px solid var(--line);border-radius:15px;padding:18px}.faq h3{margin:0 0 7px;font-size:15px}.faq p{margin:0;color:var(--muted);font-size:13px}
+footer{background:var(--forest);color:#e1e8e1;padding:32px 18px;text-align:center;font-size:12px;line-height:1.9}footer .logo{color:white}footer a{color:#e5efbd}.disclosure{max-width:880px;margin:18px auto 0;color:#bfcbbf;font-size:11px}
+.empty{display:none;text-align:center;color:var(--muted);padding:25px}
+@media(max-width:800px){header{flex-wrap:wrap}nav{margin-left:0;flex-wrap:wrap}.hero{margin:8px 14px 25px;padding:42px 27px}.intro{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.callout{align-items:flex-start;flex-direction:column}}
+@media(max-width:480px){nav{gap:12px;font-size:12px}.products{grid-template-columns:1fr 1fr;gap:9px}.product-art{min-height:120px;font-size:45px}.product-body{padding:12px}.product h3{font-size:15px}.product p{font-size:12px}.faq{grid-template-columns:1fr}.hero{min-height:300px}}
+</style>
+</head>
+<body>
+<div class="announcement">FRONTERA · CAMPING FOR EVERYONE — FROM FIRST-TIME CAMPERS TO TRAIL REGULARS</div>
+<header>
+<a class="logo" href="#">frontera<b>.</b></a>
+<nav aria-label="Main navigation"><a href="#gear">Gear guides</a><a href="#categories">Categories</a><a href="#tips">Camping tips</a><a href="#partners">Brand partners</a></nav>
+</header>
+<section class="hero">
+<div class="eyebrow">Make the outdoors feel closer</div>
+<h1>Camp more.<br>Explore further.</h1>
+<p>Thoughtful camping essentials, beginner-friendly advice, and gear ideas for all kinds of budgets, bodies, and adventures. Start where you are. The outdoors is for everyone.</p>
+<a class="button" href="#gear">Explore the gear guide</a>
+</section>
+<main class="container">
+<section class="intro">
+<div><h2>Your next adventure starts simply.</h2><p>Frontera is being built to make camping feel less intimidating and more accessible. Find practical gear ideas, learn what you actually need, and discover outdoor brands worth exploring.</p></div>
+<div class="promise"><strong>Honest recommendations, always.</strong><span>We’ll clearly identify affiliate links and only add real products and confirmed partner offers. Listings are guides—not inventory or checkout promises.</span></div>
+</section>
+<section id="categories">
+<div class="section-title"><h2>Shop by adventure</h2><p>Explore the basics, then build your kit at your own pace.</p></div>
+<div class="categories">
+<a class="category" href="#gear" onclick="setFilter('Shelter')"><span class="emoji">⛺</span><strong>Shelter & tents</strong><small>Sleep protected</small></a>
+<a class="category" href="#gear" onclick="setFilter('Sleep')"><span class="emoji">🛌</span><strong>Sleep systems</strong><small>Rest easy outside</small></a>
+<a class="category" href="#gear" onclick="setFilter('Cooking')"><span class="emoji">🍳</span><strong>Camp cooking</strong><small>Meals beyond the kitchen</small></a>
+<a class="category" href="#gear" onclick="setFilter('Lighting')"><span class="emoji">🔦</span><strong>Lighting & power</strong><small>Stay ready after sunset</small></a>
+<a class="category" href="#gear" onclick="setFilter('Packs')"><span class="emoji">🎒</span><strong>Packs & storage</strong><small>Carry what you need</small></a>
+<a class="category" href="#gear" onclick="setFilter('Comfort')"><span class="emoji">🪑</span><strong>Camp comfort</strong><small>Make camp your own</small></a>
+<a class="category" href="#gear" onclick="setFilter('Safety')"><span class="emoji">🧭</span><strong>Safety & navigation</strong><small>Plan with care</small></a>
+<a class="category" href="#gear" onclick="setFilter('All')"><span class="emoji">🌲</span><strong>All gear ideas</strong><small>See the full guide</small></a>
+</div>
+</section>
+<section id="gear">
+<div class="section-title"><h2>Starter gear guide</h2><p>These are categories and shopping starting points. Real partner product listings will be added after approval.</p></div>
+<div class="search"><input id="search" type="search" placeholder="Search gear ideas (e.g. tent, stove, lantern)" aria-label="Search gear"><button class="button dark" onclick="filterSearch()">Search</button></div>
+<div class="controls">
+<button class="chip active" onclick="setFilter('All')">All gear</button><button class="chip" onclick="setFilter('Shelter')">Shelter</button><button class="chip" onclick="setFilter('Sleep')">Sleep</button><button class="chip" onclick="setFilter('Cooking')">Cooking</button><button class="chip" onclick="setFilter('Lighting')">Lighting</button><button class="chip" onclick="setFilter('Packs')">Packs</button><button class="chip" onclick="setFilter('Comfort')">Comfort</button><button class="chip" onclick="setFilter('Safety')">Safety</button>
+</div>
+<div class="products" id="products">
+<article class="product" data-cat="Shelter" data-name="Tent shelter"><div class="product-art">⛺</div><div class="product-body"><div class="label">Shelter</div><h3>Tent & shelter</h3><p>Compare capacity, weather rating, setup, packed size, and season before choosing.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Sleep" data-name="Sleeping bag sleeping pad"><div class="product-art">🛌</div><div class="product-body"><div class="label">Sleep</div><h3>Sleeping bag & pad</h3><p>Look at temperature ratings, insulation, comfort, and ground protection.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Cooking" data-name="Camp stove cookware"><div class="product-art">🍲</div><div class="product-body"><div class="label">Cooking</div><h3>Camp kitchen</h3><p>Simple cookware, fuel-compatible stove systems, utensils, and water storage.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Lighting" data-name="Lantern headlamp power"><div class="product-art">🔦</div><div class="product-body"><div class="label">Lighting & power</div><h3>Lanterns & headlamps</h3><p>Choose lighting that suits your campsite and bring backup power where needed.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Packs" data-name="Backpack daypack storage"><div class="product-art">🎒</div><div class="product-body"><div class="label">Packs</div><h3>Backpacks & storage</h3><p>Fit, capacity, accessibility, and comfort matter more than flashy features.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Comfort" data-name="Camp chair stool blanket"><div class="product-art">🪑</div><div class="product-body"><div class="label">Comfort</div><h3>Camp chairs & extras</h3><p>Make a comfortable campsite with seating, blankets, shade, and small extras.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Safety" data-name="First aid navigation compass"><div class="product-art">🧭</div><div class="product-body"><div class="label">Safety</div><h3>First aid & navigation</h3><p>Prepare a first-aid kit, map, compass, and route plan for your trip.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Cooking" data-name="Water bottle filter hydration"><div class="product-art">💧</div><div class="product-body"><div class="label">Hydration</div><h3>Water & filtration</h3><p>Know your water source and use a treatment method appropriate to it.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+<article class="product" data-cat="Comfort" data-name="Tarp shade rain cover"><div class="product-art">🌤️</div><div class="product-body"><div class="label">Comfort</div><h3>Tarps & shade</h3><p>Extra shade and rain protection can help make a campsite more flexible.</p><a class="button dark" href="#partners">Partner products soon</a></div></article>
+</div>
+<div class="empty" id="empty">No gear ideas match that search. Try another word.</div>
+<div class="note">Transparency: Frontera does not currently sell or stock these products. No product is available to buy from this page yet. Partner links will be added after affiliate or supplier approval; commission links will be clearly disclosed.</div>
+</section>
+<section id="tips">
+<div class="section-title"><h2>Camping, made less complicated</h2><p>A few principles for building a kit without overspending.</p></div>
+<div class="faq">
+<article><h3>Start with the trip, not the shopping cart</h3><p>Consider climate, campground rules, trip length, transportation, and whether you can borrow gear before buying.</p></article>
+<article><h3>Prioritize the essentials</h3><p>Safety, shelter, sleep, water, food, and weather-appropriate clothing come before extras.</p></article>
+<article><h3>Compare total cost</h3><p>Check shipping, warranty, return terms, and replacement parts—not just the headline price.</p></article>
+<article><h3>Try before you commit</h3><p>When possible, borrow or rent unfamiliar gear and test it at home before a trip.</p></article>
+</div>
+</section>
+<section class="callout" id="partners"><div><h2>Outdoor brands & suppliers: partner with Frontera</h2><p>We’re launching as a lean, no-inventory discovery store. We welcome affiliate partners, dropship suppliers, and brands interested in providing product information, referral links, or fulfillment arrangements.</p></div><a class="button" href="mailto:freemoneyapex@gmail.com?subject=Frontera%20Supplier%20or%20Affiliate%20Partnership">Contact Frontera</a></section>
+</main>
+<footer><a class="logo" href="#">frontera<b>.</b></a><br>Camping for everyone. Explore further.<br><a href="mailto:freemoneyapex@gmail.com">freemoneyapex@gmail.com</a>
+<div class="disclosure">Affiliate disclosure: If Frontera later includes affiliate links, we may earn a commission from qualifying purchases at no additional cost to you. We will identify those links clearly. We do not claim to have tested products unless we actually have. © 2026 Frontera.</div>
+</footer>
+<script>
+let selected='All';
+function setFilter(category){selected=category;document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('active',b.textContent.trim()===(category==='All'?'All gear':category)));applyFilter();}
+function filterSearch(){selected='Search';document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'));applyFilter();}
+function applyFilter(){const q=document.getElementById('search').value.trim().toLowerCase();let count=0;document.querySelectorAll('.product').forEach(card=>{const categoryMatch=selected==='All'||selected==='Search'||card.dataset.cat===selected;const textMatch=!q||card.dataset.name.includes(q)||card.dataset.cat.toLowerCase().includes(q)||card.innerText.toLowerCase().includes(q);const show=categoryMatch&&textMatch;card.style.display=show?'':'none';if(show)count++;});document.getElementById('empty').style.display=count?'none':'block';}
+document.getElementById('search').addEventListener('input',()=>{if(selected==='Search')applyFilter();});
+</script>
+</body>
+</html>
