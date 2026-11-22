@@ -88,8 +88,12 @@ def fetch_feed(feed):
 def main():
     with open(CONFIG, encoding="utf-8") as f:
         config = json.load(f)
+    feeds = config.get("feeds", [])
+    if not feeds:
+        print("No approved partner feeds configured yet; keeping the existing catalog unchanged.")
+        return
     products, errors = {}, []
-    for feed in config.get("feeds", []):
+    for feed in feeds:
         try:
             for item in fetch_feed(feed):
                 key = (item.get("brand", "") + "|" + item.get("sku", item["name"])).lower()
