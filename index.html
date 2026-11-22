@@ -31,13 +31,35 @@ footer{background:var(--ink);color:#e7e2d7;padding:48px 25px 25px}.foot-inner{ma
 .empty{display:none;color:var(--muted);padding:30px;text-align:center}
 @media(max-width:850px){header{gap:20px;padding:0 18px}nav{gap:13px}.nav-cta{display:none}.category-grid{grid-template-columns:repeat(2,1fr)}.intro{gap:25px}.band{grid-template-columns:1fr}.band-img{min-height:280px}.food-grid{grid-template-columns:1fr}.food-photo{min-height:320px}.cards{grid-template-columns:repeat(2,1fr)}.partner-inner{align-items:flex-start;flex-direction:column}.foot-inner{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){header{height:auto;min-height:72px;flex-wrap:wrap;padding:16px 18px;gap:12px}.brand{font-size:29px}nav{order:3;width:100%;overflow:auto;gap:19px;padding:8px 0 2px}nav a{white-space:nowrap;font-size:9px}.hero{min-height:540px;background-position:58% center}.hero-inner{padding:70px 23px}.hero-stamp{width:85px;height:85px;font-size:9px;right:5%;bottom:5%}.ticker{gap:12px 20px;font-size:8px}.wrap{padding:0 18px}.intro{grid-template-columns:1fr;padding:60px 0 45px}.section-head{display:block;margin:38px 0 18px}.section-head p{margin-top:10px}.category-grid{gap:8px}.cat{min-height:205px;padding:15px}.cat h3{font-size:22px}.band{margin:60px 0}.band-copy{padding:38px 25px}.cards{grid-template-columns:1fr 1fr;gap:9px}.card-photo{height:130px}.card-body{padding:13px}.card h3{font-size:19px}.card p{font-size:10px;min-height:90px}.food{padding:55px 0}.food-photo{min-height:260px}.food-links{gap:7px}.food-link{padding:12px}.food-link strong{font-size:15px}.notes-grid{grid-template-columns:1fr}.note-img{height:190px}.partner h2{font-size:34px}.foot-inner{grid-template-columns:1fr;gap:15px}.copyright{margin-top:25px}}
-</style>
+
+.product-finder{padding:62px 0 72px;border-top:1px solid var(--line)}
+.finder-bar{display:flex;gap:12px;max-width:760px;margin:24px 0 12px}
+.finder-bar input,.finder-bar select{background:#fff;border:1px solid var(--line);padding:14px 15px;font:13px 'DM Sans',sans-serif;color:var(--ink);min-width:0}
+.finder-bar input{flex:1}.finder-bar select{min-width:190px}
+.product-meta{display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:10px;margin:12px 0 20px}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.product-card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.product-card img{width:100%;height:210px;object-fit:cover;background:var(--sand)}
+.product-card-body{padding:18px;display:flex;flex-direction:column;flex:1}
+.product-brand{font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--moss)}
+.product-card h3{font:600 23px/1.1 Oswald;text-transform:uppercase;margin:7px 0}
+.product-card p{font-size:12px;color:#70746b;line-height:1.7;margin:4px 0 12px}
+.product-price{font:600 24px Oswald;margin-top:auto;padding-top:8px}
+.product-availability,.product-updated{font-size:9px;color:var(--muted);margin-top:4px}
+.product-buy{display:block;text-align:center;background:var(--rust);color:white;padding:12px;margin-top:14px;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.product-empty{grid-column:1/-1;background:var(--sand);padding:35px;border-left:4px solid var(--rust)}
+.product-empty strong{font:600 24px Oswald;text-transform:uppercase}
+.product-empty p{max-width:650px;color:#686b61;font-size:13px;line-height:1.8;margin-bottom:0}
+.price-note{font-size:10px;color:var(--muted);line-height:1.7;margin-top:18px}
+@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.finder-bar{flex-direction:column}.finder-bar select{min-width:0}.product-grid{grid-template-columns:1fr 1fr}.product-card img{height:135px}.product-card-body{padding:12px}.product-card h3{font-size:19px}.product-meta{flex-direction:column;gap:4px}}
+\n</style>
 </head>
 <body>
 <div class="topline">The outdoors is calling · Answer with curiosity</div>
 <header>
 <a class="brand" href="#">FRONTERA<span>.</span><small>GEAR FOR THE WILD</small></a>
-<nav aria-label="Main navigation"><a href="#explore">Explore</a><a href="#gear">Gear guide</a><a href="#camp-kitchen">Camp kitchen</a><a href="#field-notes">Field notes</a><a href="#partners">Partner with us</a></nav>
+<nav aria-label="Main navigation"><a href="#explore">Explore</a><a href="#product-finder">Product finder</a><a href="#gear">Gear guide</a><a href="#camp-kitchen">Camp kitchen</a><a href="#field-notes">Field notes</a><a href="#partners">Partner with us</a></nav>
 <a class="nav-cta" href="#gear">Find your gear ↗</a>
 </header>
 <section class="hero">
@@ -55,7 +77,15 @@ footer{background:var(--ink);color:#e7e2d7;padding:48px 25px 25px}.foot-inner{ma
 <a class="cat" href="#camp-kitchen" style="--photo:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80')"><div class="cat-content"><small>04 / Flavor</small><h3>Food & spices</h3><span>Bring a little flavor outside ↗</span></div></a>
 </div></section>
 <section class="band"><div class="band-img" role="img" aria-label="Tent set up in a forest campsite"></div><div class="band-copy"><div class="eyebrow">The right kit changes everything</div><h2>Gear up.<br>Get out there.</h2><p>Choosing outdoor gear shouldn't feel like a second job. Browse practical categories, learn what to look for, and discover brands and products as our partner collection grows.</p><a class="btn" href="#gear">Browse the gear guide</a></div></section>
-<section class="wrap catalog" id="gear"><div class="section-head"><div><div class="eyebrow">The FRONTERA field guide</div><h2>Build your outdoor kit</h2></div><p>Explore the gear categories that make a good trip safer, easier, and more comfortable.</p></div>
+
+<section class="wrap product-finder" id="product-finder">
+  <div class="section-head"><div><div class="eyebrow">The FRONTERA product index</div><h2>Find it. Compare it. Get outside.</h2></div><p>Search a growing directory of outdoor products from established brands. Product prices and availability will be refreshed from participating partner data feeds.</p></div>
+  <div class="finder-bar"><input id="product-search" type="search" placeholder="Search products, brands, or features…" aria-label="Search products"><select id="product-category" aria-label="Filter by category"><option value="">All categories</option><option value="shelter">Shelter & tents</option><option value="sleep">Sleep systems</option><option value="cook">Camp cooking</option><option value="trail">Packs & trail</option><option value="light">Lighting & power</option><option value="water">Water & filtration</option><option value="food">Food & spices</option><option value="other">Other gear</option></select></div>
+  <div class="product-meta"><span id="product-count">Product directory is being prepared</span><span id="catalog-updated">Prices will display their last verified update.</span></div>
+  <div class="product-grid" id="product-grid" aria-live="polite"><div class="product-empty"><strong>The product index is getting ready.</strong><p>We're building direct relationships with outdoor brands so listings, prices, and availability can come from reliable sources—not guesses. Check back as the directory grows.</p></div></div>
+  <p class="price-note">Prices and availability are supplied by participating brands or retailers and may change. Always confirm the final price on the seller's website. FRONTERA may earn a commission from qualifying purchases; this does not affect the price you pay.</p>
+</section>
+\n<section class="wrap catalog" id="gear"><div class="section-head"><div><div class="eyebrow">The FRONTERA field guide</div><h2>Build your outdoor kit</h2></div><p>Explore the gear categories that make a good trip safer, easier, and more comfortable.</p></div>
 <div class="search"><input id="search" type="search" placeholder="Search tents, stoves, packs, lanterns…"><button aria-label="Search">⌕</button></div>
 <div class="filters"><button class="filter active" data-filter="all">Everything</button><button class="filter" data-filter="shelter">Shelter</button><button class="filter" data-filter="sleep">Sleep</button><button class="filter" data-filter="cook">Cooking</button><button class="filter" data-filter="light">Lighting</button><button class="filter" data-filter="trail">Trail & packs</button><button class="filter" data-filter="safety">Safety</button></div>
 <div class="cards" id="cards">
@@ -80,5 +110,29 @@ footer{background:var(--ink);color:#e7e2d7;padding:48px 25px 25px}.foot-inner{ma
 const buttons=[...document.querySelectorAll('.filter')],cards=[...document.querySelectorAll('.card')],search=document.getElementById('search');let active='all';
 function apply(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{const ok=(active==='all'||card.dataset.cat===active)&&(!q||(card.dataset.search+' '+card.innerText).toLowerCase().includes(q));card.style.display=ok?'':'none';if(ok)shown++});document.getElementById('empty').style.display=shown?'none':'block'}
 buttons.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter;buttons.forEach(x=>x.classList.toggle('active',x===b));apply()}));search.addEventListener('input',apply);document.querySelector('.search button').addEventListener('click',apply);
-</script>
+
+async function loadFronteraProducts(){
+ const grid=document.getElementById('product-grid'),count=document.getElementById('product-count'),updated=document.getElementById('catalog-updated');
+ const q=document.getElementById('product-search'),cat=document.getElementById('product-category');
+ let products=[];
+ try{const response=await fetch('./data/products.json',{cache:'no-store'});if(!response.ok)throw new Error('catalog unavailable');const data=await response.json();products=Array.isArray(data)?data:(data.products||[]);}
+ catch(e){grid.innerHTML='<div class="product-empty"><strong>Product directory temporarily unavailable.</strong><p>Please try again later. We are working to keep product information reliable.</p></div>';count.textContent='Catalog temporarily unavailable';return;}
+ const money=v=>{if(v===null||v===undefined||v==='')return 'See retailer for price';const n=Number(v);return Number.isFinite(n)?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n):String(v)};
+ const render=()=>{
+  const term=q.value.trim().toLowerCase(),category=cat.value;
+  const matches=products.filter(p=>(!category||p.category===category)&&(!term||[p.name,p.brand,p.description,p.category,...(p.features||[])].join(' ').toLowerCase().includes(term)));
+  count.textContent=matches.length+' product'+(matches.length===1?'':'s')+' listed';
+  if(!matches.length){grid.innerHTML='<div class="product-empty"><strong>No products found.</strong><p>Try another search or category. The directory will expand as partner feeds become available.</p></div>';return;}
+  grid.innerHTML=matches.map(p=>{
+   const safeUrl=typeof p.url==='string'&&/^https:\/\//i.test(p.url)?p.url:'#';
+   const img=typeof p.image==='string'&&/^https:\/\//i.test(p.image)?p.image:'';
+   const date=p.updated_at?new Date(p.updated_at).toLocaleDateString():'Not yet verified';
+   return '<article class="product-card">'+(img?'<img loading="lazy" src="'+img.replace(/"/g,'&quot;')+'" alt="">':'<div style="height:210px;background:var(--sand)"></div>')+'<div class="product-card-body"><span class="product-brand">'+(p.brand||'Outdoor brand')+'</span><h3>'+(p.name||'Product')+'</h3><p>'+(p.description||'Product details from the participating seller.')+'</p><div class="product-price">'+money(p.price)+'</div><div class="product-availability">'+(p.availability||'Check seller for availability')+'</div><div class="product-updated">Price data updated: '+date+'</div><a class="product-buy" href="'+safeUrl+'" target="_blank" rel="sponsored nofollow noopener">Visit brand / retailer ↗</a></div></article>';
+  }).join('');
+ };
+ q.addEventListener('input',render);cat.addEventListener('change',render);render();
+ if(products.length){const dates=products.map(p=>p.updated_at).filter(Boolean).sort();updated.textContent=dates.length?'Latest product update: '+new Date(dates[dates.length-1]).toLocaleDateString():'Product updates pending';}
+}
+loadFronteraProducts();
+\n</script>
 </body></html>
