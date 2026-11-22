@@ -1,0 +1,4 @@
+{
+  "instructions": "Add only approved affiliate network or brand product-feed URLs. Supported formats: json and csv. Each feed can define url, format, products_key, and field_map. Do not add ordinary product-page URLs or scrape retailer websites.",
+  "feeds": []
+}\n
