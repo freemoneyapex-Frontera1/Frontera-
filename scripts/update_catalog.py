@@ -32,6 +32,10 @@ def normalize_category(value):
       "light": ("light", "lantern", "headlamp", "power", "battery"),
       "water": ("water", "filter", "hydration", "purifier"),
       "food": ("food", "spice", "coffee", "seasoning", "snack"),
+      "offroad": ("atv", "utv", "side-by-side", "side by side", "dirt bike", "go-kart", "go kart", "powersports", "off-road", "offroad"),
+      "marine": ("jet ski", "personal watercraft", "pwc", "kayak", "paddleboard", "paddle board", "boat", "marine", "watersport", "water sport"),
+      "vehicles": ("overland", "overlanding", "4x4", "truck camper", "roof top tent", "rooftop tent", "vehicle accessory", "recovery gear"),
+      "apparel": ("helmet", "riding gear", "motorcycle apparel", "boots", "jacket", "protective gear", "outdoor clothing"),
     }
     for category, words in mapping.items():
         if any(word in value for word in words):
