@@ -120,6 +120,7 @@ async function loadFronteraProducts(){
  const money=v=>{if(v===null||v===undefined||v==='')return 'See retailer for price';const n=Number(v);return Number.isFinite(n)?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n):String(v)};
  const render=()=>{
   const term=q.value.trim().toLowerCase(),category=cat.value;
+  if(!products.length){count.textContent='Product directory is being prepared';grid.innerHTML='<div class="product-empty"><strong>The product index is getting ready.</strong><p>We are securing approved brand and affiliate data feeds so product listings, prices, and availability come from reliable sources—not guesses. The catalog will populate as partnerships are approved.</p></div>';return;}
   const matches=products.filter(p=>(!category||p.category===category)&&(!term||[p.name,p.brand,p.description,p.category,...(p.features||[])].join(' ').toLowerCase().includes(term)));
   count.textContent=matches.length+' product'+(matches.length===1?'':'s')+' listed';
   if(!matches.length){grid.innerHTML='<div class="product-empty"><strong>No products found.</strong><p>Try another search or category. The directory will expand as partner feeds become available.</p></div>';return;}
