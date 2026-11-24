@@ -212,13 +212,43 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:850px){.expedition-shell{grid-template-columns:1fr}.expedition-gear{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.expedition{padding:58px 0}.expedition-form,.forecast-panel{padding:17px}.expedition-fields{grid-template-columns:1fr}.expedition-field.full{grid-column:auto}.expedition-checks{grid-template-columns:1fr 1fr}.expedition-gear{grid-template-columns:1fr}.expedition-results-head{display:block}.expedition-results-head p{margin-top:6px}}
 
+
+/* Expedition is a dedicated destination tab, not homepage takeover */
+.expedition{display:none}
+body.expedition-mode .hero,body.expedition-mode .ticker,body.expedition-mode main>section:not(#expedition),body.expedition-mode footer{display:none!important}
+body.expedition-mode .expedition{display:block;min-height:75vh;padding-top:58px}
+body.expedition-mode .nav-cta{display:inline-flex}
+body.expedition-mode nav a[href="#expedition"]{color:#d5ad69}
+.expedition-products{margin-top:24px}
+.expedition-products-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:12px}
+.expedition-products-head h3{font:600 27px Oswald;text-transform:uppercase;margin:0}
+.expedition-products-head p{font-size:10px;color:#d1d8ce;margin:0}
+.expedition-product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.expedition-product{background:#f8f5ed;color:#18251d;display:flex;flex-direction:column;min-width:0}
+.expedition-product img,.expedition-product-art{width:100%;height:165px;object-fit:cover;background:#e8e1d4}
+.expedition-product-art{display:grid;place-items:center;color:#73796e;font:600 11px Oswald;letter-spacing:.12em}
+.expedition-product-body{padding:14px;display:flex;flex-direction:column;flex:1}
+.expedition-product-brand{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#a65335;font-weight:800}
+.expedition-product h4{font:600 18px Oswald;margin:5px 0}
+.expedition-product p{font-size:10px;line-height:1.65;color:#62695e;margin:0 0 10px}
+.expedition-product-price{font-weight:800;font-size:12px;margin-top:auto;padding:7px 0}
+.expedition-product-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+.expedition-product-actions a{background:#18251d;color:#fff;padding:10px 12px;font-size:9px;font-weight:800;text-decoration:none}
+.expedition-product-actions label{font-size:9px;display:flex;gap:5px;align-items:center;color:#62695e}
+.expedition-product-actions input{accent-color:#b85e3c}
+.expedition-inventory-note{background:#2c4434;border-left:3px solid #d5ad69;color:#e5e9df;padding:15px 17px;font-size:11px;line-height:1.8;margin:12px 0}
+.expedition-inventory-note strong{color:#f0c984}
+.expedition-back{display:inline-flex;margin-bottom:22px;color:#e4c58e;font-size:10px;text-decoration:none;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:800px){.expedition-product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.expedition-product-grid{grid-template-columns:1fr}.expedition-products-head{display:block}.expedition-products-head p{margin-top:6px}}
+
 </style>
 </head>
 <body>
 <div class="topline">The outdoors is calling · Answer with curiosity</div>
 <header>
 <a class="brand" href="#" aria-label="FRONTERA home"><img class="brand-mark" src="./Frontera%20Roadrunner%20Desert%20Badge.png?v=20261124-2" alt="FRONTERA — Beyond the Ordinary, Into the Outdoors"></a>
-<nav aria-label="Main navigation"><a href="#explore">Explore</a><a href="#expedition">Plan a trip</a><a href="#product-finder">Product finder</a><a href="#gear">Gear guide</a><a href="#camp-kitchen">Camp kitchen</a><a href="#field-notes">Field notes</a><a href="#partners">Partner with us</a></nav>
+<nav aria-label="Main navigation"><a href="#explore">Explore</a><a href="#expedition" id="expedition-tab">Plan your expedition</a><a href="#product-finder">Product finder</a><a href="#gear">Gear guide</a><a href="#camp-kitchen">Camp kitchen</a><a href="#field-notes">Field notes</a><a href="#partners">Partner with us</a></nav>
 <a class="nav-cta" href="#gear">Find your gear ↗</a>
 </header>
 <section class="hero">
@@ -230,6 +260,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="wrap intro"><div><div class="eyebrow">A different kind of outdoor store</div><h2>Less scrolling.<br>More exploring.</h2><p>FRONTERA brings outdoor equipment, camp-kitchen inspiration, trail food, and practical field knowledge together in one place. We're building a useful destination for weekend campers, road-trippers, backcountry cooks, and anyone ready to spend more time outside.</p></div><div class="intro-card"><strong>Built for the way you adventure.</strong><p>From the first tent in the trunk to a cast-iron dinner under the stars, we're here to help you discover gear and ideas that earn their place outdoors.</p></div></section>
 
 <section class="expedition" id="expedition">
+ <div class="wrap"><a class="expedition-back" href="#home" id="expedition-back">← Back to the FRONTERA storefront</a></div>
  <div class="wrap">
   <div class="expedition-intro">
    <div class="eyebrow">Your adventure starts here</div>
@@ -272,6 +303,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
    <div class="expedition-results-head"><h3>Your expedition kit</h3><p id="exp-summary"></p></div>
    <div class="expedition-advice" id="exp-weather-advice"></div>
    <div class="expedition-gear" id="exp-gear-list"></div>
+   
+   <div class="expedition-products" id="expedition-products" hidden>
+    <div class="expedition-products-head"><h3>Your recommended inventory</h3><p id="expedition-product-count">Matched from participating brands and retailers</p></div>
+    <div class="expedition-inventory-note" id="expedition-inventory-note"><strong>Real products, not generic placeholders.</strong> FRONTERA will show products from its approved inventory that match this expedition. No retailer products are currently connected.</div>
+    <div class="expedition-product-grid" id="expedition-product-grid"></div>
+   </div>
+
    <p class="expedition-caveat">This is a planning aid, not a safety certification or route assessment. Forecasts can change and may not represent conditions at a specific trail, river, launch, cliff, or elevation. Check official local alerts, land-manager notices, river gauges, and qualified local guidance before departure. Technical climbing, rappelling, aviation and whitewater activities require appropriate training, equipment selection, and qualified supervision.</p>
   </div>
  </div>
@@ -380,6 +418,16 @@ async function loadFronteraProducts(){
  catch(error){count.textContent='Catalog temporarily unavailable';updated.textContent='Please try again later';grid.innerHTML='<div class="product-empty"><strong>We hit a temporary snag.</strong><p>The product directory could not load right now. Please try again shortly or explore the field guide while we restore it.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a></div></div>';}
 }
 
+
+/* Storefront-first navigation: expedition opens as its own tab-like view */
+(function(){
+ const tab=document.getElementById('expedition-tab'),back=document.getElementById('expedition-back');
+ function setMode(active){document.body.classList.toggle('expedition-mode',active);if(active){document.getElementById('expedition').scrollIntoView({behavior:'instant',block:'start'});}else{window.scrollTo({top:0,behavior:'instant'});}}
+ tab?.addEventListener('click',e=>{e.preventDefault();setMode(true);});
+ back?.addEventListener('click',e=>{e.preventDefault();setMode(false);});
+ document.querySelectorAll('a[href="#expedition"]').forEach(link=>{if(link!==tab)link.addEventListener('click',e=>{e.preventDefault();setMode(true);});});
+})();
+
 /* Expedition Builder + live destination forecast */
 (function(){
  const form=document.getElementById('expedition-form');
@@ -409,13 +457,14 @@ async function loadFronteraProducts(){
  function gearCard(title,items,label){
   return '<article class="expedition-gear-card"><small>'+esc(label)+'</small><h4>'+esc(title)+'</h4><ul>'+items.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul></article>';
  }
- function buildGear(activities,terrain,days,group){
-  const maxTemp=Math.max.apply(null,days.map(d=>Number(d.tempmax)||0));
-  const minTemp=Math.min.apply(null,days.map(d=>Number(d.tempmin)||0));
-  const maxRain=Math.max.apply(null,days.map(d=>Number(d.precipprob)||0));
+ 
+function buildGear(activities,terrain,days,group){
+  const maxTemp=days.length?Math.max.apply(null,days.map(d=>Number(d.tempmax)||0)):75;
+  const minTemp=days.length?Math.min.apply(null,days.map(d=>Number(d.tempmin)||0)):55;
+  const maxRain=days.length?Math.max.apply(null,days.map(d=>Number(d.precipprob)||0)):0;
   const totalRain=days.reduce((sum,d)=>sum+(Number(d.precip)||0),0);
-  const maxWind=Math.max.apply(null,days.map(d=>Number(d.windspeed)||0));
-  const avgHumidity=days.reduce((sum,d)=>sum+(Number(d.humidity)||0),0)/days.length;
+  const maxWind=days.length?Math.max.apply(null,days.map(d=>Number(d.windspeed)||0)):0;
+  const avgHumidity=days.length?days.reduce((sum,d)=>sum+(Number(d.humidity)||0),0)/days.length:60;
   const rainLikely=maxRain>=40||totalRain>=0.15,hot=maxTemp>=85,cold=minTemp<=45,windy=maxWind>=20,humid=avgHumidity>=75;
   const cards=[];
   const core=['Navigation with offline maps and a backup power source','First-aid kit suited to the group and trip','Headlamp, spare batteries and emergency light','Emergency communication plan; cell coverage may be absent'];
@@ -432,26 +481,56 @@ async function loadFronteraProducts(){
   if(hot||humid)water.push('Increase heat-management planning; schedule effort around cooler hours');
   if(rainLikely)water.push('Waterproof storage for food, electronics and spare layers');
   cards.push(gearCard('Water & essentials',water,'Conditions matter'));
-  if(activities.includes('Hiking'))cards.push(gearCard('Hiking', ['Trail footwear matched to terrain and load','Trekking poles where useful for steep or uneven ground','Route map, turnaround time and a realistic exit plan'],'Activity kit'));
+  if(activities.includes('Hiking'))cards.push(gearCard('Hiking',['Trail footwear matched to terrain and load','Trekking poles where useful for steep or uneven ground','Route map, turnaround time and a realistic exit plan'],'Activity kit'));
   if(activities.includes('Camping'))cards.push(gearCard('Camp setup',['Shelter appropriate to wind and precipitation exposure','Sleeping pad and sleep system rated for expected low temperatures','Stove, cookware, food storage and waste pack-out kit'],'Activity kit'));
-  if(activities.includes('Rappelling'))cards.push(gearCard('Rappelling / climbing',['Helmet, harness, ropes, descender, connectors and anchor system selected for the specific route by a qualified professional','Use equipment that is certified, compatible, inspected and appropriate for the user and objective','Arrange hands-on instruction and a qualified local guide; this checklist is not a rigging or anchor plan'],'Specialist equipment'));
-  if(activities.includes('Packrafting')||activities.includes('Water sports'))cards.push(gearCard('Water travel',['Watercraft and paddle sized for the route and paddler','Properly fitted, activity-appropriate PFD worn on the water','Helmet where conditions and local guidance require it; repair kit and waterproof storage','Check official river levels, flow, weather and local access before launching'],'Water activity'));
-  if(activities.includes('Overlanding'))cards.push(gearCard('Vehicle & route',['Vehicle inspection, spare tire and tools matched to vehicle','Recovery equipment selected for the vehicle and used only with training','Offline route maps, fuel range plan and check-in schedule'],'Overland'));
+  if(activities.includes('Rappelling'))cards.push(gearCard('Rappelling / climbing',['Certified specialist climbing equipment selected for the route by a qualified professional','Compatible, inspected equipment and appropriate training','Qualified local guide; this checklist is not a rigging or anchor plan'],'Specialist equipment'));
+  if(activities.includes('Packrafting')||activities.includes('Water sports'))cards.push(gearCard('Water travel',['Packraft or watercraft and paddle suited to route and paddler','Properly fitted activity-appropriate PFD worn on the water','Repair kit, waterproof storage and route-specific safety equipment','Check official river levels, flow and local access before launching'],'Water activity'));
+  if(activities.includes('Overlanding'))cards.push(gearCard('Vehicle & route',['Vehicle inspection, spare tire and tools matched to vehicle','Recovery equipment selected for vehicle and used only with training','Offline route maps, fuel range plan and check-in schedule'],'Overland'));
   if(activities.includes('Fishing'))cards.push(gearCard('Fishing',['Rod, tackle and line suited to target species and local rules','Required license, permits and fish-handling supplies','Check local closures and catch regulations'],'Activity kit'));
-  if(activities.includes('Paragliding / air sports'))cards.push(gearCard('Air sports',['Activity-specific equipment list from a qualified instructor or certified specialist','Helmet, harness, reserve system and other equipment must match the discipline and be professionally inspected','Confirm training, launch/landing conditions, wind limits and local airspace rules with qualified local operators'],'Specialist equipment'));
-  if(windy||rainLikely)cards.push(gearCard('Weather contingencies',['Protect electronics and critical items in waterproof storage','Recheck the forecast before departure and during the trip','Set conservative turnaround and cancellation criteria for exposed routes'],'Forecast response'));
+  if(activities.includes('Paragliding / air sports'))cards.push(gearCard('Air sports',['Activity-specific equipment list from a qualified instructor or certified specialist','Professionally inspected helmet, harness and reserve equipment appropriate to discipline','Confirm training, launch/landing conditions, wind limits and local airspace rules'],'Specialist equipment'));
+  if(windy||rainLikely)cards.push(gearCard('Weather contingencies',['Protect electronics and critical items in waterproof storage','Recheck forecast before departure and during trip','Set conservative turnaround and cancellation criteria'],'Forecast response'));
   return {cards,hot,cold,rainLikely,windy,humid,maxTemp,minTemp,maxRain,maxWind,avgHumidity,totalRain,group};
+}
+async function renderExpeditionInventory(plan,activities,terrain){
+ const wrap=document.getElementById('expedition-products'),grid=document.getElementById('expedition-product-grid');
+ const note=document.getElementById('expedition-inventory-note'),count=document.getElementById('expedition-product-count');
+ wrap.hidden=false;grid.innerHTML='';count.textContent='Checking approved FRONTERA inventory…';
+ const synonyms={
+  tent:['tent','shelter','camping'],sleep:['sleeping bag','sleeping pad','sleep system','sleep'],pack:['backpack','pack','dry bag'],water:['water filter','water filtration','hydration','water bottle','purification'],rain:['rain jacket','rain shell','waterproof','rain gear'],clothing:['apparel','clothing','base layer','jacket'],hiking:['hiking','trekking','trail','footwear','boots','shoes','poles'],camping:['camping','camp kitchen','stove','cookware','lantern'],rappelling:['climbing','rappel','harness','helmet','rope','carabiner'],packrafting:['packraft','paddle','pfd','life jacket','watercraft'],overlanding:['overland','recovery','vehicle','off-road'],fishing:['fishing','tackle','rod'],paragliding:['paraglid','parachute','aviation','air sports']
+ };
+ const terms=new Set(['outdoor','expedition']);
+ activities.forEach(a=>{const k=a==='Hiking'?'hiking':a==='Camping'?'camping':a==='Rappelling'?'rappelling':a==='Packrafting'?'packrafting':a==='Overlanding'?'overlanding':a==='Fishing'?'fishing':a.startsWith('Paragliding')?'paragliding':a==='Water sports'?'packrafting':null;(synonyms[k]||[]).forEach(t=>terms.add(t));});
+ if(plan.hot){['sun protection','hydration','cooling','sun shirt'].forEach(t=>terms.add(t));}
+ if(plan.cold){['insulated','winter','cold weather','thermal'].forEach(t=>terms.add(t));}
+ if(plan.rainLikely){['waterproof','rain','dry bag'].forEach(t=>terms.add(t));}
+ if(plan.windy){['windproof','wind shell'].forEach(t=>terms.add(t));}
+ try{
+  const response=await fetch('./data/products.json',{cache:'no-store'});if(!response.ok)throw new Error('Inventory feed unavailable');
+  const data=await response.json(),products=Array.isArray(data)?data:(Array.isArray(data.products)?data.products:[]);
+  const ranked=products.map(p=>{
+   const hay=[p.name,p.brand,p.description,p.category,...(Array.isArray(p.features)?p.features:[]),...(Array.isArray(p.tags)?p.tags:[]),...(Array.isArray(p.activities)?p.activities:[]),...(Array.isArray(p.terrain)?p.terrain:[]),...(Array.isArray(p.climate)?p.climate:[])].join(' ').toLowerCase();
+   const score=[...terms].reduce((n,t)=>n+(hay.includes(t.toLowerCase())?1:0),0);
+   return {p,score,hay};
+  }).filter(x=>x.score>0&&/^https:///i.test(x.p.url||'')).sort((a,b)=>b.score-a.score).slice(0,30);
+  if(!ranked.length){
+   count.textContent='No matching partner products published yet';
+   note.innerHTML='<strong>Your trip list is ready; retailer inventory is the next connection.</strong> FRONTERA has not yet connected approved product feeds, or there are no products tagged for this particular trip. We will only show real inventory with verified product links and will never fabricate listings.';
+   return;
+  }
+  count.textContent=ranked.length+' matching products from FRONTERA inventory';
+  note.innerHTML='<strong>Matched from actual catalog listings.</strong> These products are ranked using their published product details and tags. Check retailer specifications, sizing and availability before purchase.';
+  grid.innerHTML=ranked.map(({p},i)=>{
+   const safe=value=>{try{const u=new URL(value);return u.protocol==='https:'?u.href:'';}catch{return '';}};
+   const url=safe(p.url),img=safe(p.image),esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+   const price=p.price===null||p.price===undefined||p.price===''?'See retailer for price':(Number.isFinite(Number(p.price))?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(p.price)):'See retailer for price');
+   return '<article class="expedition-product">'+(img?'<img loading="lazy" src="'+esc(img)+'" alt="'+esc(p.name||'Outdoor product')+'">':'<div class="expedition-product-art">FRONTERA / FIELD GEAR</div>')+'<div class="expedition-product-body"><span class="expedition-product-brand">'+esc(p.brand||'Outdoor brand')+'</span><h4>'+esc(p.name||'Product')+'</h4><p>'+esc(p.description||'Product details provided by the participating retailer.')+'</p><div class="expedition-product-price">'+esc(price)+'</div><div class="expedition-product-actions"><a href="'+esc(url)+'" target="_blank" rel="sponsored nofollow noopener">View product ↗</a><label><input type="checkbox" aria-label="Already own '+esc(p.name||'this item')+'"> I own this</label></div></div></article>';
+  }).join('');
+ }catch(error){
+  count.textContent='Inventory temporarily unavailable';
+  note.innerHTML='<strong>We could not load the product catalog.</strong> Your expedition checklist is still available. Please try the inventory match again later.';
  }
- function renderForecast(data,place,start,end){
-  const days=data.days;
-  const max=Math.max.apply(null,days.map(d=>Number(d.tempmax)||0)),min=Math.min.apply(null,days.map(d=>Number(d.tempmin)||0));
-  const rain=Math.max.apply(null,days.map(d=>Number(d.precipprob)||0)),wind=Math.max.apply(null,days.map(d=>Number(d.windspeed)||0));
-  const humidity=days.reduce((s,d)=>s+(Number(d.humidity)||0),0)/days.length;
-  status.textContent='Forecast for '+(data.resolvedAddress||place)+' · '+dateLabel(start)+' to '+dateLabel(end);
-  forecast.className='';
-  forecast.innerHTML='<div class="forecast-cards"><div class="forecast-stat"><small>High / low</small><strong>'+Math.round(max)+'° / '+Math.round(min)+'°F</strong></div><div class="forecast-stat"><small>Peak rain chance</small><strong>'+Math.round(rain)+'%</strong></div><div class="forecast-stat"><small>Peak wind</small><strong>'+Math.round(wind)+' mph</strong></div><div class="forecast-stat"><small>Average humidity</small><strong>'+Math.round(humidity)+'%</strong></div></div><div class="forecast-days">'+days.slice(0,7).map(d=>'<div class="forecast-day"><div><strong>'+dateLabel(d.datetime)+'</strong><span>'+esc(d.conditions||'Conditions unavailable')+' · Rain '+Math.round(Number(d.precipprob)||0)+'%</span></div><strong>'+Math.round(Number(d.tempmax)||0)+'° / '+Math.round(Number(d.tempmin)||0)+'°</strong></div>').join('')+'</div>';
-  attribution.hidden=false;
- }
+}
+
  form.addEventListener('submit',async function(event){
   event.preventDefault();
   const place=document.getElementById('exp-destination').value.trim();
@@ -479,6 +558,7 @@ async function loadFronteraProducts(){
    const data=await getForecast(place,start,end);
    renderForecast(data,place,start,end);
    const plan=buildGear(activities,terrain,data.days,group);
+   await renderExpeditionInventory(plan,activities,terrain);
    const signals=[];
    if(plan.hot)signals.push('Heat: pack sun protection, extra water capacity and a cooler-hour effort plan.');
    if(plan.cold)signals.push('Cold: add insulation and verify sleep-system ratings against the expected low.');
@@ -493,6 +573,7 @@ async function loadFronteraProducts(){
    forecast.className='forecast-placeholder';
    forecast.innerHTML='<strong>We can still start planning.</strong>'+esc(error.message);
    const fallback=buildGear(activities,terrain,[],group);
+   await renderExpeditionInventory(fallback,activities,terrain);
    document.getElementById('exp-weather-advice').innerHTML='<strong>Activity-based starter kit</strong><br>Weather adjustments are paused until a usable forecast is available. Confirm conditions through official local sources before you go.';
    document.getElementById('exp-gear-list').innerHTML=fallback.cards.slice(0,Math.max(3,activities.length+1)).join('');
   }finally{
