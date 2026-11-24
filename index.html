@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#18251d">\n<link rel="icon" type="image/png" href="./Frontera%20Roadrunner%20Desert%20Badge.png?v=20261124-2">
+<meta name="theme-color" content="#18251d">
+<link rel="icon" type="image/png" href="./Frontera%20Roadrunner%20Desert%20Badge.png?v=20261124-2">
 <title>FRONTERA — Gear for the Wild</title>
 <meta name="description" content="Outdoor gear, camp cooking, trail food and practical field knowledge for people who would rather be outside. Discover FRONTERA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +56,8 @@ footer{background:var(--ink);color:#e7e2d7;padding:48px 25px 25px}.foot-inner{ma
 .price-note{font-size:10px;color:var(--muted);line-height:1.7;margin-top:18px}
 @media(max-width:850px){.product-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.finder-bar{flex-direction:column}.finder-bar select{min-width:0}.product-grid{grid-template-columns:1fr 1fr}.product-card img{height:135px}.product-card-body{padding:12px}.product-card h3{font-size:19px}.product-meta{flex-direction:column;gap:4px}}
-\n</style>
+
+</style>
 </head>
 <body>
 <div class="topline">The outdoors is calling · Answer with curiosity</div>
@@ -92,7 +94,8 @@ footer{background:var(--ink);color:#e7e2d7;padding:48px 25px 25px}.foot-inner{ma
   <div class="product-grid" id="product-grid" aria-live="polite"><div class="product-empty"><strong>The product index is getting ready.</strong><p>We're building direct relationships with outdoor brands so listings, prices, and availability can come from reliable sources—not guesses. Check back as the directory grows.</p></div></div>
   <p class="price-note">Prices and availability are supplied by participating brands or retailers and may change. Always confirm the final price on the seller's website. FRONTERA may earn a commission from qualifying purchases; this does not affect the price you pay.</p>
 </section>
-\n<section class="wrap catalog" id="gear"><div class="section-head"><div><div class="eyebrow">The FRONTERA field guide</div><h2>Build your outdoor kit</h2></div><p>Explore the gear categories that make a good trip safer, easier, and more comfortable.</p></div>
+
+<section class="wrap catalog" id="gear"><div class="section-head"><div><div class="eyebrow">The FRONTERA field guide</div><h2>Build your outdoor kit</h2></div><p>Explore the gear categories that make a good trip safer, easier, and more comfortable.</p></div>
 <div class="search"><input id="search" type="search" placeholder="Search tents, stoves, packs, lanterns…"><button aria-label="Search">⌕</button></div>
 <div class="filters"><button class="filter active" data-filter="all">Everything</button><button class="filter" data-filter="shelter">Shelter</button><button class="filter" data-filter="sleep">Sleep</button><button class="filter" data-filter="cook">Cooking</button><button class="filter" data-filter="light">Lighting</button><button class="filter" data-filter="trail">Trail & packs</button><button class="filter" data-filter="safety">Safety</button></div>
 <div class="cards" id="cards">
@@ -145,5 +148,6 @@ async function loadFronteraProducts(){
  if(products.length){const dates=products.map(p=>p.updated_at).filter(Boolean).sort();updated.textContent=dates.length?'Latest product update: '+new Date(dates[dates.length-1]).toLocaleDateString():'Product updates pending';}
 }
 loadFronteraProducts();
-\n</script>
+
+</script>
 </body></html>
