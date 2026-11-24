@@ -511,7 +511,7 @@ async function renderExpeditionInventory(plan,activities,terrain){
    const hay=[p.name,p.brand,p.description,p.category,...(Array.isArray(p.features)?p.features:[]),...(Array.isArray(p.tags)?p.tags:[]),...(Array.isArray(p.activities)?p.activities:[]),...(Array.isArray(p.terrain)?p.terrain:[]),...(Array.isArray(p.climate)?p.climate:[])].join(' ').toLowerCase();
    const score=[...terms].reduce((n,t)=>n+(hay.includes(t.toLowerCase())?1:0),0);
    return {p,score,hay};
-  }).filter(x=>x.score>0&&/^https:///i.test(x.p.url||'')).sort((a,b)=>b.score-a.score).slice(0,30);
+  }).filter(x=>x.score>0&&/^https:\/\//i.test(x.p.url||'')).sort((a,b)=>b.score-a.score).slice(0,30);
   if(!ranked.length){
    count.textContent='No matching partner products published yet';
    note.innerHTML='<strong>Your trip list is ready; retailer inventory is the next connection.</strong> FRONTERA has not yet connected approved product feeds, or there are no products tagged for this particular trip. We will only show real inventory with verified product links and will never fabricate listings.';
