@@ -159,6 +159,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
  .product-empty-actions a{flex:1;justify-content:center}
 }
 
+.product-image-placeholder{height:210px;background:linear-gradient(135deg,#e9e1d2,#d9d1bf);display:grid;place-items:center;color:#7a796d;font:600 13px Oswald;letter-spacing:.16em}
+.product-buy[aria-disabled="true"]{opacity:.55;pointer-events:none}
+@media(max-width:560px){.product-image-placeholder{height:135px}}
+
 </style>
 </head>
 <body>
@@ -235,6 +239,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </main>
 <footer><div class="foot-inner"><div><div class="foot-brand"><img src="./Frontera%20Roadrunner%20Desert%20Badge.png?v=20261124-2" alt="FRONTERA — Beyond the Ordinary, Into the Outdoors"></div><p>Gear for the wild.<br>Outdoor essentials, camp cooking, and inspiration for wherever the trail leads.</p></div><div><h4>Explore</h4><p><a href="#explore">Outdoor categories</a><br><a href="#gear">Gear field guide</a><br><a href="#camp-kitchen">Camp kitchen</a><br><a href="#field-notes">Field notes</a><br><a href="#customer-support">Customer support</a></p></div><div><h4>Get in touch</h4><p><a href="mailto:frontera.partnerships@gmail.com">frontera.partnerships@gmail.com</a><br><a href="#customer-support">Customer support</a><br><a href="#partners">Brand & supplier partnerships</a></p></div></div><div class="copyright">© 2026 FRONTERA. BUILT FOR THE OUTDOORS.</div><div class="disclosure">FRONTERA is currently building its partner product collection. The gear categories and editorial content on this site are informational and are not a claim that products are in stock, tested, or available for purchase here. FRONTERA may earn commissions from qualifying purchases made through affiliate links. These links are clearly identified; customers complete purchases directly with the retailer. Always check product specifications and local outdoor safety guidance before a trip.</div></footer>
 
+<script>
 const guideButtons=[...document.querySelectorAll('.filter')],guideCards=[...document.querySelectorAll('.card')],guideSearch=document.getElementById('search');let guideCategory='all';
 function filterGuides(){const term=guideSearch.value.trim().toLowerCase();let visible=0;guideCards.forEach(card=>{const match=(guideCategory==='all'||card.dataset.cat===guideCategory)&&(!term||(card.dataset.search+' '+card.innerText).toLowerCase().includes(term));card.hidden=!match;if(match)visible++;});document.getElementById('empty').style.display=visible?'none':'block';}
 guideButtons.forEach(button=>button.addEventListener('click',()=>{guideCategory=button.dataset.filter;guideButtons.forEach(item=>item.classList.toggle('active',item===button));filterGuides();}));
@@ -277,5 +282,5 @@ async function loadFronteraProducts(){
  catch(error){count.textContent='Catalog temporarily unavailable';updated.textContent='Please try again later';grid.innerHTML='<div class="product-empty"><strong>We hit a temporary snag.</strong><p>The product directory could not load right now. Please try again shortly or explore the field guide while we restore it.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a></div></div>';}
 }
 loadFronteraProducts();
-</script></script>
+</script>
 </body></html>
