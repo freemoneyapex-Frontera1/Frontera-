@@ -264,9 +264,15 @@ body.expedition-mode nav a[href="#expedition"]{color:#d5ad69}
 @media(max-width:760px){.partner-program{grid-template-columns:1fr}.partner-program article{min-height:0}.partner-transparency{margin-top:15px}}
 
 .faq-section{padding:72px 0;background:#f1ecdf;border-top:1px solid var(--line)}.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.faq-item{background:var(--cream);border:1px solid var(--line);padding:18px 20px}.faq-item summary{cursor:pointer;list-style:none;font:600 20px/1.2 Oswald;text-transform:uppercase;padding-right:22px;position:relative}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary:after{content:"+";position:absolute;right:0;top:0;color:var(--rust);font:700 22px Oswald}.faq-item[open] summary:after{content:"−"}.faq-item p{font-size:12px;line-height:1.85;color:#686d62;margin:13px 0 0}.faq-contact{display:inline-block;margin-top:22px;color:var(--rust);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid var(--rust);padding-bottom:4px}@media(max-width:650px){.faq-section{padding:54px 0}.faq-grid{grid-template-columns:1fr}.faq-item{padding:16px}.faq-item summary{font-size:18px}}
+
+/* Keyboard and screen-reader access */
+.skip-link{position:fixed;left:16px;top:12px;z-index:1000;transform:translateY(-160%);background:var(--ink);color:#fff;padding:12px 16px;font-size:13px;font-weight:800;border:2px solid var(--gold);border-radius:3px}
+.skip-link:focus{transform:translateY(0);outline:3px solid var(--gold);outline-offset:3px}
+#main-content:focus{outline:none}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="topline">The outdoors is calling · Answer with curiosity</div>
 <header>
 <a class="brand" href="#" aria-label="FRONTERA home"><img class="brand-mark" src="./Frontera%20Roadrunner%20Desert%20Badge.png?v=20261124-2" alt="FRONTERA — Beyond the Ordinary, Into the Outdoors"></a>
@@ -278,7 +284,7 @@ body.expedition-mode nav a[href="#expedition"]{color:#d5ad69}
 <div class="hero-stamp">Go farther<br>Stay curious<br>Since 2026</div>
 </section>
 <div class="ticker"><span>Outdoor gear</span><span>Camp cooking</span><span>Trail essentials</span><span>Nature & discovery</span><span>Food + spices</span></div>
-<main>
+<main id="main-content" tabindex="-1">
 <section class="wrap intro"><div><div class="eyebrow">A different kind of outdoor store</div><h2>Less scrolling.<br>More exploring.</h2><p>FRONTERA brings outdoor equipment, camp-kitchen inspiration, trail food, and practical field knowledge together in one place. We're building a useful destination for weekend campers, road-trippers, backcountry cooks, and anyone ready to spend more time outside.</p></div><div class="intro-card"><strong>Built for the way you adventure.</strong><p>From the first tent in the trunk to a cast-iron dinner under the stars, we're here to help you discover gear and ideas that earn their place outdoors.</p></div></section>
 
 <section class="expedition" id="expedition">
@@ -369,7 +375,7 @@ body.expedition-mode nav a[href="#expedition"]{color:#d5ad69}
   <p class="price-note">Product information, prices, and availability will be sourced from participating brands or retailers and may change. Always confirm final details on the seller's website. FRONTERA may earn a commission from qualifying purchases at no extra cost to you.</p>
 </section>
 <section class="wrap catalog" id="gear"><div class="section-head"><div><div class="eyebrow">The FRONTERA field guide</div><h2>Build your outdoor kit</h2></div><p>Explore the gear categories that make a good trip safer, easier, and more comfortable.</p></div>
-<div class="search"><input id="search" type="search" placeholder="Search tents, stoves, packs, lanterns…"><button aria-label="Search">⌕</button></div>
+<div class="search"><input id="search" type="search" placeholder="Search tents, stoves, packs, lanterns…" aria-label="Search the gear guide"><button type="button" aria-label="Search the gear guide">⌕</button></div>
 <div class="filters"><button class="filter active" data-filter="all">Everything</button><button class="filter" data-filter="shelter">Shelter</button><button class="filter" data-filter="sleep">Sleep</button><button class="filter" data-filter="cook">Cooking</button><button class="filter" data-filter="light">Lighting</button><button class="filter" data-filter="trail">Trail & packs</button><button class="filter" data-filter="safety">Safety</button></div>
 <div class="cards" id="cards">
 <article class="card" data-cat="shelter" data-search="tent shelter canopy tarp"><div class="card-photo" style="--photo:url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=800&q=80')"><span class="tag">Shelter</span></div><div class="card-body"><small>Camp foundations</small><h3>Tents & shelters</h3><p>Compare sleeping capacity, season rating, weather protection, packed size, and setup before choosing.</p><a class="text-link" href="#partners">Discover partner gear ↗</a></div></article>
