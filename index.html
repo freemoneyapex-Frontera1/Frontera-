@@ -275,6 +275,26 @@ body.expedition-mode nav a[href="#expedition"]{color:#d5ad69}
 .filter-status{font-size:11px;color:#596354;margin:-10px 0 18px;min-height:1.5em}
 section[id],main[id]{scroll-margin-top:96px}
 @media(max-width:560px){section[id],main[id]{scroll-margin-top:112px}}
+
+/* Homepage welcome path: clear choices without adding complexity */
+.hero{min-height:620px;background-image:linear-gradient(90deg,rgba(12,25,18,.91),rgba(12,25,18,.63) 55%,rgba(12,25,18,.18)),url('https://images.unsplash.com/photo-1776734213580-d372bb764de9?auto=format&fit=crop&w=2000&q=85');background-position:center 53%}
+.hero h1{max-width:820px;text-shadow:0 3px 24px rgba(0,0,0,.22)}
+.hero-welcome{font-size:12px!important;color:#f3d9ae!important;margin:18px 0 0!important;letter-spacing:.02em}
+.quick-start{background:#f4efe4;border-bottom:1px solid var(--line);padding:34px 0 38px}
+.quick-start-inner{max-width:1200px;margin:auto;padding:0 26px;display:grid;grid-template-columns:1.15fr repeat(3,1fr);gap:12px;align-items:stretch}
+.quick-start-heading{padding:10px 16px 10px 0;align-self:center}
+.quick-start-heading h2{font-size:clamp(24px,3vw,34px);margin:8px 0}
+.quick-start-heading p{font-size:12px;line-height:1.7;color:#686d62;margin:0;max-width:290px}
+.quick-start-card{display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:150px;padding:19px;background:#fffdf8;border:1px solid #ded6c7;color:var(--ink);text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.quick-start-card:hover{transform:translateY(-3px);border-color:var(--rust);box-shadow:0 10px 24px rgba(24,37,29,.09)}
+.quick-start-number{font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--rust)}
+.quick-start-card strong{font:600 22px/1.1 Oswald;text-transform:uppercase}
+.quick-start-card>span:last-child{font-size:11px;line-height:1.55;color:#656b60}
+.quick-start-card b{color:var(--rust);font-size:15px;margin-left:3px}
+.quick-start-card:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
+@media(max-width:900px){.quick-start-inner{grid-template-columns:repeat(3,1fr)}.quick-start-heading{grid-column:1/-1;padding:0 0 8px}.quick-start-heading p{max-width:520px}}
+@media(max-width:600px){.hero{min-height:590px;background-position:58% center}.hero-inner{padding:76px 22px 88px}.hero h1{font-size:clamp(56px,16vw,82px)}.hero p{font-size:14px;line-height:1.75}.hero-stamp{width:88px;height:88px;font-size:10px;right:5%;bottom:4%}.hero-welcome{max-width:270px}.quick-start{padding:27px 0}.quick-start-inner{grid-template-columns:1fr;padding:0 18px;gap:9px}.quick-start-heading{grid-column:auto}.quick-start-card{min-height:0;padding:16px 18px}.quick-start-card strong{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.quick-start-card,.hero .btn{transition:none}.quick-start-card:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -286,10 +306,11 @@ section[id],main[id]{scroll-margin-top:96px}
 <a class="nav-cta" href="#gear">Find your gear ↗</a>
 </header>
 <section class="hero" id="home">
-<div class="hero-inner"><div class="kicker">Outside is where it begins</div><h1>Find your<br>own <em>frontier.</em></h1><p>Good gear. Open skies. Food that tastes better outside. From camp kitchens and trail essentials to off-road machines and watercraft, FRONTERA is your guide to the wider outdoor life.</p><div class="actions"><a class="btn" href="#expedition">Build an expedition</a><a class="btn outline" href="#explore">Explore the outdoors</a></div></div>
-<div class="hero-stamp">Go farther<br>Stay curious<br>Since 2026</div>
+<div class="hero-inner"><div class="kicker">Outside is where it begins</div><h1>Find your<br>own <em>frontier.</em></h1><p>Whether it is your first night under the stars or your next trip off the map, find practical gear, outdoor know-how, and inspiration to make getting outside easier.</p><div class="actions"><a class="btn" href="#expedition">Plan your trip ↗</a><a class="btn outline" href="#explore">Explore outdoor gear</a></div><p class="hero-welcome">New to the outdoors? You belong here. Start with one good plan.</p></div>
+<div class="hero-stamp" aria-label="Go farther. Stay curious. Since 2026.">Go farther<br>Stay curious<br>Since 2026</div>
 </section>
 <div class="ticker"><span>Outdoor gear</span><span>Camp cooking</span><span>Trail essentials</span><span>Nature & discovery</span><span>Food + spices</span></div>
+<section class="quick-start" aria-label="Choose where to begin"><div class="quick-start-inner"><div class="quick-start-heading"><span class="eyebrow">Your next step starts here</span><h2>Where would you like to begin?</h2><p>Three simple ways into the outdoors. Choose what you need today.</p></div><a class="quick-start-card" href="#expedition"><span class="quick-start-number">01 / PLAN</span><strong>Plan an adventure</strong><span>Build a trip plan around your destination and activities <b aria-hidden="true">↗</b></span></a><a class="quick-start-card" href="#gear"><span class="quick-start-number">02 / PREPARE</span><strong>Find your gear</strong><span>Explore the essentials by category or search <b aria-hidden="true">↗</b></span></a><a class="quick-start-card" href="#camp-kitchen"><span class="quick-start-number">03 / ENJOY</span><strong>Cook outside</strong><span>Discover camp-kitchen ideas and field inspiration <b aria-hidden="true">↗</b></span></a></div></section>
 <main id="main-content" tabindex="-1">
 <section class="wrap intro"><div><div class="eyebrow">A different kind of outdoor store</div><h2>Less scrolling.<br>More exploring.</h2><p>FRONTERA brings outdoor equipment, camp-kitchen inspiration, trail food, and practical field knowledge together in one place. We're building a useful destination for weekend campers, road-trippers, backcountry cooks, and anyone ready to spend more time outside.</p></div><div class="intro-card"><strong>Built for the way you adventure.</strong><p>From the first tent in the trunk to a cast-iron dinner under the stars, we're here to help you discover gear and ideas that earn their place outdoors.</p></div></section>
 
