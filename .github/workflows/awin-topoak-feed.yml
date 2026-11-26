@@ -1,0 +1,53 @@
+name: Download TopOak Awin Feed
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download TopOak enhanced feed securely
+        env:
+          AWIN_API_TOKEN: ${{ secrets.AWIN_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${AWIN_API_TOKEN:-}" ]; then
+            echo "Missing repository secret AWIN_API_TOKEN."
+            exit 1
+          fi
+          curl --fail --silent --show-error --location \
+            --retry 2 --retry-delay 5 \
+            --header "Authorization: Bearer ${AWIN_API_TOKEN}" \
+            --header "Accept: application/json" \
+            "https://api.awin.com/publishers/3168539/awinfeeds/download/108374-retail-en_US.jsonl" \
+            --output topoak-feed.jsonl
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("topoak-feed.jsonl")
+          lines = [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+          if not lines:
+              raise SystemExit("Awin returned an empty feed.")
+          rows = []
+          for number, line in enumerate(lines, 1):
+              try:
+                  row = json.loads(line)
+              except json.JSONDecodeError as exc:
+                  raise SystemExit(f"Invalid JSON on feed line {number}: {exc}")
+              if isinstance(row, dict) and "error" in row:
+                  raise SystemExit(f"Awin feed ended with an error on line {number}: {row.get('message', 'unknown error')}")
+              rows.append(row)
+          print(f"Feed downloaded and validated: {len(rows)} JSON records.")
+          PY
+      - name: Save feed as a short-lived private workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: topoak-awin-feed
+          path: topoak-feed.jsonl
+          retention-days: 3
+          if-no-files-found: error
