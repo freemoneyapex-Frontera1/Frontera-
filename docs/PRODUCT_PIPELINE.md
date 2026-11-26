@@ -22,7 +22,7 @@ The first collection should be balanced across entry-level, dependable mid-range
 |---:|---|---|---|---|
 | 1 | shelter | 2-person three-season tent | Kelty Grand Mesa 2; MSR / Big Agnes alternatives | High |
 | 2 | shelter | 4-person family/campground tent | CORE Equipment; Coleman PEAK1 | High |
-| 3 | shelter | Ultralight solo shelter | Gossamer Gear; Big Agnes | Medium |
+| 3 | shelter | Ultralight solo shelter | NEMO; Big Agnes alternatives | Medium |
 | 4 | sleep | Insulated sleeping pad | Sea to Summit; Therm-a-Rest | High |
 | 5 | sleep | 3-season sleeping bag | Kelty; Sea to Summit | High |
 | 6 | sleep | Camp pillow | Sea to Summit | Medium |
@@ -59,9 +59,9 @@ Status reflects research and prior FRONTERA conversations as of the review date.
 |---|---|---|---|
 | Sea to Summit | Official affiliate program page describes AvantLink, 10% commission, 30-day cookie. | Apply after FRONTERA's AvantLink publisher account is approved; then request relevant product feed/deep links. | Network approval pending |
 | GSI Outdoors | Official affiliate page routes applications through AvantLink. | Apply after network approval; prioritize camp kitchen and cookware assortment. | Network approval pending |
-| Kelty | Official affiliate page describes AvantLink and up to 10% commission; published eligibility restrictions must be checked against FRONTERA's business location before applying. | Confirm eligibility, then apply when network account is active. | Eligibility check needed |
+| Kelty | Official affiliate page advertises up to 10% and a 30-day cookie through AvantLink, but its published eligibility list excludes Arizona. | Do not apply while FRONTERA operates from Arizona; revisit only if the brand changes its state eligibility policy. | Not eligible based on published state list |
 | Mammut | Official US affiliate page routes through AvantLink and lists 8% commission / 45-day cookie. | Apply after network approval; focus on technical apparel and mountain gear. | Network approval pending |
-| MSR | Outdoor cooking, water filtration, shelter and trail gear are relevant product leads. | Confirm current merchant program and application route in the network directory after approval. | Program route to verify |
+| NEMO Equipment | Official affiliate page says its program runs through AvantLink, starts at 7%, has a 30-day cookie, and offers product assets; it lists affiliates@nemoequipment.com for questions. | Already contacted Nov 23; apply through AvantLink after publisher approval and request feed/creative details. | Inquiry sent; network approval pending |\n| Osprey | Official affiliate page describes AvantLink, 8% base commission and a 30-day cookie. | Apply after publisher approval; focus on packs and hydration. | Network approval pending |\n| Black Diamond | Official affiliate page lists 7% base commission, 30-day cookie, and an in-house affiliate manager. | Confirm application network/path, then apply. | Program route to verify |\n| EXPED | Official affiliate page describes AvantLink, 10% for editorial/review/blog partners, and a 30-day cookie. | Apply after publisher approval; strong fit for sleep systems and shelters. | Network approval pending |\n| SylvanSport | AvantLink program listing describes 7% on gear, 2% on towable products, and a 30-day cookie. | Apply after publisher approval; relevant to camp trailers and outdoor gear. | Network approval pending |\n| Fireside Outdoor | AvantLink listing describes 10% commission and a 60-day cookie. | Apply after publisher approval; strong campfire/camp kitchen adjacency. | Network approval pending |\n| MSR | Outdoor cooking, water filtration, shelter and trail gear are relevant product leads. | Confirm current merchant program and application route in the network directory after approval. | Program route to verify |
 | Big Agnes | Shelter and sleep systems are relevant product leads. | Confirm current merchant program and application route in the network directory after approval. | Program route to verify |
 | Osprey | Packs are a core trail category. | Confirm current merchant program and application route in the network directory after approval. | Program route to verify |
 | Black Diamond | Lighting, trekking and technical outdoor gear are relevant product leads. | Confirm current merchant program and application route in the network directory after approval. | Program route to verify |
@@ -73,7 +73,7 @@ Status reflects research and prior FRONTERA conversations as of the review date.
 - AvantLink website ownership verification: confirmed by user on 2026-11-25.
 - AvantLink publisher application: awaiting review/approval; do not describe as approved.
 - Public product catalog: intentionally empty until approved tracking links and product permissions are available.
-- Product research: initial product/category shortlist prepared; current retailer search results are leads only and must be checked against official brand/retailer sources before listing.
+- Product research: initial product/category shortlist prepared; current retailer search results are leads only and must be checked against official brand/retailer sources before listing.\n- Brand partner brief: docs/FRONTERA_BRAND_PARTNER_BRIEF.md created for consistent, transparent outreach.\n- Geographic eligibility: Kelty's published affiliate program currently excludes Arizona; do not apply unless its eligibility policy changes.
 - Immediate objective: secure network access, apply to the first relevant merchants, obtain feeds/deep-link permissions, then publish the first verified 20–30 products in a balanced collection.
 
 ## Editorial rule
