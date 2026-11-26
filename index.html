@@ -311,6 +311,24 @@ section[id],main[id]{scroll-margin-top:96px}
 @media(max-width:900px){.quick-start-inner{grid-template-columns:repeat(3,1fr)}.quick-start-heading{grid-column:1/-1;padding:0 0 8px}.quick-start-heading p{max-width:520px}}
 @media(max-width:600px){.hero{min-height:590px;background-position:58% center}.hero-inner{padding:76px 22px 88px}.hero h1{font-size:clamp(56px,16vw,82px)}.hero p{font-size:14px;line-height:1.75}.hero-stamp{width:88px;height:88px;font-size:10px;right:5%;bottom:4%}.hero-welcome{max-width:270px}.quick-start{padding:27px 0}.quick-start-inner{grid-template-columns:1fr;padding:0 18px;gap:9px}.quick-start-heading{grid-column:auto}.quick-start-card{min-height:0;padding:16px 18px}.quick-start-card strong{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.quick-start-card,.hero .btn{transition:none}.quick-start-card:hover{transform:none}}
+
+/* Shop by adventure: guided entry into the existing expedition planner */
+.adventure-picker{margin:30px 0 34px;padding:28px;background:#eee8da;border:1px solid var(--line);border-radius:18px}
+.adventure-picker-heading{max-width:680px;margin-bottom:20px}
+.adventure-picker-heading h3{font:600 clamp(24px,3vw,34px)/1.12 'Oswald',sans-serif;text-transform:uppercase;margin:8px 0}
+.adventure-picker-heading p{margin:0;color:#596354}
+.adventure-picker-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.adventure-choice{min-height:190px;padding:18px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:10px;background:var(--cream);border:1px solid #d8d0c0;border-radius:12px;color:var(--ink);cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.adventure-choice:hover,.adventure-choice:focus-visible{transform:translateY(-3px);border-color:var(--rust);box-shadow:0 8px 22px #18251d18;outline:2px solid transparent}
+.adventure-choice-index{font-size:10px;letter-spacing:.13em;font-weight:800;color:var(--rust)}
+.adventure-choice strong{font:600 23px/1.1 'Oswald',sans-serif;text-transform:uppercase}
+.adventure-choice>span:not(.adventure-choice-index){font-size:13px;line-height:1.45;color:#596354}
+.adventure-choice b{font-size:11px;letter-spacing:.04em;color:var(--forest);margin-top:auto}
+.adventure-picker-note{font-size:11px;color:#62665b;margin:16px 0 0}
+@media(max-width:900px){.adventure-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.adventure-picker{padding:19px 15px;margin:22px 0}.adventure-picker-grid{grid-template-columns:1fr}.adventure-choice{min-height:145px}}
+@media(prefers-reduced-motion:reduce){.adventure-choice{transition:none}.adventure-choice:hover{transform:none}}
+
 </style>
 </head>
 <body>
@@ -338,6 +356,16 @@ section[id],main[id]{scroll-margin-top:96px}
    <h2>Build your expedition.</h2>
    <p>Tell FRONTERA where you're headed, what you'll be doing, and when you're going. We'll build a practical starting gear plan and, when forecast data is available, adjust it to the conditions expected at your destination.</p>
   </div>
+  <section class="adventure-picker" aria-labelledby="adventure-picker-title">
+   <div class="adventure-picker-heading"><span class="eyebrow">Start with the experience</span><h3 id="adventure-picker-title">What kind of adventure is calling?</h3><p>Choose a starting point. We'll shape your trip planner around it—you can change every detail.</p></div>
+   <div class="adventure-picker-grid">
+    <button class="adventure-choice" type="button" data-terrain="Desert" data-activities="Hiking,Camping"><span class="adventure-choice-index">01 / OPEN COUNTRY</span><strong>Desert nights</strong><span>Wide skies, dry terrain and camp under the stars.</span><b aria-hidden="true">Choose this adventure ↗</b></button>
+    <button class="adventure-choice" type="button" data-terrain="Mountain / alpine" data-activities="Hiking,Camping"><span class="adventure-choice-index">02 / HIGH COUNTRY</span><strong>Mountain escape</strong><span>Trail miles, changing weather and a night outdoors.</span><b aria-hidden="true">Choose this adventure ↗</b></button>
+    <button class="adventure-choice" type="button" data-terrain="Forest / rainforest" data-activities="Hiking,Camping"><span class="adventure-choice-index">03 / UNDER THE CANOPY</span><strong>Forest retreat</strong><span>Woodland trails, sheltered camps and quiet mornings.</span><b aria-hidden="true">Choose this adventure ↗</b></button>
+    <button class="adventure-choice" type="button" data-terrain="River / lake" data-activities="Packrafting,Fishing"><span class="adventure-choice-index">04 / BY THE WATER</span><strong>Water's edge</strong><span>Explore a river or lake with the right preparation.</span><b aria-hidden="true">Choose this adventure ↗</b></button>
+   </div>
+   <p class="adventure-picker-note" id="adventure-picker-status" role="status" aria-live="polite">Your selection is only a starting point. Always verify local conditions, regulations and specialist safety requirements.</p>
+  </section>
   <div class="expedition-shell">
    <form class="expedition-form" id="expedition-form">
     <h3>01 / Tell us about the trip</h3>
@@ -525,6 +553,18 @@ async function loadFronteraProducts(){
  startInput.value=defaultDate.toISOString().slice(0,10);
  const status=document.getElementById('forecast-status'),forecast=document.getElementById('forecast-content');
  const attribution=document.getElementById('forecast-attribution'),results=document.getElementById('expedition-results');
+ const adventureChoices=[...document.querySelectorAll('.adventure-choice')];
+ adventureChoices.forEach(choice=>choice.addEventListener('click',()=>{
+  const terrain=document.getElementById('exp-terrain');
+  const selectedActivities=(choice.dataset.activities||'').split(',');
+  terrain.value=choice.dataset.terrain;
+  form.querySelectorAll('input[name="activity"]').forEach(input=>{input.checked=selectedActivities.includes(input.value);});
+  const statusMessage=document.getElementById('adventure-picker-status');
+  if(statusMessage)statusMessage.textContent=choice.querySelector('strong').textContent+' selected. Your trip details are ready to personalize below. Choose your destination and dates, then review every recommendation.';
+  adventureChoices.forEach(item=>{item.setAttribute('aria-pressed',String(item===choice));});
+  form.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  document.getElementById('exp-destination').focus({preventScroll:true});
+ }));
  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const dateAdd=(date,days)=>{const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+days);return d.toISOString().slice(0,10);};
  const dateLabel=value=>new Date(value+'T12:00:00').toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});
