@@ -632,7 +632,7 @@ async function loadFronteraProducts(){
  query.addEventListener('input',render);category.addEventListener('change',()=>{shortcuts.forEach(button=>button.classList.toggle('active',button.dataset.category===category.value));render();});sort.addEventListener('change',render);clear.addEventListener('click',resetFilters);
  shortcuts.forEach(button=>button.addEventListener('click',()=>{category.value=button.dataset.category;shortcuts.forEach(item=>item.classList.toggle('active',item===button));render();}));
  try{products=await loadFronteraCatalog();const latest=products.map(item=>item.updated_at).filter(Boolean).sort().pop();updated.textContent=latest?'Catalog last updated: '+new Date(latest).toLocaleDateString():'Awaiting approved partner product feeds';render();syncCompareUI();}
- catch(error){count.textContent='Catalog temporarily unavailable';updated.textContent='Please try again later';grid.innerHTML='<div class="product-empty"><strong>We hit a temporary snag.</strong><p>The product directory could not load right now. '+escapeHTML(error&&error.message?error.message:'Unknown catalog error')+'. Please try again shortly or explore the field guide while we restore it.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a></div></div>';}
+ catch(error){count.textContent='Catalog temporarily unavailable';updated.textContent='Please try again later';grid.innerHTML='<div class="product-empty"><strong>We hit a temporary snag.</strong><p>The product directory could not load right now. Please try again shortly or explore the field guide while we restore it.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a></div></div>';}
 }
 
 
