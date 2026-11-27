@@ -1,0 +1,332 @@
+{
+  "updated_at": "2026-11-27",
+  "purpose": "FRONTERA supplier acquisition tracker. A program lead is not an approval, and a listed affiliate program does not mean FRONTERA has permission to promote the supplier.",
+  "status_definitions": {
+    "active-approved": "FRONTERA has confirmed approval and can use the program subject to its terms.",
+    "application-ready": "Official supplier page identifies an affiliate application route; FRONTERA still needs to apply and be approved.",
+    "network-review": "Program appears to be available through a network; confirm it is visible and open to FRONTERA's publisher account before applying.",
+    "research-lead": "Potential supplier; current direct affiliate access or feed availability is not sufficiently confirmed."
+  },
+  "suppliers": [
+    {
+      "id": "topoak-overland",
+      "name": "TopOak Overland",
+      "status": "active-approved",
+      "network": "Awin",
+      "coverage": [
+        "overlanding-off-road",
+        "shelter",
+        "sleep",
+        "vehicle systems",
+        "water",
+        "lighting"
+      ],
+      "feed": {
+        "available": true,
+        "format": "csv",
+        "imported": true,
+        "last_snapshot": "2026-11-26"
+      },
+      "program_url": "https://topoakoverland.com/",
+      "notes": "Existing approved advertiser. Current feed is overlanding-heavy and should not be treated as FRONTERA's full catalog."
+    },
+    {
+      "id": "nemo-equipment",
+      "name": "NEMO Equipment",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "backpacking",
+        "shelter",
+        "sleep",
+        "camping"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.nemoequipment.com/pages/affiliate-sales",
+      "notes": "Official affiliate page states US and Canada applications, 7% minimum tiered commission, 30-day cookie, and approval is not guaranteed. Product feed availability not confirmed."
+    },
+    {
+      "id": "sea-to-summit",
+      "name": "Sea to Summit",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "backpacking",
+        "shelter",
+        "sleep",
+        "cook",
+        "water",
+        "paddling",
+        "travel"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://seatosummit.com/pages/affiliate-program",
+      "notes": "Official US affiliate page lists 10% commission and 30-day cookie, with application through AvantLink. Feed availability not confirmed."
+    },
+    {
+      "id": "osprey",
+      "name": "Osprey",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "packs",
+        "hiking",
+        "backpacking",
+        "cycling",
+        "snow sports",
+        "travel"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.osprey.com/culture/affiliate",
+      "notes": "Official affiliate page lists 8% base commission and 30-day cookie. Feed availability not confirmed."
+    },
+    {
+      "id": "gsi-outdoors",
+      "name": "GSI Outdoors",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "camp kitchen",
+        "cookware",
+        "camping",
+        "backpacking",
+        "overlanding"
+      ],
+      "feed": {
+        "available": true,
+        "format": "AvantLink product datafeed",
+        "imported": false
+      },
+      "program_url": "https://gsioutdoors.com/pages/affiliate-program",
+      "notes": "Official page advertises affiliate tools including datafeeds. It contains inconsistent commission figures (7% in one sentence and 15% in program highlights); verify current terms in AvantLink before applying or forecasting earnings."
+    },
+    {
+      "id": "simms-fishing",
+      "name": "Simms Fishing",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "fishing",
+        "waders",
+        "water footwear",
+        "outerwear"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.simmsfishing.com/pages/simms-affiliate-program",
+      "notes": "Official page directs applicants to AvantLink. Commission and feed availability not stated on the official page."
+    },
+    {
+      "id": "mustang-survival",
+      "name": "Mustang Survival",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "marine",
+        "paddling",
+        "boating",
+        "personal flotation",
+        "water safety"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.mustangsurvival.com/pages/avantlink-affiliate-program",
+      "notes": "Official page lists 5% base commission and 30-day cookie. Safety-critical product specifications must be verified carefully; feed availability not confirmed."
+    },
+    {
+      "id": "ego-fishing",
+      "name": "EGO Fishing",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "fishing",
+        "landing nets",
+        "fishing accessories"
+      ],
+      "feed": {
+        "available": true,
+        "format": "AvantLink product feed",
+        "imported": false
+      },
+      "program_url": "https://www.avantlink.com/programs/18529/ego-fishing-affiliate-program/",
+      "notes": "AvantLink program page lists a product feed, 60-day cookie and 6–10% commission range. Confirm current terms in the publisher account."
+    },
+    {
+      "id": "columbia-sportswear",
+      "name": "Columbia Sportswear",
+      "status": "application-ready",
+      "network": "CJ Affiliate",
+      "coverage": [
+        "apparel",
+        "footwear",
+        "rainwear",
+        "insulation",
+        "sun protection"
+      ],
+      "feed": {
+        "available": true,
+        "format": "product datafeed",
+        "imported": false
+      },
+      "program_url": "https://www.columbia.com/t/affiliates/",
+      "notes": "Official page lists up to 10% commission, 21-day cookie and a complete product datafeed. Confirm current terms and feed access after approval."
+    },
+    {
+      "id": "sportsmans-warehouse",
+      "name": "Sportsman's Warehouse",
+      "status": "application-ready",
+      "network": "Impact",
+      "coverage": [
+        "camping",
+        "hiking",
+        "apparel",
+        "footwear",
+        "fishing",
+        "outdoor equipment"
+      ],
+      "feed": {
+        "available": true,
+        "format": "SKU data feed",
+        "imported": false
+      },
+      "program_url": "https://www.sportsmans.com/sportsmans-warehouse-affiliate-program",
+      "notes": "Official affiliate page lists up to 8% commission, 30-day cookie, 130k+ products and full SKU data feeds. Broad retailer that could fill multiple category gaps."
+    },
+    {
+      "id": "ascent-outdoors",
+      "name": "Ascent Outdoors",
+      "status": "network-review",
+      "network": "AvantLink",
+      "coverage": [
+        "alpine",
+        "climbing",
+        "skiing",
+        "mountaineering",
+        "backcountry"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.avantlink.com/programs/32061/",
+      "notes": "AvantLink listing describes 10% commission and a 30-day cookie. Confirm program availability and feed access in FRONTERA's account."
+    },
+    {
+      "id": "appalachian-outfitters",
+      "name": "Appalachian Outfitters",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "hiking",
+        "camping",
+        "climbing",
+        "paddling",
+        "backpacking"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.appalachianoutfitters.com/pages/affiliate-program",
+      "notes": "Official affiliate page lists 5% commission and 30-day cookie. Its audience and regional focus may be less universal; assess product mix and shipping coverage."
+    },
+    {
+      "id": "outdoor-america",
+      "name": "Outdoor America",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "coverage": [
+        "fishing",
+        "camping",
+        "outdoor recreation"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://shop.outdooramerica.com/pages/avantlink-affiliate-program",
+      "notes": "Official page lists 10% commission and 30-day cookie. Review the catalog for FRONTERA relevance before importing."
+    },
+    {
+      "id": "salomon",
+      "name": "Salomon",
+      "status": "application-ready",
+      "network": "Impact",
+      "coverage": [
+        "footwear",
+        "hiking",
+        "trail running",
+        "mountain sports",
+        "winter sports",
+        "apparel"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.salomon.com/en-us/lp/g/affiliates",
+      "notes": "Official US affiliate page confirms an Impact program and 30-day cookie. Commission and feed availability not stated on the official page."
+    },
+    {
+      "id": "timber-ridge",
+      "name": "Timber Ridge",
+      "status": "network-review",
+      "network": "Awin",
+      "coverage": [
+        "camping",
+        "shelter",
+        "chairs",
+        "coolers",
+        "gear storage",
+        "RV"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://ui.awin.com/merchant-profile/131409",
+      "notes": "Awin merchant listing found. Confirm advertiser application availability and feed access in FRONTERA's Awin account."
+    },
+    {
+      "id": "fireside-outdoor",
+      "name": "Fireside Outdoor",
+      "status": "network-review",
+      "network": "AvantLink",
+      "coverage": [
+        "campfire",
+        "camp cooking",
+        "fire management"
+      ],
+      "feed": {
+        "available": false,
+        "format": null,
+        "imported": false
+      },
+      "program_url": "https://www.avantlink.com/programs/18249/",
+      "notes": "AvantLink listing describes 10% commission and a 60-day cookie. Verify current program availability and product range before applying."
+    }
+  ]
+}
