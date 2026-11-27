@@ -44,16 +44,28 @@
             "enum": [
               "shelter",
               "sleep",
+              "apparel",
+              "footwear",
               "cook",
+              "water",
               "trail",
               "light",
-              "water",
-              "food",
+              "power",
+              "navigation",
+              "safety",
               "offroad",
-              "marine",
               "vehicles",
-              "apparel",
+              "storage",
+              "marine",
+              "fishing",
+              "food",
               "other"
+            ]
+          },
+          "subcategory": {
+            "type": [
+              "string",
+              "null"
             ]
           },
           "url": {
@@ -117,8 +129,155 @@
           },
           "featured": {
             "type": "boolean"
+          },
+          "supplier": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_feed": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fit_review_status": {
+            "type": "string",
+            "enum": [
+              "unreviewed",
+              "needs-more-evidence",
+              "verified",
+              "not-suitable"
+            ]
+          },
+          "fit_reviewed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "fit_review_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "environment_fit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "activity_fit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "condition_fit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fit_notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "manufacturer_specs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "comparison_assessment": {
+            "type": "object",
+            "description": "Source-backed FRONTERA assessment used for transparent comparison recommendations. Do not populate without a documented review.",
+            "required": [
+              "value_score",
+              "quality_tier",
+              "summary",
+              "reviewed_at",
+              "source"
+            ],
+            "properties": {
+              "value_score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "quality_tier": {
+                "type": "string",
+                "enum": [
+                  "basic",
+                  "standard",
+                  "premium",
+                  "professional"
+                ]
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "strengths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "tradeoffs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reviewed_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "source": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              }
+            },
+            "additionalProperties": false
           }
         },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "fit_review_status": {
+                  "const": "verified"
+                }
+              },
+              "required": [
+                "fit_review_status"
+              ]
+            },
+            "then": {
+              "required": [
+                "fit_reviewed_at",
+                "fit_review_source",
+                "environment_fit",
+                "activity_fit",
+                "condition_fit"
+              ]
+            }
+          }
+        ],
         "additionalProperties": false
       }
     }

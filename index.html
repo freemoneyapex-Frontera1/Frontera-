@@ -136,9 +136,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .note-detail ul{padding-left:18px;margin:5px 0 12px}
 .note-detail li{margin:4px 0}
 .note-detail p{min-height:0;margin:7px 0}
-.discovery-shortcuts{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+.inventory-browse-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:18px 0 8px}.inventory-browse-head strong{font-size:12px;letter-spacing:.04em}.inventory-browse-head span{font-size:10px;color:var(--muted)}\n.inventory-mix{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}.inventory-mix span{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);padding:6px 9px;background:#fff;font-size:10px;color:var(--muted)}.inventory-mix b{color:var(--ink);font-size:11px}.product-category-badge{display:inline-flex;align-items:center;margin:0 0 7px;padding:4px 7px;background:#eeeadd;color:#57513f;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}\n.discovery-shortcuts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
 .discovery-shortcuts button,.finder-clear{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-.discovery-shortcuts button:hover,.discovery-shortcuts button.active,.finder-clear:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.discovery-shortcuts button:hover,.discovery-shortcuts button.active,.finder-clear:hover{background:var(--ink);border-color:var(--ink);color:#fff}.discovery-shortcuts button:disabled{opacity:.4;cursor:not-allowed}.discovery-shortcuts button small{display:inline-block;margin-left:5px;font-size:9px;opacity:.7}
 .finder-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 15px}
 .finder-tools label{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.1em}
 .finder-tools select{border:1px solid var(--line);background:#fff;padding:10px 12px;color:var(--ink);font:12px 'DM Sans',sans-serif}
@@ -330,6 +330,80 @@ section[id],main[id]{scroll-margin-top:96px}
 @media(max-width:520px){.adventure-picker{padding:19px 15px;margin:22px 0}.adventure-picker-grid{grid-template-columns:1fr}.adventure-choice{min-height:145px}}
 @media(prefers-reduced-motion:reduce){.adventure-choice{transition:none}.adventure-choice:hover{transform:none}}
 
+
+/* Product quick view: useful detail without forcing a new page or account */
+.product-card-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:14px}
+.product-card-actions .product-buy{margin-top:0}
+.product-details{width:100%;border:1px solid var(--line);background:#fff;color:var(--ink);padding:11px 12px;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.product-details:hover{background:var(--sand);border-color:var(--moss)}
+.product-dialog{width:min(760px,calc(100% - 28px));max-height:min(88vh,820px);padding:0;border:1px solid var(--line);background:var(--cream);color:var(--ink);box-shadow:0 24px 80px #0005}
+.product-dialog::backdrop{background:rgba(13,24,17,.72);backdrop-filter:blur(3px)}
+.product-dialog-inner{padding:22px;overflow:auto;max-height:88vh}
+.product-dialog-close{display:flex;margin:0 0 16px auto;border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.product-dialog-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.product-dialog-content img{width:100%;max-height:390px;object-fit:contain;background:#fff;border:1px solid var(--line)}
+.product-dialog-copy small{font-size:9px;color:var(--moss);font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.product-dialog-copy h2{font-size:clamp(28px,5vw,42px);margin:8px 0 12px}
+.product-dialog-copy p{font-size:13px;line-height:1.8;color:#62695e}
+.product-dialog-price{font:600 28px Oswald;margin:12px 0 4px}
+.product-dialog-meta{font-size:10px;color:var(--muted);line-height:1.8}
+.product-dialog-tags{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
+.product-dialog-tags span{background:var(--sand);padding:6px 9px;font-size:9px;color:#596354}
+.product-dialog-note{border-top:1px solid var(--line);padding-top:12px;margin-top:16px;font-size:10px;line-height:1.7;color:#73766c}
+.product-dialog-copy .product-buy{margin-top:16px}
+@media(max-width:600px){.product-dialog-inner{padding:15px}.product-dialog-content{grid-template-columns:1fr;gap:14px}.product-dialog-content img{max-height:250px}.product-dialog-copy h2{font-size:30px}}
+
+
+/* Side-by-side product comparison */
+.compare-tray{display:none;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;margin:14px 0;background:var(--ink);color:#fff}
+.compare-tray.is-visible{display:flex}
+.compare-tray-copy strong{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.compare-tray-copy span{display:block;margin-top:4px;color:#d2d4ca;font-size:11px}
+.compare-tray-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.compare-tray button{border:1px solid #c9cbbb;background:transparent;color:#fff;padding:10px 12px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.compare-tray button.primary{background:var(--sand);border-color:var(--sand);color:var(--ink)}
+.product-compare-toggle{display:flex;align-items:center;gap:8px;width:100%;margin-top:8px;padding:9px 10px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.product-compare-toggle[aria-pressed="true"]{background:var(--sand);border-color:var(--moss)}
+.product-compare-toggle input{accent-color:var(--moss);margin:0}
+.compare-status{min-height:18px;margin:4px 0 10px;font-size:11px;color:var(--muted)}
+.compare-dialog{width:min(980px,calc(100% - 24px));max-height:88vh;padding:0;border:1px solid var(--line);background:var(--cream);color:var(--ink);box-shadow:0 24px 80px #0005}
+.compare-dialog::backdrop{background:rgba(13,24,17,.72);backdrop-filter:blur(3px)}
+.compare-dialog-inner{padding:20px;max-height:88vh;overflow:auto}
+.compare-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px}
+.compare-dialog-head h2{margin:0;font-size:clamp(26px,4vw,38px)}
+.compare-dialog-head p{margin:6px 0 0;color:var(--muted);font-size:11px}
+.compare-table-wrap{overflow-x:auto;border:1px solid var(--line);background:#fff}
+.compare-table{width:100%;min-width:620px;border-collapse:collapse;text-align:left}
+.compare-table th,.compare-table td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:11px;line-height:1.6}
+.compare-table th:first-child,.compare-table td:first-child{width:130px;background:var(--sand);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:9px}
+.compare-table thead th{font-size:12px}
+.compare-table img{display:block;width:100%;max-width:170px;height:115px;object-fit:contain;background:#fff}
+.compare-table a{color:var(--moss);font-weight:800;text-decoration:underline}
+.compare-dialog-close{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.compare-tray.is-ready{border:2px solid var(--gold);box-shadow:0 10px 28px rgba(24,37,29,.18);animation:compareNudge .45s ease-out}
+.compare-tray.is-ready .compare-tray-copy strong{color:#f0cf91}
+.compare-tray button.primary:disabled{opacity:.45;cursor:not-allowed}
+.compare-tray button.primary:not(:disabled){background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.compare-insights{background:linear-gradient(135deg,#f1eadc,#e5ddcd);border:1px solid #d4c8b4;border-top:4px solid var(--rust);padding:20px;margin:0 0 18px}
+.compare-insights-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.compare-insights-kicker{font-size:9px!important;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--rust)!important;margin:0 0 5px!important}
+.compare-insights h3{font:600 26px Oswald;text-transform:uppercase;margin:0 0 5px}
+.compare-insights-intro{font-size:12px!important;line-height:1.65!important;color:#62685e;margin:0!important;max-width:680px}
+.compare-insights-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+.compare-insight-card{position:relative;background:#fbf9f3;padding:15px;border:1px solid #ddd4c5;border-top:3px solid var(--gold);min-width:0}
+.compare-insight-card.is-winner{border-top-color:var(--moss);box-shadow:0 5px 18px #18251d12}
+.compare-insight-card b{display:block;font:600 15px Oswald;text-transform:uppercase;margin-bottom:7px}
+.compare-insight-card strong{display:block;font-size:13px;line-height:1.45;margin-bottom:5px}
+.compare-insight-card p{font-size:11px;line-height:1.7;color:#62685e;margin:0}
+.compare-insight-badge{display:inline-block;margin-bottom:8px;padding:4px 7px;background:#e2e8dd;color:#304b35;font-size:8px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.compare-insight-verdict{margin-top:12px;padding:13px 15px;background:#20372b;color:#fff}
+.compare-insight-verdict b{display:block;font:600 16px Oswald;text-transform:uppercase;margin-bottom:4px;color:#f0cf91}
+.compare-insight-verdict p{font-size:11px;line-height:1.7;color:#edf0e8;margin:0}
+.compare-insight-foot{font-size:9px!important;margin-top:12px!important;color:#77796d!important}
+@keyframes compareNudge{0%{transform:translateY(5px)}100%{transform:translateY(0)}}
+@media(max-width:700px){.compare-insights-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.compare-tray{align-items:flex-start;flex-direction:column}.compare-tray-actions{width:100%}.compare-tray-actions button{flex:1}.compare-dialog-inner{padding:13px}}
+
 </style>
 </head>
 <body>
@@ -439,10 +513,11 @@ section[id],main[id]{scroll-margin-top:96px}
 
 <section class="wrap product-finder" id="product-finder">
   <div class="section-head"><div><div class="eyebrow">The FRONTERA product index</div><h2>Find it. Compare it. Get outside.</h2></div><p>Search participating outdoor brands and retailers by product, category, or useful features. Explore live partner listings with retailer-supplied prices, images, and availability—then confirm final details with the seller.</p></div>
-  <div class="finder-bar"><input id="product-search" type="search" placeholder="Try “camp stove”, “water filter”, or a brand…" aria-label="Search products"><select id="product-category" aria-label="Filter by category"><option value="">All categories</option><option value="shelter">Shelter & tents</option><option value="sleep">Sleep systems</option><option value="cook">Camp cooking</option><option value="trail">Packs & trail</option><option value="light">Lighting & power</option><option value="water">Water & filtration</option><option value="food">Food & spices</option><option value="offroad">Off-road & powersports</option><option value="marine">Water & marine</option><option value="vehicles">Adventure vehicles</option><option value="apparel">Apparel & protection</option><option value="other">Other gear</option></select></div>
-  <div class="discovery-shortcuts" aria-label="Popular product categories"><button type="button" data-category="cook">Camp kitchen</button><button type="button" data-category="shelter">Tents & shelter</button><button type="button" data-category="trail">Trail gear</button><button type="button" data-category="water">Water & filtration</button><button type="button" data-category="offroad">Off-road</button><button type="button" data-category="">All gear</button></div>
-  <div class="finder-tools"><label for="product-sort">Sort products</label><select id="product-sort"><option value="featured">Recommended order</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option><option value="newest">Recently updated</option></select><button class="finder-clear" id="clear-product-filters" type="button">Clear filters ↺</button></div>
-  <div class="product-meta"><span id="product-count" aria-live="polite">Product directory is being prepared</span><span id="catalog-updated">Partner price and availability updates will be shown here.</span></div>
+  <div class="finder-bar"><input id="product-search" type="search" placeholder="Try “camp stove”, “water filter”, or a brand…" aria-label="Search products"><select id="product-category" aria-label="Filter by category"><option value="">All categories</option><option value="shelter">Shelter & tents</option><option value="sleep">Sleep systems</option><option value="apparel">Apparel</option><option value="footwear">Footwear</option><option value="cook">Camp kitchen</option><option value="water">Water & filtration</option><option value="trail">Packs & trail</option><option value="light">Lighting</option><option value="power">Power & electronics</option><option value="navigation">Navigation</option><option value="safety">Safety & first aid</option><option value="offroad">Off-road driving & recovery</option><option value="vehicles">Vehicle systems & fitment</option><option value="storage">Storage</option><option value="marine">Marine & paddling</option><option value="fishing">Fishing</option><option value="food">Camp food</option><option value="other">Other outdoor gear</option></select><select id="product-subcategory" aria-label="Filter by off-road gear type" hidden><option value="">All gear types</option><optgroup label="Off-road driving & recovery"><option>All-terrain tires</option><option>Mud-terrain tires</option><option>Off-road wheels</option><option>Suspension and lift kits</option><option>Bull bars and front bumpers</option><option>Skid plates and underbody armor</option><option>Winches and winch accessories</option><option>Recovery straps and kinetic ropes</option><option>Recovery shackles and connectors</option><option>Traction and recovery boards</option><option>Tire deflators and pressure gauges</option><option>Portable air compressors</option><option>On-board air systems</option><option>Tire repair kits</option><option>Jump starters and battery boosters</option><option>Off-road lighting</option><option>Vehicle jacks and lifting equipment</option></optgroup></select></div>
+  <div class="inventory-browse-head"><strong>Explore the inventory by gear type</strong><span>Counts update from the live partner catalog</span></div><div class="discovery-shortcuts" id="discovery-shortcuts" aria-label="Product categories"><button type="button" data-category="">All gear</button><button type="button" data-category="shelter">Shelter & tents</button><button type="button" data-category="sleep">Sleep systems</button><button type="button" data-category="cook">Camp kitchen</button><button type="button" data-category="trail">Packs & trail</button><button type="button" data-category="water">Water</button><button type="button" data-category="light">Lighting</button><button type="button" data-category="power">Power</button><button type="button" data-category="offroad">Off-road & recovery</button><button type="button" data-category="storage">Storage</button><button type="button" data-category="marine">Marine</button><button type="button" data-category="fishing">Fishing</button></div>
+  <div class="finder-tools"><label for="product-sort">Sort products</label><select id="product-sort"><option value="variety">Explore every gear category</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option><option value="newest">Recently updated</option></select><button class="finder-clear" id="clear-product-filters" type="button">Clear filters ↺</button></div>
+  <div class="product-meta"><span id="product-count" aria-live="polite">Product directory is being prepared</span><span id="catalog-updated">Partner price and availability updates will be shown here.</span></div><div class="inventory-mix" id="inventory-mix" aria-live="polite"></div>
+  <div class="compare-tray" id="compare-tray" aria-live="polite"><div class="compare-tray-copy"><strong>Compare products <span id="compare-count">0 selected</span></strong><span id="compare-hint">Choose up to 3 products to compare side by side.</span></div><div class="compare-tray-actions"><button type="button" id="compare-clear">Clear</button><button type="button" class="primary" id="compare-open" disabled>Compare now</button></div></div><p class="compare-status" id="compare-status" role="status" aria-live="polite"></p>
   <div class="product-grid" id="product-grid" aria-live="polite"><div class="product-empty"><strong>The product index is getting ready.</strong><p>We're bringing outdoor brands into one place. Until approved product feeds are connected, explore our field guides and practical gear advice.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a><a class="secondary" href="#partners">Partner with FRONTERA ↗</a></div></div></div>
   <p class="price-note">Product information, prices, and availability will be sourced from participating brands or retailers and may change. Always confirm final details on the seller's website. FRONTERA may earn a commission from qualifying purchases at no extra cost to you.</p>
 </section>
@@ -485,6 +560,8 @@ section[id],main[id]{scroll-margin-top:96px}
 </main>
 <footer><div class="foot-inner"><div><div class="foot-brand"><img src="./Frontera%20Roadrunner%20Desert%20Badge.png?v=20261124-2" alt="FRONTERA — Beyond the Ordinary, Into the Outdoors"></div><p>Gear for the wild.<br>Outdoor essentials, camp cooking, and inspiration for wherever the trail leads.</p></div><div><h4>Explore</h4><p><a href="#explore">Outdoor categories</a><br><a href="#gear">Gear field guide</a><br><a href="#camp-kitchen">Field Kitchen</a><br><a href="#field-notes">Field notes</a><br><a href="#faq">Frequently asked questions</a><br><a href="#customer-support">Customer support</a><br><a href="./privacy.html">Privacy policy</a><br><a href="./affiliate-disclosure.html">Affiliate disclosure</a><br><a href="./terms.html">Website terms</a></p></div><div><h4>Get in touch</h4><p><a href="mailto:frontera.partnerships@gmail.com">frontera.partnerships@gmail.com</a><br><a href="#customer-support">Customer support</a><br><a href="#partners">Brand & supplier partnerships</a></p></div></div><div class="copyright">© 2026 FRONTERA. BUILT FOR THE OUTDOORS.</div><div class="disclosure">FRONTERA’s product directory includes selected listings from participating affiliate partners. Product details, images, prices, and availability are supplied by the retailer and may change; confirm current information with the seller. A listing is not a claim that FRONTERA has independently tested the product. FRONTERA may earn commissions from qualifying purchases made through affiliate links; customers complete purchases directly with the retailer. Always check product specifications and local outdoor safety guidance before a trip.</div></footer>
 
+<dialog class="product-dialog" id="product-dialog" aria-label="Product details"><div class="product-dialog-inner"><button class="product-dialog-close" id="product-dialog-close" type="button">Close ×</button><div class="product-dialog-content" id="product-dialog-content"></div></div></dialog>
+<dialog class="compare-dialog" id="compare-dialog" aria-label="Compare selected products"><div class="compare-dialog-inner"><div class="compare-dialog-head"><div><h2>Side by side.</h2><p>Compare the details supplied for each product, then visit the retailer for current specifications and fitment.</p></div><button class="compare-dialog-close" id="compare-dialog-close" type="button">Close ×</button></div><div class="compare-table-wrap" id="compare-table-wrap"></div></div></dialog>
 <script>
 const guideButtons=[...document.querySelectorAll('.filter')],guideCards=[...document.querySelectorAll('.card')],guideSearch=document.getElementById('search');let guideCategory='all';
 function filterGuides(){const term=guideSearch.value.trim().toLowerCase();let visible=0;guideCards.forEach(card=>{const match=(guideCategory==='all'||card.dataset.cat===guideCategory)&&(!term||(card.dataset.search+' '+card.innerText).toLowerCase().includes(term));card.hidden=!match;if(match)visible++;});document.getElementById('empty').style.display=visible?'none':'block';const status=document.getElementById('gear-filter-status');if(status)status.textContent=term?`${visible} gear guide ${visible===1?'result':'results'} for “${guideSearch.value.trim()}”.`:(guideCategory==='all'?'Showing all gear guide categories.':`${visible} ${guideCategory} ${visible===1?'guide':'guides'} shown.`);}
@@ -492,22 +569,78 @@ guideButtons.forEach(button=>button.addEventListener('click',()=>{guideCategory=
 guideSearch.addEventListener('input',filterGuides);
 document.querySelector('.search button').addEventListener('click',filterGuides);
 
+async function loadFronteraCatalog(){
+ const baseResponse=await fetch('./data/products.json',{cache:'no-store'});
+ if(!baseResponse.ok)throw new Error('Main catalog unavailable');
+ const baseData=await baseResponse.json();
+ const base=Array.isArray(baseData)?baseData:(Array.isArray(baseData.products)?baseData.products:[]);
+ const feedResponse=await fetch('./data/topoak-products.b64',{cache:'no-store'});
+ if(!feedResponse.ok)throw new Error('TopOak feed archive unavailable ('+feedResponse.status+')');
+ const encoded=(await feedResponse.text()).trim();
+ const binary=atob(encoded),bytes=new Uint8Array(binary.length);
+ for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
+ if(!('DecompressionStream' in window))throw new Error('This browser cannot expand the partner feed archive');
+ const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+ const rows=await new Response(stream).json();
+ const classifyTopOak=(row)=>{
+  const name=String(row[0]||'').toLowerCase();
+  if(/rooftop tent|\btent\b|awning|annex|shower room|tent room|overlanding bundle/.test(name))return 'shelter';
+  if(/mattress|sleeping|insulation liner|thermal liner/.test(name))return 'sleep';
+  if(/water tank|water storage|water container/.test(name))return 'water';
+  if(/led|light bar|lighting/.test(name))return 'light';
+  if(/rack|roof bar|crossbar|bracket|mount|ladder|clamp|adapter|hardware|rail/.test(name))return 'vehicles';
+  // TopOak's feed is shelter and vehicle-fitment inventory, not a verified recovery-gear source.
+  return row[1]==='offroad'?'vehicles':(row[1]||'other');
+ };
+ const topOakSubcategory=(row,category)=>{
+  const name=String(row[0]||'').toLowerCase();
+  if(category==='vehicles'&&/rack|roof bar|crossbar/.test(name))return 'roof racks';
+  if(category==='vehicles'&&/bracket|mount|ladder|clamp|adapter|hardware|rail/.test(name))return 'installation hardware';
+  if(category==='shelter'&&/awning/.test(name))return 'awnings';
+  if(category==='shelter'&&/tent/.test(name))return 'rooftop tents';
+  return undefined;
+ };
+ const extras=rows.map(row=>{
+  const category=classifyTopOak(row);
+  return {
+  name:row[0],category,subcategory:topOakSubcategory(row,category),url:row[2],price:row[3],image:row[4],
+  brand:'TopOak',
+  description:row[5]||'Product details and compatibility information are provided by TopOak Overland. Review the retailer listing for full specifications, vehicle fitment, installation requirements, and current availability.',
+  availability:'In stock',updated_at:'2026-11-26',
+  tags:['overlanding gear','camping gear'],
+  activities:['Camping','Overlanding']
+ };});
+ const key=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+ const seen=new Set(),merged=[];
+ for(const product of [...base,...extras]){
+  const id=key(product.name);
+  if(!id||seen.has(id))continue;
+  seen.add(id);merged.push(product);
+ }
+ return merged;
+}
 async function loadFronteraProducts(){
  const grid=document.getElementById('product-grid'),count=document.getElementById('product-count'),updated=document.getElementById('catalog-updated');
  const query=document.getElementById('product-search'),category=document.getElementById('product-category'),sort=document.getElementById('product-sort');
- const clear=document.getElementById('clear-product-filters'),shortcuts=[...document.querySelectorAll('.discovery-shortcuts button')];
+ const clear=document.getElementById('clear-product-filters'),shortcuts=[...document.querySelectorAll('.discovery-shortcuts button')],mix=document.getElementById('inventory-mix');
  let products=[];
+ const compareSelection=new Set();
+ const compareTray=document.getElementById('compare-tray'),compareCount=document.getElementById('compare-count'),compareHint=document.getElementById('compare-hint'),compareOpen=document.getElementById('compare-open'),compareStatus=document.getElementById('compare-status');
+ function syncCompareUI(){const n=compareSelection.size;compareTray.classList.toggle('is-visible',n>0);compareTray.classList.toggle('is-ready',n===3);compareCount.textContent=n+' selected';compareHint.textContent=n===3?'Your 3 products are ready. Compare them now to see the FRONTERA buying breakdown.':n===2?'You have enough products selected. Compare now, or add one more.':'Choose 1 more product to unlock comparison.';compareOpen.disabled=n<2;compareOpen.textContent=n===3?'Compare 3 now →':n===2?'Compare 2 now →':'Compare now';compareStatus.textContent=n===1?'Select one more product to compare.':n===2?'Two products selected. You can compare them now.':n===3?'All 3 spots filled — compare your shortlist now.':'';grid.querySelectorAll('.product-compare-toggle').forEach(button=>{const p=products[Number(button.dataset.compareIndex)],selected=compareSelection.has(p);button.setAttribute('aria-pressed',String(selected));const mark=button.querySelector('span');if(mark)mark.textContent=selected?'✓':'＋';});}
  const escapeHTML=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
  const safeLink=value=>{try{const url=new URL(value);return url.protocol==='https:'?url.href:'#';}catch{return '#';}};
  const money=value=>{if(value===null||value===undefined||value==='')return 'See retailer for price';const number=Number(value);return Number.isFinite(number)?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(number):'See retailer for price';};
+  const categoryLabels={shelter:'Shelter & tents',sleep:'Sleep systems',apparel:'Apparel',footwear:'Footwear',cook:'Camp kitchen',water:'Water & filtration',trail:'Packs & trail',light:'Lighting',power:'Power & electronics',navigation:'Navigation',safety:'Safety & first aid',offroad:'Off-road & recovery',vehicles:'Vehicle systems & fitment',storage:'Storage',marine:'Marine & paddling',fishing:'Fishing',food:'Camp food',other:'Other gear'};
+  function renderInventoryMix(){const counts=products.reduce((acc,p)=>{const key=p.category||'other';acc[key]=(acc[key]||0)+1;return acc;},{});const entries=Object.entries(counts).sort((a,b)=>b[1]-a[1]);mix.innerHTML='<span><b>'+products.length+'</b> total listings</span>'+entries.map(([key,n])=>'<span>'+escapeHTML(categoryLabels[key]||key)+' <b>'+n+'</b></span>').join('');shortcuts.forEach(button=>{const key=button.dataset.category;if(!key)return;const n=counts[key]||0;const label=button.dataset.label||button.textContent.replace(/\s+\d+$/,'').trim();button.dataset.label=label;button.innerHTML=escapeHTML(label)+' <small>'+n+'</small>';button.disabled=n===0;});}
  function render(){
-  const term=query.value.trim().toLowerCase(),selectedCategory=category.value;
+  const term=query.value.trim().toLowerCase(),selectedCategory=category.value,selectedSubcategory=document.getElementById('product-subcategory')?.value||'';
   if(!products.length){
    count.textContent='No partner products published yet';
    grid.innerHTML='<div class="product-empty"><strong>Good gear is on the way.</strong><p>We are building direct relationships with outdoor brands and setting up approved product feeds. We will publish real products with verified seller links—not placeholder listings or made-up prices. In the meantime, our field guide can help you plan your kit.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a><a class="secondary" href="#field-notes">Read field notes ↗</a><a class="secondary" href="#partners">Become a brand partner ↗</a></div></div>';
    return;
   }
-  let matches=products.filter(product=>(!selectedCategory||product.category===selectedCategory)&&(!term||[product.name,product.brand,product.description,product.category,...(Array.isArray(product.features)?product.features:[])].join(' ').toLowerCase().includes(term)));
+  let matches=products.filter(product=>(!selectedCategory||product.category===selectedCategory)&&(!selectedSubcategory||String(product.subcategory||'').toLowerCase()===selectedSubcategory.toLowerCase())&&(!term||[product.name,product.brand,product.description,product.category,...(Array.isArray(product.features)?product.features:[])].join(' ').toLowerCase().includes(term)));
+  if(sort.value==='variety'){const order=['cook','water','trail','sleep','light','power','navigation','safety','apparel','footwear','storage','marine','fishing','offroad','shelter','vehicles','food','other'];const buckets=new Map();matches.forEach(p=>{const k=p.category||'other';if(!buckets.has(k))buckets.set(k,[]);buckets.get(k).push(p);});const keys=[...buckets.keys()].sort((a,b)=>{const ai=order.indexOf(a),bi=order.indexOf(b);return (ai<0?999:ai)-(bi<0?999:bi);});const balanced=[];while(keys.some(k=>buckets.get(k).length)){for(const k of keys){const item=buckets.get(k).shift();if(item)balanced.push(item);}}matches=balanced;}
   if(sort.value==='price-low')matches.sort((a,b)=>(Number(a.price)||Infinity)-(Number(b.price)||Infinity));
   if(sort.value==='price-high')matches.sort((a,b)=>(Number(b.price)||0)-(Number(a.price)||0));
   if(sort.value==='name')matches.sort((a,b)=>String(a.name||'').localeCompare(String(b.name||'')));
@@ -516,15 +649,56 @@ async function loadFronteraProducts(){
   if(!matches.length){grid.innerHTML='<div class="product-empty"><strong>No products match those filters.</strong><p>Try another search or clear your filters to see the full collection.</p><div class="product-empty-actions"><a href="#" id="empty-clear">Clear filters ↺</a></div></div>';document.getElementById('empty-clear').addEventListener('click',event=>{event.preventDefault();resetFilters();});return;}
   grid.innerHTML=matches.map(product=>{
    const link=safeLink(product.url),image=safeLink(product.image),brand=escapeHTML(product.brand||'Outdoor brand'),name=escapeHTML(product.name||'Product'),description=escapeHTML(product.description||'Product details from the participating seller.'),availability=escapeHTML(product.availability||'Check seller for availability');
-   const price=money(product.price),date=product.updated_at?new Date(product.updated_at).toLocaleDateString():'Not yet verified';
+   const price=money(product.price),date=product.updated_at?new Date(product.updated_at).toLocaleDateString():'Not yet verified',categoryLabel=categoryLabels[product.category]||'Outdoor gear';
    const imageMarkup=image!=='#'?'<img loading="lazy" src="'+escapeHTML(image)+'" alt="'+name+'">':'<div class="product-image-placeholder" role="img" aria-label="Product image not provided"><span>FRONTERA / FIELD GEAR</span></div>';
-   return '<article class="product-card">'+imageMarkup+'<div class="product-card-body"><span class="product-brand">'+brand+'</span><h3>'+name+'</h3><p>'+description+'</p><div class="product-price">'+escapeHTML(price)+'</div><div class="product-availability">'+availability+'</div><div class="product-updated">Price data updated: '+escapeHTML(date)+'</div><a class="product-buy" href="'+link+'" target="_blank" rel="sponsored nofollow noopener"'+(link==='#'?' aria-disabled="true"':'')+'>View at brand / retailer ↗</a></div></article>';
+   return '<article class="product-card">'+imageMarkup+'<div class="product-card-body"><span class="product-category-badge">'+escapeHTML(categoryLabel)+'</span><span class="product-brand">'+brand+'</span><h3>'+name+'</h3><p>'+description+'</p><div class="product-price">'+escapeHTML(price)+'</div><div class="product-availability">'+availability+'</div><div class="product-updated">Price data updated: '+escapeHTML(date)+'</div><div class="product-card-actions"><button class="product-details" type="button" data-product-index="'+products.indexOf(product)+'" aria-label="Quick view '+name+'">Quick view</button><button class="product-compare-toggle" type="button" data-compare-index="'+products.indexOf(product)+'" aria-pressed="'+(compareSelection.has(product)?'true':'false')+'"><span aria-hidden="true">'+(compareSelection.has(product)?'✓':'＋')+'</span> Compare</button><a class="product-buy" href="'+link+'" target="_blank" rel="sponsored nofollow noopener"'+(link==='#'?' aria-disabled="true"':'')+'>Visit retailer ↗</a></div></div></article>';
   }).join('');
  }
- function resetFilters(){query.value='';category.value='';sort.value='featured';shortcuts.forEach(button=>button.classList.remove('active'));render();}
- query.addEventListener('input',render);category.addEventListener('change',()=>{shortcuts.forEach(button=>button.classList.toggle('active',button.dataset.category===category.value));render();});sort.addEventListener('change',render);clear.addEventListener('click',resetFilters);
- shortcuts.forEach(button=>button.addEventListener('click',()=>{category.value=button.dataset.category;shortcuts.forEach(item=>item.classList.toggle('active',item===button));render();}));
- try{const response=await fetch('./data/products.json',{cache:'no-store'});if(!response.ok)throw new Error('Catalog request failed');const data=await response.json();products=Array.isArray(data)?data:(Array.isArray(data.products)?data.products:[]);const latest=data.updated_at||products.map(item=>item.updated_at).filter(Boolean).sort().pop();updated.textContent=latest?'Catalog last updated: '+new Date(latest).toLocaleDateString():'Awaiting approved partner product feeds';render();}
+ grid.addEventListener('click',event=>{
+  const compareButton=event.target.closest('.product-compare-toggle');
+  if(compareButton){const product=products[Number(compareButton.dataset.compareIndex)];if(!product)return;if(compareSelection.has(product)){compareSelection.delete(product);}else if(compareSelection.size>=3){compareStatus.textContent='You can compare up to 3 products at a time. Remove one to add another.';return;}else{compareSelection.add(product);}syncCompareUI();if(compareSelection.size===3){compareHint.textContent='All 3 products selected. Tap “Compare 3 now” for your buying breakdown.';compareOpen.focus({preventScroll:true});compareTray.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});}return;}
+  const button=event.target.closest('.product-details');if(!button)return;
+  const product=products[Number(button.dataset.productIndex)];if(!product)return;
+  const image=safeLink(product.image),link=safeLink(product.url);
+  const categoryNames=categoryLabels;
+  const tags=[...(Array.isArray(product.tags)?product.tags:[]),...(Array.isArray(product.activities)?product.activities:[])];
+  const chips=tags.map(tag=>'<span>'+escapeHTML(tag)+'</span>').join('');
+  const imageMarkup=image!=='#'?'<img src="'+escapeHTML(image)+'" alt="'+escapeHTML(product.name||'Product image')+'">':'<div class="product-image-placeholder">FRONTERA / FIELD GEAR</div>';
+  const content=document.getElementById('product-dialog-content');
+  content.innerHTML=imageMarkup+'<div class="product-dialog-copy"><small>'+escapeHTML(product.brand||'Outdoor brand')+' · '+escapeHTML(categoryNames[product.category]||'Outdoor gear')+'</small><h2 id="product-dialog-title">'+escapeHTML(product.name||'Product details')+'</h2><p>'+escapeHTML(product.description||'Product information is supplied by the participating retailer. Visit the retailer for complete specifications.')+'</p><div class="product-dialog-price">'+escapeHTML(money(product.price))+'</div><div class="product-dialog-meta">Availability: '+escapeHTML(product.availability||'Confirm with retailer')+'<br>Catalog updated: '+escapeHTML(product.updated_at||'Date not supplied')+'</div>'+(chips?'<div class="product-dialog-tags">'+chips+'</div>':'')+'<p class="product-dialog-note">Product information, pricing and availability may change. Review current specifications, fitment, shipping and seller terms before purchase. FRONTERA may earn a commission from qualifying purchases at no extra cost to you.</p>'+(link!=='#'?'<a class="product-buy" href="'+escapeHTML(link)+'" target="_blank" rel="sponsored nofollow noopener">Visit retailer ↗</a>':'')+'</div>';
+  document.getElementById('product-dialog').showModal();
+ });
+ const productDialog=document.getElementById('product-dialog');
+ document.getElementById('product-dialog-close').addEventListener('click',()=>productDialog.close());
+ productDialog.addEventListener('click',event=>{if(event.target===productDialog)productDialog.close();});
+ function comparisonInsights(chosen){
+ const priced=chosen.map(p=>({p,price:Number(p.price)})).filter(x=>Number.isFinite(x.price)&&x.price>0).sort((a,b)=>a.price-b.price);
+ const sameCategory=chosen.every(p=>p.category===chosen[0].category);
+ const assessment=p=>{const a=p.comparison_assessment||{};return a&&Number.isFinite(Number(a.value_score))&&Number(a.value_score)>=0&&Number(a.value_score)<=100&&typeof a.reviewed_at==='string'&&/^https:\/\//i.test(a.source||'')?a:null;};
+ const reviewed=chosen.map(p=>({p,a:assessment(p)}));
+ const ranked=reviewed.filter(x=>x.a).sort((a,b)=>Number(b.a.value_score)-Number(a.a.value_score));
+ const fullReview=ranked.length===chosen.length&&sameCategory;
+ const winner=fullReview?ranked[0]:null;
+ const lowest=priced[0],highest=priced[priced.length-1];
+ const premium=reviewed.filter(x=>x.a&&x.a.quality_tier).sort((a,b)=>({basic:1,standard:2,premium:3,professional:4}[b.a.quality_tier]||0)-({basic:1,standard:2,premium:3,professional:4}[a.a.quality_tier]||0))[0];
+ const cards=[];
+ if(winner){cards.push('<article class="compare-insight-card is-winner"><span class="compare-insight-badge">FRONTERA recommendation</span><b>Best overall value</b><strong>'+escapeHTML(winner.p.name)+' · '+money(winner.p.price)+'</strong><p>'+escapeHTML(winner.a.summary||'Highest reviewed value score in this category: '+winner.a.value_score+'/100.')+'</p></article>');}
+ else{cards.push('<article class="compare-insight-card"><b>Best overall value</b><strong>Review in progress</strong><p>We need comparable, source-backed quality and performance assessments for every product before naming an overall winner. FRONTERA will not guess based on price or marketing copy.</p></article>');}
+ if(lowest){cards.push('<article class="compare-insight-card"><b>Lowest price</b><strong>'+escapeHTML(lowest.p.name)+' · '+money(lowest.price)+'</strong><p>This is the least expensive option in your shortlist.'+(highest&&highest.p!==lowest.p?' It costs '+money(highest.price-lowest.price)+' less than the highest-priced selection.':'')+' Lowest price does not automatically mean best value.</p></article>');}
+ else{cards.push('<article class="compare-insight-card"><b>Price check</b><strong>Price unavailable</strong><p>Check retailer listings for current pricing before deciding.</p></article>');}
+ if(premium){cards.push('<article class="compare-insight-card"><b>Premium pick</b><strong>'+escapeHTML(premium.p.name)+'</strong><p>'+escapeHTML(premium.a.summary||('Quality tier: '+premium.a.quality_tier+'.'))+'</p></article>');}
+ else{cards.push('<article class="compare-insight-card"><b>Premium pick</b><strong>Not enough verified evidence</strong><p>We need comparable construction, material, durability, warranty, or performance evidence before calling one product the premium choice.</p></article>');}
+ const details=p=>{const specs=p.manufacturer_specs&&typeof p.manufacturer_specs==='object'?Object.entries(p.manufacturer_specs).filter(([,v])=>v!==null&&v!==''&&typeof v!=='object').map(([k,v])=>k.replace(/_/g,' ')+': '+v):[];const features=Array.isArray(p.features)?p.features:[];return [...specs,...features].slice(0,6);};
+ const evidence=chosen.map(p=>({p,items:details(p)})).filter(x=>x.items.length);
+ const verdict=winner?'<div class="compare-insight-verdict"><b>Our recommendation</b><p>'+escapeHTML(winner.p.name)+' is FRONTERA’s strongest reviewed value in this category. '+escapeHTML(winner.a.summary||'The recommendation is based on the reviewed product assessment, not price alone.')+'</p></div>':'<div class="compare-insight-verdict"><b>Our recommendation</b><p>Compare the documented specifications below and confirm fit for your trip. Once the brands provide enough comparable evidence, FRONTERA can confidently identify the best overall value instead of guessing.</p></div>';
+ return '<section class="compare-insights" aria-label="FRONTERA buying verdict"><div class="compare-insights-head"><div><p class="compare-insights-kicker">The shortlist, made simple</p><h3>FRONTERA buying verdict</h3><p class="compare-insights-intro">A plain-English guide to price, documented quality, and the trade-offs that matter. No product wins just because it costs more.</p></div></div><div class="compare-insights-grid">'+cards.join('')+'</div>'+verdict+'<p class="compare-insight-foot">'+(sameCategory?'These products are in the same category.':'These products are from different categories, so a direct overall ranking would be misleading.')+' Product assessments require dated, source-backed evidence. Retailer prices and availability may change.</p></section>';
+}
+function openComparison(){const chosen=[...compareSelection];if(chosen.length<2)return;const label=value=>escapeHTML(value??'Not supplied');const cat=categoryLabels;const rows=[['Product',p=>'<strong>'+label(p.name)+'</strong><br>'+ (safeLink(p.image)!=='#'?'<img src="'+escapeHTML(safeLink(p.image))+'" alt="'+label(p.name)+'">':'')],['Brand',p=>label(p.brand)],['Category',p=>label(cat[p.category]||p.category)],['Price',p=>label(money(p.price))],['Availability',p=>label(p.availability||'Confirm with retailer')],['Description',p=>label(p.description)],['Key features',p=>Array.isArray(p.features)&&p.features.length?p.features.map(label).join('<br>'):'Not supplied'],['Manufacturer specifications',p=>p.manufacturer_specs&&Object.keys(p.manufacturer_specs).length?Object.entries(p.manufacturer_specs).map(([k,v])=>'<strong>'+label(k.replace(/_/g,' '))+':</strong> '+label(v)).join('<br>'):'Not supplied by manufacturer'],['FRONTERA assessment',p=>p.comparison_assessment&&p.comparison_assessment.source?'<strong>'+label(p.comparison_assessment.quality_tier||'Reviewed')+' · '+label(p.comparison_assessment.value_score)+'/100 value score</strong><br>'+label(p.comparison_assessment.summary)+'<br><small>Reviewed '+label(p.comparison_assessment.reviewed_at)+'</small>':'Not yet independently assessed'],['Tags & activities',p=>label([...(Array.isArray(p.tags)?p.tags:[]),...(Array.isArray(p.activities)?p.activities:[])].join(', ')||'Not supplied')],['Catalog updated',p=>label(p.updated_at)],['Retailer',p=>safeLink(p.url)!=='#'?'<a href="'+escapeHTML(safeLink(p.url))+'" target="_blank" rel="sponsored nofollow noopener">Visit retailer ↗</a>':'Not available']];const head='<thead><tr><th>Details</th>'+chosen.map(p=>'<th>'+label(p.name)+'</th>').join('')+'</tr></thead>';const body='<tbody>'+rows.map(([title,render])=>'<tr><td>'+title+'</td>'+chosen.map(p=>'<td>'+render(p)+'</td>').join('')+'</tr>').join('')+'</tbody>';document.getElementById('compare-table-wrap').innerHTML=comparisonInsights(chosen)+'<table class="compare-table">'+head+body+'</table>';document.getElementById('compare-dialog').showModal();}
+ compareOpen.addEventListener('click',openComparison);document.getElementById('compare-clear').addEventListener('click',()=>{compareSelection.clear();syncCompareUI();});const compareDialog=document.getElementById('compare-dialog');document.getElementById('compare-dialog-close').addEventListener('click',()=>compareDialog.close());compareDialog.addEventListener('click',event=>{if(event.target===compareDialog)compareDialog.close();});
+ function resetFilters(){query.value='';category.value='';const subcategory=document.getElementById('product-subcategory');if(subcategory){subcategory.value='';subcategory.hidden=true;}sort.value='variety';shortcuts.forEach(button=>button.classList.remove('active'));render();}
+ query.addEventListener('input',render);category.addEventListener('change',()=>{shortcuts.forEach(button=>button.classList.toggle('active',button.dataset.category===category.value));const sub=document.getElementById('product-subcategory');if(sub){sub.hidden=category.value!=='offroad';sub.value='';}render();});document.getElementById('product-subcategory')?.addEventListener('change',render);sort.addEventListener('change',render);clear.addEventListener('click',resetFilters);
+ shortcuts.forEach(button=>button.addEventListener('click',()=>{category.value=button.dataset.category;const sub=document.getElementById('product-subcategory');if(sub){sub.hidden=category.value!=='offroad';sub.value='';}shortcuts.forEach(item=>item.classList.toggle('active',item===button));render();}));
+ try{products=await loadFronteraCatalog();renderInventoryMix();const latest=products.map(item=>item.updated_at).filter(Boolean).sort().pop();updated.textContent=latest?'Catalog last updated: '+new Date(latest).toLocaleDateString():'Awaiting approved partner product feeds';render();syncCompareUI();}
  catch(error){count.textContent='Catalog temporarily unavailable';updated.textContent='Please try again later';grid.innerHTML='<div class="product-empty"><strong>We hit a temporary snag.</strong><p>The product directory could not load right now. Please try again shortly or explore the field guide while we restore it.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a></div></div>';}
 }
 
@@ -569,6 +743,19 @@ async function loadFronteraProducts(){
  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const dateAdd=(date,days)=>{const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+days);return d.toISOString().slice(0,10);};
  const dateLabel=value=>new Date(value+'T12:00:00').toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});
+ function renderForecast(data,place,start,end){
+  const days=Array.isArray(data.days)?data.days:[];
+  const max=d=>Math.round(Number(d)||0);
+  const values=days.map(d=>Number(d.tempmax)).filter(Number.isFinite);
+  const lows=days.map(d=>Number(d.tempmin)).filter(Number.isFinite);
+  const rain=Math.max(0,...days.map(d=>Number(d.precipprob)||0));
+  const wind=Math.max(0,...days.map(d=>Number(d.windspeed)||0));
+  status.textContent='Forecast for '+place+' · '+dateLabel(start)+' – '+dateLabel(end);
+  const summary='<div class="forecast-cards"><div class="forecast-day"><div><strong>'+(lows.length?Math.min(...lows):'—')+'°</strong><span>Lowest expected temperature</span></div><div><strong>'+(values.length?Math.max(...values):'—')+'°</strong><span>Highest expected temperature</span></div></div><div class="forecast-day"><div><strong>'+max(rain)+'%</strong><span>Peak daily rain chance</span></div><div><strong>'+max(wind)+' mph</strong><span>Peak daily wind</span></div></div></div>';
+  const daily='<div class="forecast-days">'+days.map(d=>'<div class="forecast-day"><div><strong>'+dateLabel(d.datetime)+'</strong><span>'+esc(d.conditions||'Daily conditions unavailable')+'</span></div><div><strong>'+max(d.tempmin)+'° / '+max(d.tempmax)+'°</strong><span>Rain '+max(d.precipprob)+'% · Wind '+max(d.windspeed)+' mph</span></div></div>').join('')+'</div>';
+  forecast.className='';forecast.innerHTML=summary+daily;attribution.hidden=false;
+ }
+
  const cache=new Map();
  async function getForecast(location,start,end){
   const key=[location.toLowerCase(),start,end].join('|');
@@ -621,34 +808,39 @@ function buildGear(activities,terrain,days,group){
 async function renderExpeditionInventory(plan,activities,terrain){
  const wrap=document.getElementById('expedition-products'),grid=document.getElementById('expedition-product-grid');
  const note=document.getElementById('expedition-inventory-note'),count=document.getElementById('expedition-product-count');
- wrap.hidden=false;grid.innerHTML='';count.textContent='Checking approved FRONTERA inventory…';
- const synonyms={
-  tent:['tent','shelter','camping'],sleep:['sleeping bag','sleeping pad','sleep system','sleep'],pack:['backpack','pack','dry bag'],water:['water filter','water filtration','hydration','water bottle','purification'],rain:['rain jacket','rain shell','waterproof','rain gear'],clothing:['apparel','clothing','base layer','jacket'],hiking:['hiking','trekking','trail','footwear','boots','shoes','poles'],camping:['camping','camp kitchen','stove','cookware','lantern'],rappelling:['climbing','rappel','harness','helmet','rope','carabiner'],packrafting:['packraft','paddle','pfd','life jacket','watercraft'],overlanding:['overland','recovery','vehicle','off-road'],fishing:['fishing','tackle','rod'],paragliding:['paraglid','parachute','aviation','air sports']
- };
- const terms=new Set(['outdoor','expedition']);
- activities.forEach(a=>{const k=a==='Hiking'?'hiking':a==='Camping'?'camping':a==='Rappelling'?'rappelling':a==='Packrafting'?'packrafting':a==='Overlanding'?'overlanding':a==='Fishing'?'fishing':a.startsWith('Paragliding')?'paragliding':a==='Water sports'?'packrafting':null;(synonyms[k]||[]).forEach(t=>terms.add(t));});
- if(plan.hot){['sun protection','hydration','cooling','sun shirt'].forEach(t=>terms.add(t));}
- if(plan.cold){['insulated','winter','cold weather','thermal'].forEach(t=>terms.add(t));}
- if(plan.rainLikely){['waterproof','rain','dry bag'].forEach(t=>terms.add(t));}
- if(plan.windy){['windproof','wind shell'].forEach(t=>terms.add(t));}
+ wrap.hidden=false;grid.innerHTML='';count.textContent='Checking environment-verified FRONTERA inventory…';
+ const requiredConditions=[];
+ if(plan.hot)requiredConditions.push('hot');
+ if(plan.cold)requiredConditions.push('cold');
+ if(plan.rainLikely)requiredConditions.push('rain');
+ if(plan.windy)requiredConditions.push('wind');
+ if(plan.humid)requiredConditions.push('humid');
+ const clean=value=>String(value??'').trim().toLowerCase();
+ const has=(list,value)=>Array.isArray(list)&&list.some(item=>clean(item)===clean(value));
  try{
   const response=await fetch('./data/products.json',{cache:'no-store'});if(!response.ok)throw new Error('Inventory feed unavailable');
-  const data=await response.json(),products=Array.isArray(data)?data:(Array.isArray(data.products)?data.products:[]);
-  const ranked=products.map(p=>{
-   const hay=[p.name,p.brand,p.description,p.category,...(Array.isArray(p.features)?p.features:[]),...(Array.isArray(p.tags)?p.tags:[]),...(Array.isArray(p.activities)?p.activities:[]),...(Array.isArray(p.terrain)?p.terrain:[]),...(Array.isArray(p.climate)?p.climate:[])].join(' ').toLowerCase();
-   const score=[...terms].reduce((n,t)=>n+(hay.includes(t.toLowerCase())?1:0),0);
-   return {p,score,hay};
-  }).filter(x=>x.score>0&&/^https:\/\//i.test(x.p.url||'')).sort((a,b)=>b.score-a.score).slice(0,30);
+  const products=await loadFronteraCatalog();
+  const ranked=products.filter(p=>{
+   // Fail closed: a product is eligible only after a human review has verified
+   // its environment, activity and forecast-condition suitability against a source.
+   if(p.fit_review_status!=='verified'||!p.fit_reviewed_at||!/^https:\/\//i.test(p.fit_review_source||''))return false;
+   const environmentMatch=has(p.environment_fit,terrain)||has(p.environment_fit,'all-environments');
+   const activityMatch=activities.some(activity=>has(p.activity_fit,activity));
+   const conditionMatch=requiredConditions.every(condition=>has(p.condition_fit,condition)||has(p.condition_fit,'all-season'));
+   return environmentMatch&&activityMatch&&conditionMatch&&/^https:\/\//i.test(p.url||'');
+  }).slice(0,24);
   if(!ranked.length){
-   count.textContent='No matching partner products published yet';
-   note.innerHTML='<strong>Your trip list is ready; retailer inventory is the next connection.</strong> FRONTERA has not yet connected approved product feeds, or there are no products tagged for this particular trip. We will only show real inventory with verified product links and will never fabricate listings.';
+   count.textContent='No verified product matches for this expedition yet';
+   note.innerHTML='<strong>We do not have a product we can confidently recommend for this exact environment and forecast.</strong> That is intentional. FRONTERA only displays products after their environment, activity and relevant weather suitability have been reviewed against manufacturer or retailer specifications. We will not fill this space with loosely related gear or show snow and winter products for a warm desert trip.';
+   grid.innerHTML='<div class="product-empty"><strong>Better no recommendation than the wrong recommendation.</strong><p>Your trip checklist above is still tailored to the destination and forecast. As we verify suitable partner products for '+String(terrain).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))+', the right items will appear here.</p></div>';
    return;
   }
-  count.textContent=ranked.length+' matching products from FRONTERA inventory';
-  note.innerHTML='<strong>Matched from actual catalog listings.</strong> These products are ranked using their published product details and tags. Check retailer specifications, sizing and availability before purchase.';
-  grid.innerHTML=ranked.map(({p},i)=>{
+  count.textContent=ranked.length+' verified product match'+(ranked.length===1?'':'es');
+  note.innerHTML='<strong>Matched to your selected environment, activities and forecast.</strong> Each listing below has an explicit suitability review. Always confirm current specifications, fitment and availability with the retailer.';
+  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  grid.innerHTML=ranked.map(p=>{
    const safe=value=>{try{const u=new URL(value);return u.protocol==='https:'?u.href:'';}catch{return '';}};
-   const url=safe(p.url),img=safe(p.image),esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+   const url=safe(p.url),img=safe(p.image);
    const price=p.price===null||p.price===undefined||p.price===''?'See retailer for price':(Number.isFinite(Number(p.price))?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(p.price)):'See retailer for price');
    return '<article class="expedition-product">'+(img?'<img loading="lazy" src="'+esc(img)+'" alt="'+esc(p.name||'Outdoor product')+'">':'<div class="expedition-product-art">FRONTERA / FIELD GEAR</div>')+'<div class="expedition-product-body"><span class="expedition-product-brand">'+esc(p.brand||'Outdoor brand')+'</span><h4>'+esc(p.name||'Product')+'</h4><p>'+esc(p.description||'Product details provided by the participating retailer.')+'</p><div class="expedition-product-price">'+esc(price)+'</div><div class="expedition-product-actions"><a href="'+esc(url)+'" target="_blank" rel="sponsored nofollow noopener">View product ↗</a><label><input type="checkbox" aria-label="Already own '+esc(p.name||'this item')+'"> I own this</label></div></div></article>';
   }).join('');

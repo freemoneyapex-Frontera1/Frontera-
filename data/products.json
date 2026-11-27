@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26",
+  "updated_at": "2026-11-27",
   "products": [
     {
       "name": "Vision | Rooftop Tent RTT - 63\"(Spacious)",
@@ -19,7 +19,34 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": true
+      "featured": true,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/hard-shell-rooftop-tent-rtt-vision",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "all-season"
+      ],
+      "fit_notes": [
+        "Manufacturer classifies this model as 4-season; this is a manufacturer-stated rating, not an independent field test by FRONTERA.",
+        "Vehicle-mounted shelter: verify the vehicle roof/rack dynamic load rating, crossbar dimensions and spacing, mounting hardware, and vehicle compatibility before purchase or use.",
+        "Not a backpacking tent. The published rating does not establish a specific safe wind-speed limit or guarantee suitability for every storm, snow load, or extreme exposure."
+      ],
+      "manufacturer_specs": {
+        "model": "Vision",
+        "season_rating": "4-season (manufacturer-stated)",
+        "waterproof_rating_mm": 8000,
+        "construction": "Aluminum alloy hard shell; honeycomb aluminum floor; 300gsm poly-cotton blackout canvas; 180gsm waterproof polyester ripstop rainfly",
+        "crossbar_spacing": "63 in: 25–45 in; 75 in: 30–56 in",
+        "weights": "63 in: 172 lb; 75 in: 176 lb",
+        "sleep_capacity": "63 in: 3 adults; 75 in: 3 adults + 1 child"
+      }
     },
     {
       "name": "270-degree Awning - 83\" (Wide Shade) / Left / Driver Side",
@@ -59,7 +86,36 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": true
+      "featured": true,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/hard-shell-rooftop-tent-rtt-with-rainfly-galaxy-2-0-stellar",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "all-season"
+      ],
+      "fit_notes": [
+        "Manufacturer classifies this model as 4-season; this is a manufacturer-stated rating, not an independent field test by FRONTERA.",
+        "Vehicle-mounted shelter: verify the vehicle roof/rack dynamic load rating, crossbar dimensions and spacing, mounting hardware, and vehicle compatibility before purchase or use.",
+        "Not a backpacking tent. The published rating does not establish a specific safe wind-speed limit or guarantee suitability for every storm, snow load, or extreme exposure."
+      ],
+      "manufacturer_specs": {
+        "model": "Stellar (Galaxy 2.0)",
+        "season_rating": "4-season (manufacturer-stated)",
+        "waterproof_rating_mm": 8000,
+        "open_dimensions_in": "83 × 56 × 53",
+        "closed_dimensions_in": "83 × 56 × 8",
+        "mattress_in": "79 × 52 × 3",
+        "net_weight_lb": 165,
+        "sleep_capacity": "2 adults + 1 child",
+        "crossbar_spacing_in": "30–60"
+      }
     },
     {
       "name": "Galaxy Pro | Rooftop Tent RTT",
@@ -79,7 +135,36 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": true
+      "featured": true,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/galaxy-pro-rooftop-tent-rtt",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "all-season"
+      ],
+      "fit_notes": [
+        "Manufacturer classifies this model as 4-season; this is a manufacturer-stated rating, not an independent field test by FRONTERA.",
+        "Vehicle-mounted shelter: verify the vehicle roof/rack dynamic load rating, crossbar dimensions and spacing, mounting hardware, and vehicle compatibility before purchase or use.",
+        "Not a backpacking tent. The published rating does not establish a specific safe wind-speed limit or guarantee suitability for every storm, snow load, or extreme exposure."
+      ],
+      "manufacturer_specs": {
+        "model": "Galaxy Pro",
+        "season_rating": "4-season (manufacturer-stated)",
+        "waterproof_rating_mm": 8000,
+        "open_dimensions_in": "83 × 56 × 53",
+        "closed_dimensions_in": "83 × 56 × 8",
+        "mattress_in": "79 × 52 × 3",
+        "net_weight_lb": 165,
+        "sleep_capacity": "2 adults + 1 child",
+        "crossbar_spacing_in": "30–60"
+      }
     },
     {
       "name": "Car Shower Tent - Car Shower Tent",
@@ -119,13 +204,41 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": true
+      "featured": true,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/180-degree-awning",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "sun-exposure"
+      ],
+      "fit_notes": [
+        "Manufacturer describes vehicle-side shade coverage and UV/heat protection; condition fit is limited to sun exposure.",
+        "No quantified wind-speed limit or waterproof rating was published in the reviewed product details; do not recommend as storm shelter or for high-wind exposure.",
+        "Confirm vehicle/rack mounting compatibility and use the supplied support poles and stakes as instructed."
+      ],
+      "manufacturer_specs": {
+        "coverage_degrees": 180,
+        "coverage_area_sq_ft": 100,
+        "packed_dimensions_in": "94.5 × 8.7 × 6.7",
+        "net_weight_lb": 54,
+        "material": "180gsm waterproof ripstop polyester with blackout coating",
+        "frame": "Reinforced 4-arm structure; four retractable aluminum support poles",
+        "features": "Integrated LED lighting; manufacturer-stated UV and heat protection",
+        "warranty": "2-year limited warranty"
+      }
     },
     {
       "name": "5 in 1 ultimate overlanding bundle - Galaxy Pro / Driver Side (With Mat) / Galaxy Pro",
       "brand": "Topoak",
       "description": "5 in 1 ultimate overlanding bundle - Galaxy Pro / Driver Side (With Mat) / Galaxy Pro. Product details and fitment information are provided by TopOak Overland on the retailer…",
-      "category": "offroad",
+      "category": "shelter",
       "url": "https://www.awin1.com/cread.php?awinmid=108374&awinaffid=3168539&ued=https%3A%2F%2Ftopoakoverland.com%2Fproducts%2F5-in-1-ultimate-overlanding-bundle%3Fvariant%3D43276456525922",
       "price": 3119,
       "image": "https://cdn.shopify.com/s/files/1/0566/5970/5954/files/1_77587e8c-4928-4435-9784-04215375d30d.jpg?v=1769853171",
@@ -133,12 +246,15 @@
       "updated_at": "2026-11-26",
       "tags": [
         "overlanding accessory",
-        "vehicle-mounted gear"
+        "vehicle-mounted gear",
+        "rooftop tent bundle",
+        "vehicle-mounted shelter"
       ],
       "activities": [
         "Overlanding"
       ],
-      "featured": true
+      "featured": true,
+      "subcategory": "shelter accessories"
     },
     {
       "name": "Vision | Rooftop Tent RTT - 75\"(Extra Spacious)",
@@ -158,7 +274,34 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/hard-shell-rooftop-tent-rtt-vision",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "all-season"
+      ],
+      "fit_notes": [
+        "Manufacturer classifies this model as 4-season; this is a manufacturer-stated rating, not an independent field test by FRONTERA.",
+        "Vehicle-mounted shelter: verify the vehicle roof/rack dynamic load rating, crossbar dimensions and spacing, mounting hardware, and vehicle compatibility before purchase or use.",
+        "Not a backpacking tent. The published rating does not establish a specific safe wind-speed limit or guarantee suitability for every storm, snow load, or extreme exposure."
+      ],
+      "manufacturer_specs": {
+        "model": "Vision",
+        "season_rating": "4-season (manufacturer-stated)",
+        "waterproof_rating_mm": 8000,
+        "construction": "Aluminum alloy hard shell; honeycomb aluminum floor; 300gsm poly-cotton blackout canvas; 180gsm waterproof polyester ripstop rainfly",
+        "crossbar_spacing": "63 in: 25–45 in; 75 in: 30–56 in",
+        "weights": "63 in: 172 lb; 75 in: 176 lb",
+        "sleep_capacity": "63 in: 3 adults; 75 in: 3 adults + 1 child"
+      }
     },
     {
       "name": "270-degree Awning - 98\" (Extra-Wide Shade) / Left / Driver Side",
@@ -184,7 +327,7 @@
       "name": "Roof Bars For Tents Top (1 pair) - Stellar/ Galaxy/ Galaxy Pro",
       "brand": "Topoak",
       "description": "Each TOPOAK tent comes with a pair of roof rack. If you'd like an additional pair of roof racks, you can purchase them here. PART LISTS Roof Racks 1 pair Mounting Brackets 4…",
-      "category": "offroad",
+      "category": "vehicles",
       "url": "https://www.awin1.com/cread.php?awinmid=108374&awinaffid=3168539&ued=https%3A%2F%2Ftopoakoverland.com%2Fproducts%2Froof-bars-for-tents-top%3Fvariant%3D41887263228002",
       "price": 159,
       "image": "https://cdn.shopify.com/s/files/1/0566/5970/5954/files/41.jpg?v=1724148527",
@@ -192,12 +335,15 @@
       "updated_at": "2026-11-26",
       "tags": [
         "overlanding accessory",
-        "vehicle-mounted gear"
+        "vehicle-mounted gear",
+        "roof rack crossbars",
+        "vehicle fitment hardware"
       ],
       "activities": [
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "subcategory": "roof racks"
     },
     {
       "name": "Thermal Insulation Liner - Stellar",
@@ -223,7 +369,7 @@
       "name": "Quick-Release Awning Brackets (1 Pair) - Galaxy / Galaxy Pro / Stellar",
       "brand": "Topoak",
       "description": "S Load capacity 66lbs (30kg) Material Stainless Steel Mounts directly to your rooftop tent’s side tracks for quick, easy awning attachment and removal. And Designed for TOPOAK…",
-      "category": "offroad",
+      "category": "vehicles",
       "url": "https://www.awin1.com/cread.php?awinmid=108374&awinaffid=3168539&ued=https%3A%2F%2Ftopoakoverland.com%2Fproducts%2Fawning-bracket%3Fvariant%3D50950759350370",
       "price": 129,
       "image": "https://cdn.shopify.com/s/files/1/0566/5970/5954/files/ChatGPT_2026_10_21_10_59_04-1.png?v=1792577227",
@@ -231,12 +377,15 @@
       "updated_at": "2026-11-26",
       "tags": [
         "overlanding accessory",
-        "vehicle-mounted gear"
+        "vehicle-mounted gear",
+        "awning mounting hardware",
+        "vehicle fitment"
       ],
       "activities": [
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "subcategory": "installation hardware"
     },
     {
       "name": "Nebula | Rooftop Tent RTT",
@@ -256,7 +405,36 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/x-frame-hard-shell-rooftop-tent-rtt-nebula",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "all-season"
+      ],
+      "fit_notes": [
+        "Manufacturer classifies this model as 4-season; this is a manufacturer-stated rating, not an independent field test by FRONTERA.",
+        "Vehicle-mounted shelter: verify the vehicle roof/rack dynamic load rating, crossbar dimensions and spacing, mounting hardware, and vehicle compatibility before purchase or use.",
+        "Not a backpacking tent. The published rating does not establish a specific safe wind-speed limit or guarantee suitability for every storm, snow load, or extreme exposure."
+      ],
+      "manufacturer_specs": {
+        "model": "Nebula",
+        "season_rating": "4-season (manufacturer-stated)",
+        "waterproof_rating_mm": 8000,
+        "open_dimensions_in": "83 × 56 × 57",
+        "closed_dimensions_in": "83 × 56 × 7.5",
+        "mattress_in": "78 × 51 × 3",
+        "net_weight_lb": 187,
+        "sleep_capacity": "2 adults + 1 child",
+        "crossbar_spacing_in": "30–60"
+      }
     },
     {
       "name": "Roof Rack Water Tank",
@@ -316,7 +494,36 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/galaxy-light-rooftop-tent-rtt",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "all-season"
+      ],
+      "fit_notes": [
+        "Manufacturer classifies this model as 4-season; this is a manufacturer-stated rating, not an independent field test by FRONTERA.",
+        "Vehicle-mounted shelter: verify the vehicle roof/rack dynamic load rating, crossbar dimensions and spacing, mounting hardware, and vehicle compatibility before purchase or use.",
+        "Not a backpacking tent. The published rating does not establish a specific safe wind-speed limit or guarantee suitability for every storm, snow load, or extreme exposure."
+      ],
+      "manufacturer_specs": {
+        "model": "Galaxy Light",
+        "season_rating": "4-season (manufacturer-stated)",
+        "waterproof_rating_mm": 10000,
+        "open_dimensions_in": "51 in: 83 × 51 × 58; 56 in: 83 × 56 × 58",
+        "closed_height_in": 4.9,
+        "mattress": "51 in: 77 × 45 × 1.625; 56 in: 77 × 50 × 1.625",
+        "net_weight_lb": "51 in: 110; 56 in: 136",
+        "sleep_capacity": "2 adults",
+        "crossbar_spacing_in": "30–60"
+      }
     },
     {
       "name": "Galaxy Light | Rooftop Tent RTT - 56''(Lightweight)",
@@ -336,7 +543,36 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/galaxy-light-rooftop-tent-rtt",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "all-season"
+      ],
+      "fit_notes": [
+        "Manufacturer classifies this model as 4-season; this is a manufacturer-stated rating, not an independent field test by FRONTERA.",
+        "Vehicle-mounted shelter: verify the vehicle roof/rack dynamic load rating, crossbar dimensions and spacing, mounting hardware, and vehicle compatibility before purchase or use.",
+        "Not a backpacking tent. The published rating does not establish a specific safe wind-speed limit or guarantee suitability for every storm, snow load, or extreme exposure."
+      ],
+      "manufacturer_specs": {
+        "model": "Galaxy Light",
+        "season_rating": "4-season (manufacturer-stated)",
+        "waterproof_rating_mm": 10000,
+        "open_dimensions_in": "51 in: 83 × 51 × 58; 56 in: 83 × 56 × 58",
+        "closed_height_in": 4.9,
+        "mattress": "51 in: 77 × 45 × 1.625; 56 in: 77 × 50 × 1.625",
+        "net_weight_lb": "51 in: 110; 56 in: 136",
+        "sleep_capacity": "2 adults",
+        "crossbar_spacing_in": "30–60"
+      }
     },
     {
       "name": "Air & Foam Camping Mattress - 79''×53''（Fits 56'' RTT） / Mattress & High-Power Air Blower",
@@ -513,7 +749,33 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/180-degree-awning-room",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "sun-exposure"
+      ],
+      "fit_notes": [
+        "Complete vehicle-side awning and wall enclosure; manufacturer says the walls add privacy, reduce wind exposure and block low-angle side sun when closed.",
+        "No quantified wind-speed limit or waterproof rating was published in the reviewed product details; do not recommend as storm shelter or for high-wind exposure.",
+        "Verify the included awning configuration, floor-mat option and vehicle mounting compatibility before purchase."
+      ],
+      "manufacturer_specs": {
+        "coverage_degrees": 180,
+        "overall_dimensions_in": "303 × 140 × 80",
+        "net_weight_lb": "79.81 without floor mat; 100.09 with floor mat",
+        "material": "420D ripstop Oxford fabric",
+        "configuration": "Awning plus full wall enclosure; floor mat is a selectable option",
+        "warranty": "1-year limited warranty"
+      }
     }
   ]
 }
