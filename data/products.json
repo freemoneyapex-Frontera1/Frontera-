@@ -238,7 +238,7 @@
       "name": "5 in 1 ultimate overlanding bundle - Galaxy Pro / Driver Side (With Mat) / Galaxy Pro",
       "brand": "Topoak",
       "description": "5 in 1 ultimate overlanding bundle - Galaxy Pro / Driver Side (With Mat) / Galaxy Pro. Product details and fitment information are provided by TopOak Overland on the retailer…",
-      "category": "offroad",
+      "category": "shelter",
       "url": "https://www.awin1.com/cread.php?awinmid=108374&awinaffid=3168539&ued=https%3A%2F%2Ftopoakoverland.com%2Fproducts%2F5-in-1-ultimate-overlanding-bundle%3Fvariant%3D43276456525922",
       "price": 3119,
       "image": "https://cdn.shopify.com/s/files/1/0566/5970/5954/files/1_77587e8c-4928-4435-9784-04215375d30d.jpg?v=1769853171",
@@ -246,12 +246,15 @@
       "updated_at": "2026-11-26",
       "tags": [
         "overlanding accessory",
-        "vehicle-mounted gear"
+        "vehicle-mounted gear",
+        "rooftop tent bundle",
+        "vehicle-mounted shelter"
       ],
       "activities": [
         "Overlanding"
       ],
-      "featured": true
+      "featured": true,
+      "subcategory": "shelter accessories"
     },
     {
       "name": "Vision | Rooftop Tent RTT - 75\"(Extra Spacious)",
@@ -324,7 +327,7 @@
       "name": "Roof Bars For Tents Top (1 pair) - Stellar/ Galaxy/ Galaxy Pro",
       "brand": "Topoak",
       "description": "Each TOPOAK tent comes with a pair of roof rack. If you'd like an additional pair of roof racks, you can purchase them here. PART LISTS Roof Racks 1 pair Mounting Brackets 4…",
-      "category": "offroad",
+      "category": "vehicles",
       "url": "https://www.awin1.com/cread.php?awinmid=108374&awinaffid=3168539&ued=https%3A%2F%2Ftopoakoverland.com%2Fproducts%2Froof-bars-for-tents-top%3Fvariant%3D41887263228002",
       "price": 159,
       "image": "https://cdn.shopify.com/s/files/1/0566/5970/5954/files/41.jpg?v=1724148527",
@@ -332,12 +335,15 @@
       "updated_at": "2026-11-26",
       "tags": [
         "overlanding accessory",
-        "vehicle-mounted gear"
+        "vehicle-mounted gear",
+        "roof rack crossbars",
+        "vehicle fitment hardware"
       ],
       "activities": [
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "subcategory": "roof racks"
     },
     {
       "name": "Thermal Insulation Liner - Stellar",
@@ -363,7 +369,7 @@
       "name": "Quick-Release Awning Brackets (1 Pair) - Galaxy / Galaxy Pro / Stellar",
       "brand": "Topoak",
       "description": "S Load capacity 66lbs (30kg) Material Stainless Steel Mounts directly to your rooftop tent’s side tracks for quick, easy awning attachment and removal. And Designed for TOPOAK…",
-      "category": "offroad",
+      "category": "vehicles",
       "url": "https://www.awin1.com/cread.php?awinmid=108374&awinaffid=3168539&ued=https%3A%2F%2Ftopoakoverland.com%2Fproducts%2Fawning-bracket%3Fvariant%3D50950759350370",
       "price": 129,
       "image": "https://cdn.shopify.com/s/files/1/0566/5970/5954/files/ChatGPT_2026_10_21_10_59_04-1.png?v=1792577227",
@@ -371,12 +377,15 @@
       "updated_at": "2026-11-26",
       "tags": [
         "overlanding accessory",
-        "vehicle-mounted gear"
+        "vehicle-mounted gear",
+        "awning mounting hardware",
+        "vehicle fitment"
       ],
       "activities": [
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "subcategory": "installation hardware"
     },
     {
       "name": "Nebula | Rooftop Tent RTT",
