@@ -277,13 +277,30 @@
     },
     {
       "id": "offroad",
-      "label": "Off-road & recovery",
+      "label": "Off-road driving & recovery",
       "subcategories": [
-        "recovery gear",
-        "vehicle-mounted accessories",
-        "air compressors",
-        "winches",
-        "traction boards"
+        "all-terrain tires",
+        "mud-terrain tires",
+        "off-road wheels",
+        "suspension and lift kits",
+        "steering and control arms",
+        "bull bars and front bumpers",
+        "skid plates and underbody armor",
+        "rock sliders and side protection",
+        "winches and winch accessories",
+        "recovery straps and kinetic ropes",
+        "recovery shackles and connectors",
+        "snatch blocks and pulleys",
+        "traction and recovery boards",
+        "tire deflators and pressure gauges",
+        "portable air compressors",
+        "on-board air systems",
+        "tire repair kits",
+        "jump starters and battery boosters",
+        "vehicle batteries and power management",
+        "off-road lighting",
+        "vehicle jacks and lifting equipment",
+        "recovery kits and tools"
       ]
     },
     {
@@ -291,10 +308,13 @@
       "label": "Vehicle systems & fitment",
       "subcategories": [
         "roof racks",
+        "roof platforms",
+        "bed racks",
         "mounts",
         "vehicle storage",
         "vehicle compatibility",
-        "installation hardware"
+        "installation hardware",
+        "vehicle-specific fitment"
       ]
     },
     {
