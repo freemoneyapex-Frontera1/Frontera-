@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-27",
+  "purpose": "FRONTERA supplier discovery pipeline. Entries are research leads only; listing a supplier here does not mean FRONTERA has applied, been approved, or has permission to use product feeds or affiliate links.",
+  "statuses": [
+    "research-lead",
+    "application-ready",
+    "applied",
+    "approved",
+    "declined",
+    "paused"
+  ],
+  "suppliers": [
+    {
+      "id": "sea-to-summit",
+      "name": "Sea to Summit",
+      "status": "research-lead",
+      "network": "AvantLink",
+      "network_merchant_id": "17089",
+      "official_affiliate_url": "https://seatosummit.com/pages/affiliate-program",
+      "application_url": "https://www.avantlink.com/signup/affiliate/us?merchant=17089",
+      "catalog_lanes": [
+        "shelter",
+        "sleep",
+        "storage",
+        "water",
+        "marine",
+        "apparel"
+      ],
+      "environments_to_review": [
+        "mountain-high-country",
+        "forest-woodland",
+        "coast-beach",
+        "river-lake",
+        "alpine-snow"
+      ],
+      "evidence_notes": [
+        "Official affiliate page states 10% commission and 30-day cookie.",
+        "Official affiliate page directs applicants to AvantLink.",
+        "Product range includes sleeping systems, tents and tarps, cookware, dry bags, water storage and water-sports accessories."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "After AvantLink publisher account verification, inspect merchant terms and apply if suitable."
+    },
+    {
+      "id": "uco-gear",
+      "name": "UCO Gear",
+      "status": "research-lead",
+      "network": "AvantLink",
+      "network_merchant_id": "29757",
+      "official_affiliate_url": "https://ucogear.com/pages/affiliate",
+      "application_url": "https://www.avantlink.com/signup/publisher-united-states/?merchant=29757",
+      "catalog_lanes": [
+        "light",
+        "cook",
+        "safety"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "forest-woodland",
+        "overlanding-offroad"
+      ],
+      "evidence_notes": [
+        "Official affiliate page advertises 10% base commissions.",
+        "Official affiliate page describes lighting, fire-starting and camp-kitchen gear.",
+        "Official affiliate page links to AvantLink publisher signup."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "After AvantLink publisher account verification, inspect merchant terms and apply if suitable."
+    },
+    {
+      "id": "naturehike",
+      "name": "Naturehike",
+      "status": "research-lead",
+      "network": "Impact",
+      "network_merchant_id": "7562141",
+      "official_affiliate_url": "https://www.naturehike.com/pages/affiliate",
+      "application_url": "https://app.impact.com/campaign-campaign-info-v2/Naturehike.brand",
+      "catalog_lanes": [
+        "shelter",
+        "sleep",
+        "cook",
+        "water",
+        "trail",
+        "storage"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "alpine-snow",
+        "forest-woodland"
+      ],
+      "evidence_notes": [
+        "Official affiliate page says applications are through Impact and identifies program ID 7562141.",
+        "Official page describes tents, four-season tents, sleeping bags, pads, cookware, stoves, packs and trekking poles.",
+        "Program terms and product-feed availability must be checked inside the partner account."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Review Impact signup and program terms; do not import until approved and feed access is confirmed."
+    },
+    {
+      "id": "timber-ridge",
+      "name": "Timber Ridge",
+      "status": "research-lead",
+      "network": "Awin",
+      "network_merchant_id": "131409",
+      "official_affiliate_url": "https://timberridgeproducts.com/",
+      "application_url": "https://ui.awin.com/user/affiliate-signup/join/merchant/131409",
+      "catalog_lanes": [
+        "shelter",
+        "storage",
+        "other"
+      ],
+      "environments_to_review": [
+        "forest-woodland",
+        "desert-arid",
+        "coast-beach",
+        "overlanding-offroad"
+      ],
+      "evidence_notes": [
+        "Awin merchant profile identifies program 131409 and a 30-day attribution period.",
+        "Awin profile describes folding chairs, tents, shelters, coolers and gear bags.",
+        "Product-feed access and current program terms require confirmation in FRONTERA's Awin account."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Check whether FRONTERA can apply from its existing Awin publisher account and inspect feed availability."
+    },
+    {
+      "id": "outfitr-us",
+      "name": "OUTFITR (US)",
+      "status": "research-lead",
+      "network": "Awin",
+      "network_merchant_id": "117613",
+      "official_affiliate_url": "https://outfitrer.com/",
+      "application_url": "https://ui.awin.com/user/affiliate-signup/join/merchant/117613",
+      "catalog_lanes": [
+        "trail",
+        "shelter",
+        "sleep",
+        "storage"
+      ],
+      "environments_to_review": [
+        "mountain-high-country",
+        "forest-woodland",
+        "desert-arid"
+      ],
+      "evidence_notes": [
+        "Awin merchant profile identifies program 117613 and a 30-day attribution period.",
+        "Awin profile promotes backpacks and camping equipment.",
+        "The profile text contains inconsistent commission claims (10% in the summary and 15% in the body); verify directly in Awin before applying.",
+        "Brand and product quality require additional due diligence before FRONTERA promotes products."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Hold for additional merchant and brand due diligence; do not prioritize until claims and product quality are verified."
+    }
+  ],
+  "import_rules": [
+    "Do not import products from a supplier until FRONTERA is approved and the applicable feed or permitted product source is confirmed.",
+    "Do not treat affiliate program existence as evidence of product quality or technical suitability.",
+    "Keep retail facts, network approval status, feed access and FRONTERA fit verification as separate fields.",
+    "Only manufacturer-verified specifications may support trip-planner suitability claims.",
+    "Recheck commission, attribution, permitted traffic sources, brand bidding restrictions, feed terms and program status inside the live network account before activation."
+  ]
+}
