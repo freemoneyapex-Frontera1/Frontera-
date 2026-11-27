@@ -698,34 +698,39 @@ function buildGear(activities,terrain,days,group){
 async function renderExpeditionInventory(plan,activities,terrain){
  const wrap=document.getElementById('expedition-products'),grid=document.getElementById('expedition-product-grid');
  const note=document.getElementById('expedition-inventory-note'),count=document.getElementById('expedition-product-count');
- wrap.hidden=false;grid.innerHTML='';count.textContent='Checking approved FRONTERA inventory…';
- const synonyms={
-  tent:['tent','shelter','camping'],sleep:['sleeping bag','sleeping pad','sleep system','sleep'],pack:['backpack','pack','dry bag'],water:['water filter','water filtration','hydration','water bottle','purification'],rain:['rain jacket','rain shell','waterproof','rain gear'],clothing:['apparel','clothing','base layer','jacket'],hiking:['hiking','trekking','trail','footwear','boots','shoes','poles'],camping:['camping','camp kitchen','stove','cookware','lantern'],rappelling:['climbing','rappel','harness','helmet','rope','carabiner'],packrafting:['packraft','paddle','pfd','life jacket','watercraft'],overlanding:['overland','recovery','vehicle','off-road'],fishing:['fishing','tackle','rod'],paragliding:['paraglid','parachute','aviation','air sports']
- };
- const terms=new Set(['outdoor','expedition']);
- activities.forEach(a=>{const k=a==='Hiking'?'hiking':a==='Camping'?'camping':a==='Rappelling'?'rappelling':a==='Packrafting'?'packrafting':a==='Overlanding'?'overlanding':a==='Fishing'?'fishing':a.startsWith('Paragliding')?'paragliding':a==='Water sports'?'packrafting':null;(synonyms[k]||[]).forEach(t=>terms.add(t));});
- if(plan.hot){['sun protection','hydration','cooling','sun shirt'].forEach(t=>terms.add(t));}
- if(plan.cold){['insulated','winter','cold weather','thermal'].forEach(t=>terms.add(t));}
- if(plan.rainLikely){['waterproof','rain','dry bag'].forEach(t=>terms.add(t));}
- if(plan.windy){['windproof','wind shell'].forEach(t=>terms.add(t));}
+ wrap.hidden=false;grid.innerHTML='';count.textContent='Checking environment-verified FRONTERA inventory…';
+ const requiredConditions=[];
+ if(plan.hot)requiredConditions.push('hot');
+ if(plan.cold)requiredConditions.push('cold');
+ if(plan.rainLikely)requiredConditions.push('rain');
+ if(plan.windy)requiredConditions.push('wind');
+ if(plan.humid)requiredConditions.push('humid');
+ const clean=value=>String(value??'').trim().toLowerCase();
+ const has=(list,value)=>Array.isArray(list)&&list.some(item=>clean(item)===clean(value));
  try{
   const response=await fetch('./data/products.json',{cache:'no-store'});if(!response.ok)throw new Error('Inventory feed unavailable');
   const data=await response.json(),products=Array.isArray(data)?data:(Array.isArray(data.products)?data.products:[]);
-  const ranked=products.map(p=>{
-   const hay=[p.name,p.brand,p.description,p.category,...(Array.isArray(p.features)?p.features:[]),...(Array.isArray(p.tags)?p.tags:[]),...(Array.isArray(p.activities)?p.activities:[]),...(Array.isArray(p.terrain)?p.terrain:[]),...(Array.isArray(p.climate)?p.climate:[])].join(' ').toLowerCase();
-   const score=[...terms].reduce((n,t)=>n+(hay.includes(t.toLowerCase())?1:0),0);
-   return {p,score,hay};
-  }).filter(x=>x.score>0&&/^https:\/\//i.test(x.p.url||'')).sort((a,b)=>b.score-a.score).slice(0,30);
+  const ranked=products.filter(p=>{
+   // Fail closed: a product is eligible only after a human review has verified
+   // its environment, activity and forecast-condition suitability against a source.
+   if(p.fit_review_status!=='verified'||!p.fit_reviewed_at||!/^https:\/\//i.test(p.fit_review_source||''))return false;
+   const environmentMatch=has(p.environment_fit,terrain)||has(p.environment_fit,'all-environments');
+   const activityMatch=activities.some(activity=>has(p.activity_fit,activity));
+   const conditionMatch=requiredConditions.every(condition=>has(p.condition_fit,condition)||has(p.condition_fit,'all-season'));
+   return environmentMatch&&activityMatch&&conditionMatch&&/^https:\/\//i.test(p.url||'');
+  }).slice(0,24);
   if(!ranked.length){
-   count.textContent='No matching partner products published yet';
-   note.innerHTML='<strong>Your trip list is ready; retailer inventory is the next connection.</strong> FRONTERA has not yet connected approved product feeds, or there are no products tagged for this particular trip. We will only show real inventory with verified product links and will never fabricate listings.';
+   count.textContent='No verified product matches for this expedition yet';
+   note.innerHTML='<strong>We do not have a product we can confidently recommend for this exact environment and forecast.</strong> That is intentional. FRONTERA only displays products after their environment, activity and relevant weather suitability have been reviewed against manufacturer or retailer specifications. We will not fill this space with loosely related gear or show snow and winter products for a warm desert trip.';
+   grid.innerHTML='<div class="product-empty"><strong>Better no recommendation than the wrong recommendation.</strong><p>Your trip checklist above is still tailored to the destination and forecast. As we verify suitable partner products for '+String(terrain).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))+', the right items will appear here.</p></div>';
    return;
   }
-  count.textContent=ranked.length+' matching products from FRONTERA inventory';
-  note.innerHTML='<strong>Matched from actual catalog listings.</strong> These products are ranked using their published product details and tags. Check retailer specifications, sizing and availability before purchase.';
-  grid.innerHTML=ranked.map(({p},i)=>{
+  count.textContent=ranked.length+' verified product match'+(ranked.length===1?'':'es');
+  note.innerHTML='<strong>Matched to your selected environment, activities and forecast.</strong> Each listing below has an explicit suitability review. Always confirm current specifications, fitment and availability with the retailer.';
+  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  grid.innerHTML=ranked.map(p=>{
    const safe=value=>{try{const u=new URL(value);return u.protocol==='https:'?u.href:'';}catch{return '';}};
-   const url=safe(p.url),img=safe(p.image),esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+   const url=safe(p.url),img=safe(p.image);
    const price=p.price===null||p.price===undefined||p.price===''?'See retailer for price':(Number.isFinite(Number(p.price))?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(p.price)):'See retailer for price');
    return '<article class="expedition-product">'+(img?'<img loading="lazy" src="'+esc(img)+'" alt="'+esc(p.name||'Outdoor product')+'">':'<div class="expedition-product-art">FRONTERA / FIELD GEAR</div>')+'<div class="expedition-product-body"><span class="expedition-product-brand">'+esc(p.brand||'Outdoor brand')+'</span><h4>'+esc(p.name||'Product')+'</h4><p>'+esc(p.description||'Product details provided by the participating retailer.')+'</p><div class="expedition-product-price">'+esc(price)+'</div><div class="expedition-product-actions"><a href="'+esc(url)+'" target="_blank" rel="sponsored nofollow noopener">View product ↗</a><label><input type="checkbox" aria-label="Already own '+esc(p.name||'this item')+'"> I own this</label></div></div></article>';
   }).join('');
