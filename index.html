@@ -330,6 +330,29 @@ section[id],main[id]{scroll-margin-top:96px}
 @media(max-width:520px){.adventure-picker{padding:19px 15px;margin:22px 0}.adventure-picker-grid{grid-template-columns:1fr}.adventure-choice{min-height:145px}}
 @media(prefers-reduced-motion:reduce){.adventure-choice{transition:none}.adventure-choice:hover{transform:none}}
 
+
+/* Product quick view: useful detail without forcing a new page or account */
+.product-card-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:14px}
+.product-card-actions .product-buy{margin-top:0}
+.product-details{width:100%;border:1px solid var(--line);background:#fff;color:var(--ink);padding:11px 12px;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.product-details:hover{background:var(--sand);border-color:var(--moss)}
+.product-dialog{width:min(760px,calc(100% - 28px));max-height:min(88vh,820px);padding:0;border:1px solid var(--line);background:var(--cream);color:var(--ink);box-shadow:0 24px 80px #0005}
+.product-dialog::backdrop{background:rgba(13,24,17,.72);backdrop-filter:blur(3px)}
+.product-dialog-inner{padding:22px;overflow:auto;max-height:88vh}
+.product-dialog-close{display:flex;margin:0 0 16px auto;border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.product-dialog-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.product-dialog-content img{width:100%;max-height:390px;object-fit:contain;background:#fff;border:1px solid var(--line)}
+.product-dialog-copy small{font-size:9px;color:var(--moss);font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.product-dialog-copy h2{font-size:clamp(28px,5vw,42px);margin:8px 0 12px}
+.product-dialog-copy p{font-size:13px;line-height:1.8;color:#62695e}
+.product-dialog-price{font:600 28px Oswald;margin:12px 0 4px}
+.product-dialog-meta{font-size:10px;color:var(--muted);line-height:1.8}
+.product-dialog-tags{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
+.product-dialog-tags span{background:var(--sand);padding:6px 9px;font-size:9px;color:#596354}
+.product-dialog-note{border-top:1px solid var(--line);padding-top:12px;margin-top:16px;font-size:10px;line-height:1.7;color:#73766c}
+.product-dialog-copy .product-buy{margin-top:16px}
+@media(max-width:600px){.product-dialog-inner{padding:15px}.product-dialog-content{grid-template-columns:1fr;gap:14px}.product-dialog-content img{max-height:250px}.product-dialog-copy h2{font-size:30px}}
+
 </style>
 </head>
 <body>
@@ -485,6 +508,7 @@ section[id],main[id]{scroll-margin-top:96px}
 </main>
 <footer><div class="foot-inner"><div><div class="foot-brand"><img src="./Frontera%20Roadrunner%20Desert%20Badge.png?v=20261124-2" alt="FRONTERA — Beyond the Ordinary, Into the Outdoors"></div><p>Gear for the wild.<br>Outdoor essentials, camp cooking, and inspiration for wherever the trail leads.</p></div><div><h4>Explore</h4><p><a href="#explore">Outdoor categories</a><br><a href="#gear">Gear field guide</a><br><a href="#camp-kitchen">Field Kitchen</a><br><a href="#field-notes">Field notes</a><br><a href="#faq">Frequently asked questions</a><br><a href="#customer-support">Customer support</a><br><a href="./privacy.html">Privacy policy</a><br><a href="./affiliate-disclosure.html">Affiliate disclosure</a><br><a href="./terms.html">Website terms</a></p></div><div><h4>Get in touch</h4><p><a href="mailto:frontera.partnerships@gmail.com">frontera.partnerships@gmail.com</a><br><a href="#customer-support">Customer support</a><br><a href="#partners">Brand & supplier partnerships</a></p></div></div><div class="copyright">© 2026 FRONTERA. BUILT FOR THE OUTDOORS.</div><div class="disclosure">FRONTERA’s product directory includes selected listings from participating affiliate partners. Product details, images, prices, and availability are supplied by the retailer and may change; confirm current information with the seller. A listing is not a claim that FRONTERA has independently tested the product. FRONTERA may earn commissions from qualifying purchases made through affiliate links; customers complete purchases directly with the retailer. Always check product specifications and local outdoor safety guidance before a trip.</div></footer>
 
+<dialog class="product-dialog" id="product-dialog" aria-label="Product details"><div class="product-dialog-inner"><button class="product-dialog-close" id="product-dialog-close" type="button">Close ×</button><div class="product-dialog-content" id="product-dialog-content"></div></div></dialog>
 <script>
 const guideButtons=[...document.querySelectorAll('.filter')],guideCards=[...document.querySelectorAll('.card')],guideSearch=document.getElementById('search');let guideCategory='all';
 function filterGuides(){const term=guideSearch.value.trim().toLowerCase();let visible=0;guideCards.forEach(card=>{const match=(guideCategory==='all'||card.dataset.cat===guideCategory)&&(!term||(card.dataset.search+' '+card.innerText).toLowerCase().includes(term));card.hidden=!match;if(match)visible++;});document.getElementById('empty').style.display=visible?'none':'block';const status=document.getElementById('gear-filter-status');if(status)status.textContent=term?`${visible} gear guide ${visible===1?'result':'results'} for “${guideSearch.value.trim()}”.`:(guideCategory==='all'?'Showing all gear guide categories.':`${visible} ${guideCategory} ${visible===1?'guide':'guides'} shown.`);}
@@ -518,9 +542,24 @@ async function loadFronteraProducts(){
    const link=safeLink(product.url),image=safeLink(product.image),brand=escapeHTML(product.brand||'Outdoor brand'),name=escapeHTML(product.name||'Product'),description=escapeHTML(product.description||'Product details from the participating seller.'),availability=escapeHTML(product.availability||'Check seller for availability');
    const price=money(product.price),date=product.updated_at?new Date(product.updated_at).toLocaleDateString():'Not yet verified';
    const imageMarkup=image!=='#'?'<img loading="lazy" src="'+escapeHTML(image)+'" alt="'+name+'">':'<div class="product-image-placeholder" role="img" aria-label="Product image not provided"><span>FRONTERA / FIELD GEAR</span></div>';
-   return '<article class="product-card">'+imageMarkup+'<div class="product-card-body"><span class="product-brand">'+brand+'</span><h3>'+name+'</h3><p>'+description+'</p><div class="product-price">'+escapeHTML(price)+'</div><div class="product-availability">'+availability+'</div><div class="product-updated">Price data updated: '+escapeHTML(date)+'</div><a class="product-buy" href="'+link+'" target="_blank" rel="sponsored nofollow noopener"'+(link==='#'?' aria-disabled="true"':'')+'>View at brand / retailer ↗</a></div></article>';
+   return '<article class="product-card">'+imageMarkup+'<div class="product-card-body"><span class="product-brand">'+brand+'</span><h3>'+name+'</h3><p>'+description+'</p><div class="product-price">'+escapeHTML(price)+'</div><div class="product-availability">'+availability+'</div><div class="product-updated">Price data updated: '+escapeHTML(date)+'</div><div class="product-card-actions"><button class="product-details" type="button" data-product-index="'+products.indexOf(product)+'" aria-label="Quick view '+name+'">Quick view</button><a class="product-buy" href="'+link+'" target="_blank" rel="sponsored nofollow noopener"'+(link==='#'?' aria-disabled="true"':'')+'>Visit retailer ↗</a></div></div></article>';
   }).join('');
  }
+ grid.addEventListener('click',event=>{
+  const button=event.target.closest('.product-details');if(!button)return;
+  const product=products[Number(button.dataset.productIndex)];if(!product)return;
+  const image=safeLink(product.image),link=safeLink(product.url);
+  const categoryNames={shelter:'Shelter & tents',sleep:'Sleep systems',cook:'Camp cooking',trail:'Packs & trail',light:'Lighting & power',water:'Water & filtration',food:'Food & spices',offroad:'Off-road & powersports',marine:'Water & marine',vehicles:'Adventure vehicles',apparel:'Apparel & protection',other:'Other gear'};
+  const tags=[...(Array.isArray(product.tags)?product.tags:[]),...(Array.isArray(product.activities)?product.activities:[])];
+  const chips=tags.map(tag=>'<span>'+escapeHTML(tag)+'</span>').join('');
+  const imageMarkup=image!=='#'?'<img src="'+escapeHTML(image)+'" alt="'+escapeHTML(product.name||'Product image')+'">':'<div class="product-image-placeholder">FRONTERA / FIELD GEAR</div>';
+  const content=document.getElementById('product-dialog-content');
+  content.innerHTML=imageMarkup+'<div class="product-dialog-copy"><small>'+escapeHTML(product.brand||'Outdoor brand')+' · '+escapeHTML(categoryNames[product.category]||'Outdoor gear')+'</small><h2 id="product-dialog-title">'+escapeHTML(product.name||'Product details')+'</h2><p>'+escapeHTML(product.description||'Product information is supplied by the participating retailer. Visit the retailer for complete specifications.')+'</p><div class="product-dialog-price">'+escapeHTML(money(product.price))+'</div><div class="product-dialog-meta">Availability: '+escapeHTML(product.availability||'Confirm with retailer')+'<br>Catalog updated: '+escapeHTML(product.updated_at||'Date not supplied')+'</div>'+(chips?'<div class="product-dialog-tags">'+chips+'</div>':'')+'<p class="product-dialog-note">Product information, pricing and availability may change. Review current specifications, fitment, shipping and seller terms before purchase. FRONTERA may earn a commission from qualifying purchases at no extra cost to you.</p>'+(link!=='#'?'<a class="product-buy" href="'+escapeHTML(link)+'" target="_blank" rel="sponsored nofollow noopener">Visit retailer ↗</a>':'')+'</div>';
+  document.getElementById('product-dialog').showModal();
+ });
+ const productDialog=document.getElementById('product-dialog');
+ document.getElementById('product-dialog-close').addEventListener('click',()=>productDialog.close());
+ productDialog.addEventListener('click',event=>{if(event.target===productDialog)productDialog.close();});
  function resetFilters(){query.value='';category.value='';sort.value='featured';shortcuts.forEach(button=>button.classList.remove('active'));render();}
  query.addEventListener('input',render);category.addEventListener('change',()=>{shortcuts.forEach(button=>button.classList.toggle('active',button.dataset.category===category.value));render();});sort.addEventListener('change',render);clear.addEventListener('click',resetFilters);
  shortcuts.forEach(button=>button.addEventListener('click',()=>{category.value=button.dataset.category;shortcuts.forEach(item=>item.classList.toggle('active',item===button));render();}));
