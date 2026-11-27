@@ -349,55 +349,73 @@
   "conditions": [
     {
       "id": "hot",
-      "label": "Hot temperatures"
+      "label": "Hot temperatures",
+      "planner_label": "hot"
     },
     {
       "id": "cold",
-      "label": "Cold temperatures"
+      "label": "Cold temperatures",
+      "planner_label": "cold"
     },
     {
       "id": "freezing",
-      "label": "Freezing temperatures"
+      "label": "Freezing temperatures",
+      "planner_label": "freezing"
     },
     {
       "id": "rain",
-      "label": "Rain"
+      "label": "Rain",
+      "planner_label": "rain"
     },
     {
       "id": "heavy-rain",
-      "label": "Heavy rain"
+      "label": "Heavy rain",
+      "planner_label": "heavy-rain"
     },
     {
       "id": "wind",
-      "label": "Wind"
+      "label": "Wind",
+      "planner_label": "wind"
     },
     {
       "id": "high-wind",
-      "label": "High wind"
+      "label": "High wind",
+      "planner_label": "high-wind"
     },
     {
       "id": "snow",
-      "label": "Snow"
+      "label": "Snow",
+      "planner_label": "snow"
     },
     {
       "id": "sun-exposure",
-      "label": "Intense sun exposure"
+      "label": "Intense sun exposure",
+      "planner_label": "sun-exposure"
     },
     {
       "id": "dust",
-      "label": "Dust"
+      "label": "Dust",
+      "planner_label": "dust"
     },
     {
       "id": "humidity",
-      "label": "High humidity"
+      "label": "High humidity",
+      "planner_label": "humidity"
     },
     {
       "id": "saltwater",
-      "label": "Saltwater exposure"
+      "label": "Saltwater exposure",
+      "planner_label": "saltwater"
     },
     {
       "id": "all-season",
-      "label": "All-season (verified)"
+      "label": "All-season (verified)",
+      "planner_label": "all-season"
+    },
+    {
+      "id": "humid",
+      "label": "Humid conditions",
+      "planner_label": "humid"
     }
   ],
   "product_data_rules": [
@@ -427,6 +445,6 @@
     "fit_review_source": "HTTPS manufacturer specification, manual, or authoritative product documentation.",
     "environment_fit": "Array of exact planner_label strings from environments[].planner_label (e.g. Desert, Mountain / alpine, Forest / rainforest, River / lake) or all-environments. The planner compares these labels exactly.",
     "activity_fit": "Array of exact planner_label strings from activities[].planner_label (e.g. Hiking, Camping). The planner compares these labels exactly.",
-    "condition_fit": "Array of exact planner condition strings used by the trip planner (e.g. hot, cold, rain, wind, snow, humid) or all-season. Confirm the current planner condition vocabulary before assigning values."
+    "condition_fit": "Array of exact condition IDs currently emitted by the planner (hot, cold, rain, wind, humid), plus any future condition IDs only after the planner supports them, or all-season."
   }
 }
