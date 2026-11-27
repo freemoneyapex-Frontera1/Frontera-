@@ -44,16 +44,28 @@
             "enum": [
               "shelter",
               "sleep",
+              "apparel",
+              "footwear",
               "cook",
+              "water",
               "trail",
               "light",
-              "water",
-              "food",
+              "power",
+              "navigation",
+              "safety",
               "offroad",
-              "marine",
               "vehicles",
-              "apparel",
+              "storage",
+              "marine",
+              "fishing",
+              "food",
               "other"
+            ]
+          },
+          "subcategory": {
+            "type": [
+              "string",
+              "null"
             ]
           },
           "url": {
@@ -117,8 +129,102 @@
           },
           "featured": {
             "type": "boolean"
+          },
+          "supplier": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_feed": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fit_review_status": {
+            "type": "string",
+            "enum": [
+              "unreviewed",
+              "needs-more-evidence",
+              "verified",
+              "not-suitable"
+            ]
+          },
+          "fit_reviewed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "fit_review_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "environment_fit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "activity_fit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "condition_fit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fit_notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "manufacturer_specs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
           }
         },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "fit_review_status": {
+                  "const": "verified"
+                }
+              },
+              "required": [
+                "fit_review_status"
+              ]
+            },
+            "then": {
+              "required": [
+                "fit_reviewed_at",
+                "fit_review_source",
+                "environment_fit",
+                "activity_fit",
+                "condition_fit"
+              ]
+            }
+          }
+        ],
         "additionalProperties": false
       }
     }
