@@ -204,7 +204,35 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": true
+      "featured": true,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/180-degree-awning",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "sun-exposure"
+      ],
+      "fit_notes": [
+        "Manufacturer describes vehicle-side shade coverage and UV/heat protection; condition fit is limited to sun exposure.",
+        "No quantified wind-speed limit or waterproof rating was published in the reviewed product details; do not recommend as storm shelter or for high-wind exposure.",
+        "Confirm vehicle/rack mounting compatibility and use the supplied support poles and stakes as instructed."
+      ],
+      "manufacturer_specs": {
+        "coverage_degrees": 180,
+        "coverage_area_sq_ft": 100,
+        "packed_dimensions_in": "94.5 × 8.7 × 6.7",
+        "net_weight_lb": 54,
+        "material": "180gsm waterproof ripstop polyester with blackout coating",
+        "frame": "Reinforced 4-arm structure; four retractable aluminum support poles",
+        "features": "Integrated LED lighting; manufacturer-stated UV and heat protection",
+        "warranty": "2-year limited warranty"
+      }
     },
     {
       "name": "5 in 1 ultimate overlanding bundle - Galaxy Pro / Driver Side (With Mat) / Galaxy Pro",
@@ -712,7 +740,33 @@
         "Camping",
         "Overlanding"
       ],
-      "featured": false
+      "featured": false,
+      "fit_review_status": "verified",
+      "fit_reviewed_at": "2026-11-27",
+      "fit_review_source": "https://topoakoverland.com/products/180-degree-awning-room",
+      "environment_fit": [
+        "Overlanding / off-road"
+      ],
+      "activity_fit": [
+        "Camping",
+        "Overlanding"
+      ],
+      "condition_fit": [
+        "sun-exposure"
+      ],
+      "fit_notes": [
+        "Complete vehicle-side awning and wall enclosure; manufacturer says the walls add privacy, reduce wind exposure and block low-angle side sun when closed.",
+        "No quantified wind-speed limit or waterproof rating was published in the reviewed product details; do not recommend as storm shelter or for high-wind exposure.",
+        "Verify the included awning configuration, floor-mat option and vehicle mounting compatibility before purchase."
+      ],
+      "manufacturer_specs": {
+        "coverage_degrees": 180,
+        "overall_dimensions_in": "303 × 140 × 80",
+        "net_weight_lb": "79.81 without floor mat; 100.09 with floor mat",
+        "material": "420D ripstop Oxford fabric",
+        "configuration": "Awning plus full wall enclosure; floor mat is a selectable option",
+        "warranty": "1-year limited warranty"
+      }
     }
   ]
 }
