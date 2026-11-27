@@ -1,0 +1,414 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-27",
+  "purpose": "Shared taxonomy for the FRONTERA multi-environment outdoor marketplace. Catalog inclusion does not imply suitability for any environment or activity.",
+  "environments": [
+    {
+      "id": "desert-arid",
+      "label": "Desert & arid country",
+      "planner_label": "Desert",
+      "notes": "Hot and arid regions, high-desert terrain, intense sun, dust and potentially cold nights."
+    },
+    {
+      "id": "mountain-high-country",
+      "label": "Mountains & high country",
+      "planner_label": "Mountain / high country",
+      "notes": "Mountain terrain excluding assumptions that all trips are alpine or snow conditions."
+    },
+    {
+      "id": "alpine-snow",
+      "label": "Alpine & snow",
+      "planner_label": "Alpine / snow",
+      "notes": "Cold, exposed, high-elevation and snow environments; requires condition-specific verification."
+    },
+    {
+      "id": "forest-woodland",
+      "label": "Forest & woodland",
+      "planner_label": "Forest / woodland",
+      "notes": "Wooded environments with variable precipitation, ground conditions and insect exposure."
+    },
+    {
+      "id": "coast-beach",
+      "label": "Coast & beach",
+      "planner_label": "Coast / beach",
+      "notes": "Salt, sand, sun and coastal wind exposure."
+    },
+    {
+      "id": "river-lake",
+      "label": "Rivers & lakes",
+      "planner_label": "River / lake",
+      "notes": "Freshwater shorelines and water-based recreation; water safety is activity-specific."
+    },
+    {
+      "id": "overlanding-offroad",
+      "label": "Overlanding & off-road",
+      "planner_label": "Overlanding / off-road",
+      "notes": "Vehicle-supported travel, vehicle-mounted equipment and remote-road conditions."
+    },
+    {
+      "id": "all-environments",
+      "label": "Multi-environment",
+      "planner_label": "All environments",
+      "notes": "Use only when authoritative specifications support broad use; not a default value."
+    }
+  ],
+  "activities": [
+    {
+      "id": "camping",
+      "label": "Camping"
+    },
+    {
+      "id": "backpacking",
+      "label": "Backpacking"
+    },
+    {
+      "id": "hiking",
+      "label": "Hiking"
+    },
+    {
+      "id": "mountaineering",
+      "label": "Mountaineering"
+    },
+    {
+      "id": "winter-camping",
+      "label": "Winter camping"
+    },
+    {
+      "id": "snow-travel",
+      "label": "Snow travel"
+    },
+    {
+      "id": "overlanding",
+      "label": "Overlanding"
+    },
+    {
+      "id": "offroad-driving",
+      "label": "Off-road driving"
+    },
+    {
+      "id": "camp-cooking",
+      "label": "Camp cooking"
+    },
+    {
+      "id": "fishing",
+      "label": "Fishing"
+    },
+    {
+      "id": "paddling",
+      "label": "Paddling"
+    },
+    {
+      "id": "boating",
+      "label": "Boating"
+    },
+    {
+      "id": "beach-recreation",
+      "label": "Beach recreation"
+    },
+    {
+      "id": "climbing",
+      "label": "Climbing"
+    },
+    {
+      "id": "hunting",
+      "label": "Hunting"
+    },
+    {
+      "id": "cycling",
+      "label": "Cycling"
+    },
+    {
+      "id": "trail-running",
+      "label": "Trail running"
+    },
+    {
+      "id": "water-recreation",
+      "label": "Water recreation"
+    }
+  ],
+  "categories": [
+    {
+      "id": "shelter",
+      "label": "Shelter",
+      "subcategories": [
+        "backpacking tents",
+        "four-season tents",
+        "tarps",
+        "hammocks",
+        "rooftop tents",
+        "awnings",
+        "shelter accessories"
+      ]
+    },
+    {
+      "id": "sleep",
+      "label": "Sleep systems",
+      "subcategories": [
+        "sleeping bags",
+        "quilts",
+        "sleeping pads",
+        "camp beds",
+        "pillows",
+        "liners"
+      ]
+    },
+    {
+      "id": "apparel",
+      "label": "Apparel",
+      "subcategories": [
+        "base layers",
+        "insulation",
+        "rainwear",
+        "sunwear",
+        "shells",
+        "gloves",
+        "headwear"
+      ]
+    },
+    {
+      "id": "footwear",
+      "label": "Footwear",
+      "subcategories": [
+        "hiking boots",
+        "trail shoes",
+        "water shoes",
+        "winter boots",
+        "sandals",
+        "gaiters"
+      ]
+    },
+    {
+      "id": "cook",
+      "label": "Camp kitchen & cooking",
+      "subcategories": [
+        "stoves",
+        "cookware",
+        "utensils",
+        "grills",
+        "coffee",
+        "food storage",
+        "camp kitchen systems"
+      ]
+    },
+    {
+      "id": "water",
+      "label": "Hydration & water",
+      "subcategories": [
+        "water bottles",
+        "reservoirs",
+        "filters",
+        "purifiers",
+        "tanks",
+        "water storage",
+        "hydration accessories"
+      ]
+    },
+    {
+      "id": "trail",
+      "label": "Hiking & backpacking",
+      "subcategories": [
+        "packs",
+        "trekking poles",
+        "gaiters",
+        "trail accessories",
+        "load carriage"
+      ]
+    },
+    {
+      "id": "light",
+      "label": "Lighting",
+      "subcategories": [
+        "headlamps",
+        "lanterns",
+        "area lights",
+        "vehicle lights"
+      ]
+    },
+    {
+      "id": "power",
+      "label": "Power & electronics",
+      "subcategories": [
+        "power stations",
+        "batteries",
+        "solar panels",
+        "chargers",
+        "communications electronics"
+      ]
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation & communication",
+      "subcategories": [
+        "GPS",
+        "satellite communicators",
+        "compasses",
+        "maps",
+        "radios"
+      ]
+    },
+    {
+      "id": "safety",
+      "label": "Safety & emergency",
+      "subcategories": [
+        "first aid",
+        "emergency shelters",
+        "signaling",
+        "rescue equipment",
+        "personal flotation"
+      ]
+    },
+    {
+      "id": "offroad",
+      "label": "Off-road & recovery",
+      "subcategories": [
+        "recovery gear",
+        "vehicle-mounted accessories",
+        "air compressors",
+        "winches",
+        "traction boards"
+      ]
+    },
+    {
+      "id": "vehicles",
+      "label": "Vehicle systems & fitment",
+      "subcategories": [
+        "roof racks",
+        "mounts",
+        "vehicle storage",
+        "vehicle compatibility",
+        "installation hardware"
+      ]
+    },
+    {
+      "id": "storage",
+      "label": "Storage & organization",
+      "subcategories": [
+        "dry bags",
+        "duffels",
+        "cases",
+        "camp storage",
+        "vehicle storage"
+      ]
+    },
+    {
+      "id": "marine",
+      "label": "Marine & paddling",
+      "subcategories": [
+        "kayaks",
+        "paddleboards",
+        "paddles",
+        "dry storage",
+        "marine accessories"
+      ]
+    },
+    {
+      "id": "fishing",
+      "label": "Fishing",
+      "subcategories": [
+        "rods",
+        "reels",
+        "tackle",
+        "waders",
+        "nets",
+        "fishing accessories"
+      ]
+    },
+    {
+      "id": "food",
+      "label": "Camp food & supplies",
+      "subcategories": [
+        "shelf-stable meals",
+        "ingredients",
+        "food preparation supplies"
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Other outdoor equipment",
+      "subcategories": []
+    }
+  ],
+  "conditions": [
+    {
+      "id": "hot",
+      "label": "Hot temperatures"
+    },
+    {
+      "id": "cold",
+      "label": "Cold temperatures"
+    },
+    {
+      "id": "freezing",
+      "label": "Freezing temperatures"
+    },
+    {
+      "id": "rain",
+      "label": "Rain"
+    },
+    {
+      "id": "heavy-rain",
+      "label": "Heavy rain"
+    },
+    {
+      "id": "wind",
+      "label": "Wind"
+    },
+    {
+      "id": "high-wind",
+      "label": "High wind"
+    },
+    {
+      "id": "snow",
+      "label": "Snow"
+    },
+    {
+      "id": "sun-exposure",
+      "label": "Intense sun exposure"
+    },
+    {
+      "id": "dust",
+      "label": "Dust"
+    },
+    {
+      "id": "humidity",
+      "label": "High humidity"
+    },
+    {
+      "id": "saltwater",
+      "label": "Saltwater exposure"
+    },
+    {
+      "id": "all-season",
+      "label": "All-season (verified)"
+    }
+  ],
+  "product_data_rules": [
+    "Retailer-supplied facts such as price, stock and images must remain distinct from FRONTERA suitability assessments.",
+    "Products may be listed in the general catalog without verified environment or activity fit.",
+    "Only fit_review_status=verified products may be recommended by the trip planner.",
+    "Verification requires a review date, an HTTPS source, and evidence supporting every assigned environment, activity and condition.",
+    "Do not infer temperature, waterproofness, wind rating, UV protection, vehicle compatibility, flotation or safety ratings from product titles, images or category.",
+    "Use all-environments only when authoritative evidence supports the breadth of the claim.",
+    "If a required specification is unavailable, leave that fit unverified and explain the limitation rather than guessing.",
+    "Vehicle-mounted products require compatibility and installation constraints to be recorded before vehicle-specific recommendations."
+  ],
+  "fit_metadata_contract": {
+    "fit_review_status": [
+      "unreviewed",
+      "needs-more-evidence",
+      "verified",
+      "not-suitable"
+    ],
+    "required_when_verified": [
+      "fit_reviewed_at",
+      "fit_review_source",
+      "environment_fit",
+      "activity_fit",
+      "condition_fit"
+    ],
+    "fit_review_source": "HTTPS manufacturer specification, manual, or authoritative product documentation.",
+    "environment_fit": "Array of environment IDs from environments[].id.",
+    "activity_fit": "Array of activity IDs from activities[].id.",
+    "condition_fit": "Array of condition IDs from conditions[].id."
+  }
+}
