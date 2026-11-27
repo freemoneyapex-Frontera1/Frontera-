@@ -55,75 +55,93 @@
   "activities": [
     {
       "id": "camping",
-      "label": "Camping"
+      "label": "Camping",
+      "planner_label": "Camping"
     },
     {
       "id": "backpacking",
-      "label": "Backpacking"
+      "label": "Backpacking",
+      "planner_label": "Backpacking"
     },
     {
       "id": "hiking",
-      "label": "Hiking"
+      "label": "Hiking",
+      "planner_label": "Hiking"
     },
     {
       "id": "mountaineering",
-      "label": "Mountaineering"
+      "label": "Mountaineering",
+      "planner_label": "Mountaineering"
     },
     {
       "id": "winter-camping",
-      "label": "Winter camping"
+      "label": "Winter camping",
+      "planner_label": "Winter camping"
     },
     {
       "id": "snow-travel",
-      "label": "Snow travel"
+      "label": "Snow travel",
+      "planner_label": "Snow travel"
     },
     {
       "id": "overlanding",
-      "label": "Overlanding"
+      "label": "Overlanding",
+      "planner_label": "Overlanding"
     },
     {
       "id": "offroad-driving",
-      "label": "Off-road driving"
+      "label": "Off-road driving",
+      "planner_label": "Off-road driving"
     },
     {
       "id": "camp-cooking",
-      "label": "Camp cooking"
+      "label": "Camp cooking",
+      "planner_label": "Camp cooking"
     },
     {
       "id": "fishing",
-      "label": "Fishing"
+      "label": "Fishing",
+      "planner_label": "Fishing"
     },
     {
       "id": "paddling",
-      "label": "Paddling"
+      "label": "Paddling",
+      "planner_label": "Paddling"
     },
     {
       "id": "boating",
-      "label": "Boating"
+      "label": "Boating",
+      "planner_label": "Boating"
     },
     {
       "id": "beach-recreation",
-      "label": "Beach recreation"
+      "label": "Beach recreation",
+      "planner_label": "Beach recreation"
     },
     {
       "id": "climbing",
-      "label": "Climbing"
+      "label": "Climbing",
+      "planner_label": "Climbing"
     },
     {
       "id": "hunting",
-      "label": "Hunting"
+      "label": "Hunting",
+      "planner_label": "Hunting"
     },
     {
       "id": "cycling",
-      "label": "Cycling"
+      "label": "Cycling",
+      "planner_label": "Cycling"
     },
     {
       "id": "trail-running",
-      "label": "Trail running"
+      "label": "Trail running",
+      "planner_label": "Trail running"
     },
     {
       "id": "water-recreation",
-      "label": "Water recreation"
+      "label": "Water recreation",
+      "planner_label": "Water recreation"
     }
   ],
   "categories": [
@@ -407,8 +425,8 @@
       "condition_fit"
     ],
     "fit_review_source": "HTTPS manufacturer specification, manual, or authoritative product documentation.",
-    "environment_fit": "Array of environment IDs from environments[].id.",
-    "activity_fit": "Array of activity IDs from activities[].id.",
-    "condition_fit": "Array of condition IDs from conditions[].id."
+    "environment_fit": "Array of exact planner_label strings from environments[].planner_label (e.g. Desert, Mountain / alpine, Forest / rainforest, River / lake) or all-environments. The planner compares these labels exactly.",
+    "activity_fit": "Array of exact planner_label strings from activities[].planner_label (e.g. Hiking, Camping). The planner compares these labels exactly.",
+    "condition_fit": "Array of exact planner condition strings used by the trip planner (e.g. hot, cold, rain, wind, snow, humid) or all-season. Confirm the current planner condition vocabulary before assigning values."
   }
 }
