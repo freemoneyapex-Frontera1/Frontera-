@@ -547,6 +547,28 @@ guideButtons.forEach(button=>button.addEventListener('click',()=>{guideCategory=
 guideSearch.addEventListener('input',filterGuides);
 document.querySelector('.search button').addEventListener('click',filterGuides);
 
+async function loadFronteraCatalog(){
+ const baseResponse=await fetch('./data/products.json',{cache:'no-store'});
+ if(!baseResponse.ok)throw new Error('Main catalog unavailable');
+ const baseData=await baseResponse.json();
+ const base=Array.isArray(baseData)?baseData:(Array.isArray(baseData.products)?baseData.products:[]);
+ const feedResponse=await fetch('./data/topoak-products.json.gz',{cache:'no-store'});
+ if(!feedResponse.ok)throw new Error('TopOak feed archive unavailable');
+ if(!('DecompressionStream' in window))throw new Error('This browser cannot expand the partner feed archive');
+ const compressed=await feedResponse.arrayBuffer();
+ const stream=new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
+ const feedData=await new Response(stream).json();
+ const extras=Array.isArray(feedData.products)?feedData.products:[];
+ const key=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+ const seen=new Set(),merged=[];
+ for(const product of [...base,...extras]){
+  const id=key(product.name);
+  if(!id||seen.has(id))continue;
+  seen.add(id);merged.push(product);
+ }
+ return merged;
+}
+
 async function loadFronteraProducts(){
  const grid=document.getElementById('product-grid'),count=document.getElementById('product-count'),updated=document.getElementById('catalog-updated');
  const query=document.getElementById('product-search'),category=document.getElementById('product-category'),sort=document.getElementById('product-sort');
@@ -601,7 +623,7 @@ async function loadFronteraProducts(){
  function resetFilters(){query.value='';category.value='';sort.value='featured';shortcuts.forEach(button=>button.classList.remove('active'));render();}
  query.addEventListener('input',render);category.addEventListener('change',()=>{shortcuts.forEach(button=>button.classList.toggle('active',button.dataset.category===category.value));render();});sort.addEventListener('change',render);clear.addEventListener('click',resetFilters);
  shortcuts.forEach(button=>button.addEventListener('click',()=>{category.value=button.dataset.category;shortcuts.forEach(item=>item.classList.toggle('active',item===button));render();}));
- try{const response=await fetch('./data/products.json',{cache:'no-store'});if(!response.ok)throw new Error('Catalog request failed');const data=await response.json();products=Array.isArray(data)?data:(Array.isArray(data.products)?data.products:[]);const latest=data.updated_at||products.map(item=>item.updated_at).filter(Boolean).sort().pop();updated.textContent=latest?'Catalog last updated: '+new Date(latest).toLocaleDateString():'Awaiting approved partner product feeds';render();syncCompareUI();}
+ try{products=await loadFronteraCatalog();const latest=products.map(item=>item.updated_at).filter(Boolean).sort().pop();updated.textContent=latest?'Catalog last updated: '+new Date(latest).toLocaleDateString():'Awaiting approved partner product feeds';render();syncCompareUI();}
  catch(error){count.textContent='Catalog temporarily unavailable';updated.textContent='Please try again later';grid.innerHTML='<div class="product-empty"><strong>We hit a temporary snag.</strong><p>The product directory could not load right now. Please try again shortly or explore the field guide while we restore it.</p><div class="product-empty-actions"><a href="#gear">Explore the gear guide ↗</a></div></div>';}
 }
 
@@ -646,6 +668,19 @@ async function loadFronteraProducts(){
  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const dateAdd=(date,days)=>{const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+days);return d.toISOString().slice(0,10);};
  const dateLabel=value=>new Date(value+'T12:00:00').toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});
+ function renderForecast(data,place,start,end){
+  const days=Array.isArray(data.days)?data.days:[];
+  const max=d=>Math.round(Number(d)||0);
+  const values=days.map(d=>Number(d.tempmax)).filter(Number.isFinite);
+  const lows=days.map(d=>Number(d.tempmin)).filter(Number.isFinite);
+  const rain=Math.max(0,...days.map(d=>Number(d.precipprob)||0));
+  const wind=Math.max(0,...days.map(d=>Number(d.windspeed)||0));
+  status.textContent='Forecast for '+place+' · '+dateLabel(start)+' – '+dateLabel(end);
+  const summary='<div class="forecast-cards"><div class="forecast-day"><div><strong>'+(lows.length?Math.min(...lows):'—')+'°</strong><span>Lowest expected temperature</span></div><div><strong>'+(values.length?Math.max(...values):'—')+'°</strong><span>Highest expected temperature</span></div></div><div class="forecast-day"><div><strong>'+max(rain)+'%</strong><span>Peak daily rain chance</span></div><div><strong>'+max(wind)+' mph</strong><span>Peak daily wind</span></div></div></div>';
+  const daily='<div class="forecast-days">'+days.map(d=>'<div class="forecast-day"><div><strong>'+dateLabel(d.datetime)+'</strong><span>'+esc(d.conditions||'Daily conditions unavailable')+'</span></div><div><strong>'+max(d.tempmin)+'° / '+max(d.tempmax)+'°</strong><span>Rain '+max(d.precipprob)+'% · Wind '+max(d.windspeed)+' mph</span></div></div>').join('')+'</div>';
+  forecast.className='';forecast.innerHTML=summary+daily;attribution.hidden=false;
+ }
+
  const cache=new Map();
  async function getForecast(location,start,end){
   const key=[location.toLowerCase(),start,end].join('|');
@@ -709,7 +744,7 @@ async function renderExpeditionInventory(plan,activities,terrain){
  const has=(list,value)=>Array.isArray(list)&&list.some(item=>clean(item)===clean(value));
  try{
   const response=await fetch('./data/products.json',{cache:'no-store'});if(!response.ok)throw new Error('Inventory feed unavailable');
-  const data=await response.json(),products=Array.isArray(data)?data:(Array.isArray(data.products)?data.products:[]);
+  const products=await loadFronteraCatalog();
   const ranked=products.filter(p=>{
    // Fail closed: a product is eligible only after a human review has verified
    // its environment, activity and forecast-condition suitability against a source.
