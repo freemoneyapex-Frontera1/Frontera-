@@ -365,6 +365,7 @@
     "Keep retail facts, network approval status, feed access and FRONTERA fit verification as separate fields.",
     "Only manufacturer-verified specifications may support trip-planner suitability claims.",
     "Recheck commission, attribution, permitted traffic sources, brand bidding restrictions, feed terms and program status inside the live network account before activation.",
-    "Classify off-road inventory by its actual function (tires, suspension, protection, recovery, air management, power, lighting, tools); do not classify a rooftop tent or generic mounting bracket as recovery equipment."
+    "Classify off-road inventory by its actual function (tires, suspension, protection, recovery, air management, power, lighting, tools); do not classify a rooftop tent or generic mounting bracket as recovery equipment.",
+    "TopOak inventory is classified as shelter or vehicle fitment based on the actual product title; TopOak tent, awning, rack and bracket listings must not appear under Off-road driving & recovery unless a product is specifically documented as recovery equipment."
   ]
 }
