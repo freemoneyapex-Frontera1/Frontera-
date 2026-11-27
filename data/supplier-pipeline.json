@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated_at": "2026-11-27",
-  "purpose": "FRONTERA supplier discovery pipeline. Entries are research leads only; listing a supplier here does not mean FRONTERA has applied, been approved, or has permission to use product feeds or affiliate links.",
+  "purpose": "FRONTERA supplier discovery pipeline. Entries are research leads only; listing a supplier here does not mean FRONTERA has applied, been approved, or has permission to use product feeds or affiliate links. Off-road supplier discovery now prioritizes actual vehicle modification, tire management, recovery, protection, power and trail-support equipment; rooftop tents remain shelter products, not off-road recovery products.",
   "statuses": [
     "research-lead",
     "application-ready",
@@ -158,6 +158,205 @@
       "feed_status": "not-confirmed",
       "fit_review_status": "not-started",
       "next_action": "Hold for additional merchant and brand due diligence; do not prioritize until claims and product quality are verified."
+    },
+    {
+      "id": "arb-usa",
+      "name": "ARB USA",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "network_merchant_id": null,
+      "official_affiliate_url": "https://arbusa.com/affiliates",
+      "application_url": "https://arbusa.com/affiliates",
+      "catalog_lanes": [
+        "offroad",
+        "vehicles",
+        "power",
+        "safety"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "forest-woodland",
+        "overlanding-offroad"
+      ],
+      "evidence_notes": [
+        "Official affiliate page states 3–5% commission depending on publisher and a 30-day attribution window.",
+        "Product range includes air lockers, bull bars, recovery equipment and suspension systems.",
+        "AvantLink publisher verification is still pending; apply only after verification and confirm feed access."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Apply after AvantLink publisher verification; inspect product-feed and data-use terms."
+    },
+    {
+      "id": "rhino-usa",
+      "name": "Rhino USA",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "network_merchant_id": "28237",
+      "official_affiliate_url": "https://www.rhinousainc.com/pages/affiliate-program",
+      "application_url": "https://www.avantlink.com/programs/28237/",
+      "catalog_lanes": [
+        "offroad",
+        "safety",
+        "vehicles"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "forest-woodland",
+        "overlanding-offroad"
+      ],
+      "evidence_notes": [
+        "Official brand page directs applicants to AvantLink.",
+        "AvantLink program listing describes recovery gear, tire gauges and tie-down straps; commission shown as 7–10% and cookie duration as 7 days on the listing."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Apply after AvantLink publisher verification; confirm current commission, cookie and feed availability in account."
+    },
+    {
+      "id": "morrflate",
+      "name": "MORRFlate",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "network_merchant_id": null,
+      "official_affiliate_url": "https://morrflate.com/pages/affiliates",
+      "application_url": "https://morrflate.com/pages/affiliates",
+      "catalog_lanes": [
+        "offroad",
+        "vehicles"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "overlanding-offroad"
+      ],
+      "evidence_notes": [
+        "Official affiliate page states 5% commission and a 30-day cookie.",
+        "Specializes in multi-tire air management and tire inflation/deflation equipment.",
+        "AvantLink publisher verification remains pending; merchant ID/feed access must be confirmed."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Apply after AvantLink publisher verification; confirm merchant ID and feed access."
+    },
+    {
+      "id": "waterport",
+      "name": "WaterPORT",
+      "status": "application-ready",
+      "network": "AvantLink",
+      "network_merchant_id": null,
+      "official_affiliate_url": "https://waterport.com/pages/affiliate-program",
+      "application_url": "https://waterport.com/pages/affiliate-program",
+      "catalog_lanes": [
+        "water",
+        "vehicles",
+        "offroad"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "coast-beach",
+        "overlanding-offroad"
+      ],
+      "evidence_notes": [
+        "Official affiliate page states 5–10% commission and a 30-day cookie.",
+        "Products include vehicle-mounted water tanks and portable pressurized water systems.",
+        "AvantLink publisher verification remains pending; feed availability must be confirmed."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Apply after AvantLink publisher verification; confirm merchant program and product feed."
+    },
+    {
+      "id": "patagonia",
+      "name": "Patagonia",
+      "status": "research-lead",
+      "network": "Impact (confirm account listing)",
+      "network_merchant_id": null,
+      "official_affiliate_url": "https://www.patagonia.com/affiliates.html",
+      "application_url": "https://www.patagonia.com/affiliates.html",
+      "catalog_lanes": [
+        "apparel",
+        "footwear",
+        "trail",
+        "sleep",
+        "shelter"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "alpine-snow",
+        "forest-woodland",
+        "coast-beach"
+      ],
+      "evidence_notes": [
+        "Official affiliate page advertises an automated product feed and 8% base commission for content publishers.",
+        "Official page directs publishers to an Impact application; exact program listing and feed terms must be confirmed."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Review application requirements and confirm product feed access in the network."
+    },
+    {
+      "id": "solo-stove",
+      "name": "Solo Stove",
+      "status": "research-lead",
+      "network": "To confirm",
+      "network_merchant_id": null,
+      "official_affiliate_url": "https://www.solostove.com/us/en-us/s/affiliate-program",
+      "application_url": "https://www.solostove.com/us/en-us/s/affiliate-program",
+      "catalog_lanes": [
+        "cook",
+        "safety",
+        "other"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "forest-woodland",
+        "coast-beach"
+      ],
+      "evidence_notes": [
+        "Official affiliate page welcomes outdoor, camping, cooking, hiking and adventure publishers.",
+        "Network, product feed availability, fire-safety restrictions and commission terms need confirmation."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Confirm affiliate network and feed access; review fire restrictions and product claims before import."
+    },
+    {
+      "id": "backcountry",
+      "name": "Backcountry",
+      "status": "research-lead",
+      "network": "To confirm",
+      "network_merchant_id": null,
+      "official_affiliate_url": "https://www.backcountry.com/info/affiliate-program",
+      "application_url": "https://www.backcountry.com/info/affiliate-program",
+      "catalog_lanes": [
+        "apparel",
+        "footwear",
+        "trail",
+        "sleep",
+        "shelter",
+        "cook",
+        "water"
+      ],
+      "environments_to_review": [
+        "desert-arid",
+        "mountain-high-country",
+        "alpine-snow",
+        "forest-woodland",
+        "coast-beach"
+      ],
+      "evidence_notes": [
+        "Official affiliate page advertises a product data feed, 30-day cookie, banners and dedicated program management.",
+        "Network and exact application terms need confirmation in the publisher account."
+      ],
+      "feed_status": "not-confirmed",
+      "fit_review_status": "not-started",
+      "next_action": "Confirm network and product feed terms; apply if available and suitable."
     }
   ],
   "import_rules": [
@@ -165,6 +364,7 @@
     "Do not treat affiliate program existence as evidence of product quality or technical suitability.",
     "Keep retail facts, network approval status, feed access and FRONTERA fit verification as separate fields.",
     "Only manufacturer-verified specifications may support trip-planner suitability claims.",
-    "Recheck commission, attribution, permitted traffic sources, brand bidding restrictions, feed terms and program status inside the live network account before activation."
+    "Recheck commission, attribution, permitted traffic sources, brand bidding restrictions, feed terms and program status inside the live network account before activation.",
+    "Classify off-road inventory by its actual function (tires, suspension, protection, recovery, air management, power, lighting, tools); do not classify a rooftop tent or generic mounting bracket as recovery equipment."
   ]
 }
