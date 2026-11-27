@@ -552,13 +552,22 @@ async function loadFronteraCatalog(){
  if(!baseResponse.ok)throw new Error('Main catalog unavailable');
  const baseData=await baseResponse.json();
  const base=Array.isArray(baseData)?baseData:(Array.isArray(baseData.products)?baseData.products:[]);
- const feedResponse=await fetch('./data/topoak-products.json.gz',{cache:'no-store'});
- if(!feedResponse.ok)throw new Error('TopOak feed archive unavailable');
+ const feedResponse=await fetch('./data/topoak-products.b64',{cache:'no-store'});
+ if(!feedResponse.ok)throw new Error('TopOak feed archive unavailable ('+feedResponse.status+')');
+ const encoded=(await feedResponse.text()).trim();
+ const binary=atob(encoded),bytes=new Uint8Array(binary.length);
+ for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
  if(!('DecompressionStream' in window))throw new Error('This browser cannot expand the partner feed archive');
- const compressed=await feedResponse.arrayBuffer();
- const stream=new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
- const feedData=await new Response(stream).json();
- const extras=Array.isArray(feedData.products)?feedData.products:[];
+ const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+ const rows=await new Response(stream).json();
+ const extras=rows.map(row=>({
+  name:row[0],category:row[1],url:row[2],price:row[3],image:row[4],
+  brand:'TopOak',
+  description:'Product details and compatibility information are provided by TopOak Overland. Review the retailer listing for full specifications, vehicle fitment, installation requirements, and current availability.',
+  availability:'In stock',updated_at:'2026-11-26',
+  tags:['overlanding gear','camping gear'],
+  activities:['Camping','Overlanding']
+ }));
  const key=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
  const seen=new Set(),merged=[];
  for(const product of [...base,...extras]){
@@ -568,7 +577,6 @@ async function loadFronteraCatalog(){
  }
  return merged;
 }
-
 async function loadFronteraProducts(){
  const grid=document.getElementById('product-grid'),count=document.getElementById('product-count'),updated=document.getElementById('catalog-updated');
  const query=document.getElementById('product-search'),category=document.getElementById('product-category'),sort=document.getElementById('product-sort');
