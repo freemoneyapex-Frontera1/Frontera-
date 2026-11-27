@@ -18,8 +18,10 @@ This is a repository-level audit, not a successful end-to-end browser or product
 ## Catalog and recommendation data
 
 - Development branch contains a base `data/products.json` catalog with 26 products, updated 26 November 2026.
-- In that 26-product base file, 0 products currently have `fit_review_status: verified`; all 26 have no fit-review status set.
-- Development branch also contains `data/topoak-products.b64`, a compressed feed-derived product dataset. Earlier import processing reported 128 in-stock TopOak products. This audit did not decode and independently recount the compressed payload.
+- The 26-product base file now has 7 verified rooftop-tent variants and 19 products still awaiting review.
+- The first verified batch covers Vision (63/75 in), Stellar, Galaxy Pro, Nebula and Galaxy Light (51/56 in). Manufacturer-published dimensions, weights, occupancy, fabric/waterproof ratings and crossbar requirements were recorded where available.
+- The 7 tent records are marked for vehicle-supported camping/overlanding and manufacturer-stated 4-season use. FRONTERA notes explicitly state that the season rating is manufacturer-provided, not an independent field test, and that vehicle/rack compatibility must be checked. No unsupported wind-speed or storm-safety claims were added.
+- Development branch also contains `data/topoak-products.b64`, a compressed feed-derived product dataset. Earlier import processing reported 128 in-stock TopOak products; the site loader merges this feed with the 26-product base catalog and keeps base records first when product names match. The compressed payload was not independently recounted during this update.
 - Product schema supports manufacturer specifications, fit-review status/source/date, environment/activity/condition fit, and comparison assessments.
 - Taxonomy defines 8 environments, 18 activities and 18 categories.
 - The recommendation filter is designed to exclude unverified products from expedition-specific matches. The catalog can be broad while the recommendation set remains narrow and evidence-based.
@@ -41,7 +43,7 @@ These records are research leads, not confirmed approvals. TopOak is a separate 
 1. Confirm GitHub Pages deployment source and verify which branch/version is actually served at the public URL.
 2. Run a fresh mobile and desktop browser smoke test against the production URL and the development preview.
 3. Reconcile base products and compressed TopOak feed: count, duplicates, stock, prices, image coverage, retailer URLs and affiliate tracking.
-4. Verify product fit for a focused first batch across multiple categories using manufacturer or authoritative specifications.
+4. Continue product-fit review in category batches: awnings/shelters next, then vehicle accessories, water storage, sleep accessories and camp furniture. Use manufacturer or authoritative specifications.
 5. Keep unverified products out of expedition-specific recommendations; explain empty results clearly.
 6. Complete AvantLink website ownership verification and inspect merchant terms before applying.
 7. Confirm supplier approval, feed permission and tracking separately before any additional import.
