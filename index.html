@@ -582,14 +582,34 @@ async function loadFronteraCatalog(){
  if(!('DecompressionStream' in window))throw new Error('This browser cannot expand the partner feed archive');
  const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
  const rows=await new Response(stream).json();
- const extras=rows.map(row=>({
-  name:row[0],category:row[1],url:row[2],price:row[3],image:row[4],
+ const classifyTopOak=(row)=>{
+  const name=String(row[0]||'').toLowerCase();
+  if(/rooftop tent|\btent\b|awning|annex|shower room|tent room|overlanding bundle/.test(name))return 'shelter';
+  if(/mattress|sleeping|insulation liner|thermal liner/.test(name))return 'sleep';
+  if(/water tank|water storage|water container/.test(name))return 'water';
+  if(/led|light bar|lighting/.test(name))return 'light';
+  if(/rack|roof bar|crossbar|bracket|mount|ladder|clamp|adapter|hardware|rail/.test(name))return 'vehicles';
+  // TopOak's feed is shelter and vehicle-fitment inventory, not a verified recovery-gear source.
+  return row[1]==='offroad'?'vehicles':(row[1]||'other');
+ };
+ const topOakSubcategory=(row,category)=>{
+  const name=String(row[0]||'').toLowerCase();
+  if(category==='vehicles'&&/rack|roof bar|crossbar/.test(name))return 'roof racks';
+  if(category==='vehicles'&&/bracket|mount|ladder|clamp|adapter|hardware|rail/.test(name))return 'installation hardware';
+  if(category==='shelter'&&/awning/.test(name))return 'awnings';
+  if(category==='shelter'&&/tent/.test(name))return 'rooftop tents';
+  return undefined;
+ };
+ const extras=rows.map(row=>{
+  const category=classifyTopOak(row);
+  return {
+  name:row[0],category,subcategory:topOakSubcategory(row,category),url:row[2],price:row[3],image:row[4],
   brand:'TopOak',
   description:row[5]||'Product details and compatibility information are provided by TopOak Overland. Review the retailer listing for full specifications, vehicle fitment, installation requirements, and current availability.',
   availability:'In stock',updated_at:'2026-11-26',
   tags:['overlanding gear','camping gear'],
   activities:['Camping','Overlanding']
- }));
+ };});
  const key=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
  const seen=new Set(),merged=[];
  for(const product of [...base,...extras]){
