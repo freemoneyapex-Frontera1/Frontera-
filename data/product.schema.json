@@ -200,6 +200,59 @@
                 "null"
               ]
             }
+          },
+          "comparison_assessment": {
+            "type": "object",
+            "description": "Source-backed FRONTERA assessment used for transparent comparison recommendations. Do not populate without a documented review.",
+            "required": [
+              "value_score",
+              "quality_tier",
+              "summary",
+              "reviewed_at",
+              "source"
+            ],
+            "properties": {
+              "value_score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "quality_tier": {
+                "type": "string",
+                "enum": [
+                  "basic",
+                  "standard",
+                  "premium",
+                  "professional"
+                ]
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "strengths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "tradeoffs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reviewed_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "source": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "allOf": [
