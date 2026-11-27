@@ -563,7 +563,7 @@ async function loadFronteraCatalog(){
  const extras=rows.map(row=>({
   name:row[0],category:row[1],url:row[2],price:row[3],image:row[4],
   brand:'TopOak',
-  description:'Product details and compatibility information are provided by TopOak Overland. Review the retailer listing for full specifications, vehicle fitment, installation requirements, and current availability.',
+  description:row[5]||'Product details and compatibility information are provided by TopOak Overland. Review the retailer listing for full specifications, vehicle fitment, installation requirements, and current availability.',
   availability:'In stock',updated_at:'2026-11-26',
   tags:['overlanding gear','camping gear'],
   activities:['Camping','Overlanding']
