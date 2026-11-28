@@ -610,6 +610,40 @@ async function loadFronteraCatalog(){
   tags:['overlanding gear','camping gear'],
   activities:['Camping','Overlanding']
  };});
+ // Load additional approved merchant feeds independently. A failed partner feed
+ // is skipped without affecting TopOak or any other merchant.
+ const manifestResponse=await fetch('./data/partner-feeds/manifest.json',{cache:'no-store'});
+ if(manifestResponse.ok){
+  const manifest=await manifestResponse.json();
+  const partners=Array.isArray(manifest.partners)?manifest.partners:[];
+  const allowedCategories=new Set(['shelter','sleep','apparel','footwear','cook','water','trail','light','power','navigation','safety','offroad','vehicles','storage','marine','fishing','food','other']);
+  const partnerResults=await Promise.all(partners.map(async partner=>{
+   const brand=String(partner.brand||'').trim();
+   const path=String(partner.feed||'').trim();
+   if(!brand||!/^\.\/data\/partner-feeds\/[a-z0-9-]+\.json$/i.test(path))return [];
+   try{
+    const response=await fetch(path,{cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const payload=await response.json();
+    const records=Array.isArray(payload)?payload:(Array.isArray(payload.products)?payload.products:[]);
+    return records.filter(product=>{
+     if(!product||!String(product.name||'').trim())return false;
+     try{if(new URL(product.url).protocol!=='https:')return false;}catch{return false;}
+     return true;
+    }).map(product=>({
+     ...product,
+     brand,
+     category:allowedCategories.has(product.category)?product.category:'other',
+     availability:String(product.availability||'See retailer'),
+     updated_at:product.updated_at||payload.updated_at||new Date().toISOString().slice(0,10)
+    }));
+   }catch(error){
+    console.warn('FRONTERA partner feed skipped:',brand,error);
+    return [];
+   }
+  }));
+  extras.push(...partnerResults.flat());
+ }
  const key=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
  const seen=new Set(),merged=[];
  for(const product of [...base,...extras]){
