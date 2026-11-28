@@ -1,16 +1,24 @@
-name: Download TopOak Awin Feed
+name: Refresh FRONTERA TopOak product feed
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "37 */6 * * *"
+  push:
+    paths:
+      - ".github/workflows/awin-topoak-feed.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  download:
+  refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Download TopOak enhanced feed securely
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Download TopOak feed securely
         env:
           AWIN_API_TOKEN: ${{ secrets.AWIN_API_TOKEN }}
         run: |
@@ -25,26 +33,86 @@ jobs:
             --header "Accept: application/json" \
             "https://api.awin.com/publishers/3168539/awinfeeds/download/108374-retail-en_US.jsonl" \
             --output topoak-feed.jsonl
+
+      - name: Validate and publish current in-stock products
+        run: |
           python - <<'PY'
-          import json
+          import base64, gzip, json, re
           from pathlib import Path
 
-          path = Path("topoak-feed.jsonl")
-          lines = [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+          lines = [line for line in Path("topoak-feed.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
           if not lines:
               raise SystemExit("Awin returned an empty feed.")
-          rows = []
+
+          products = []
+          seen = set()
           for number, line in enumerate(lines, 1):
               try:
-                  row = json.loads(line)
+                  item = json.loads(line)
               except json.JSONDecodeError as exc:
                   raise SystemExit(f"Invalid JSON on feed line {number}: {exc}")
-              if isinstance(row, dict) and "error" in row:
-                  raise SystemExit(f"Awin feed ended with an error on line {number}: {row.get('message', 'unknown error')}")
-              rows.append(row)
-          print(f"Feed downloaded and validated: {len(rows)} JSON records.")
+              if not isinstance(item, dict) or "error" in item:
+                  raise SystemExit(f"Invalid Awin product record on line {number}.")
+              title = str(item.get("title") or "").strip()
+              link = str(item.get("aw_deep_link") or "").strip()
+              image = str(item.get("image_link") or "").strip()
+              if str(item.get("availability", "")).lower() != "in_stock":
+                  continue
+              if not title or not link.startswith("https://") or not image.startswith("https://"):
+                  continue
+              raw_price = str(item.get("price") or "")
+              match = re.search(r"[0-9]+(?:\\.[0-9]+)?", raw_price.replace(",", ""))
+              if not match:
+                  continue
+              price = float(match.group(0))
+              if price <= 0:
+                  continue
+
+              name = title.lower()
+              if any(word in name for word in ("tent", "awning", "annex", "shower room", "tent room", "overlanding bundle")):
+                  category = "shelter"
+              elif any(word in name for word in ("mattress", "sleeping", "liner")):
+                  category = "sleep"
+              elif any(word in name for word in ("water tank", "water storage", "water container")):
+                  category = "water"
+              elif any(word in name for word in ("led", "light bar", "lighting")):
+                  category = "light"
+              elif any(word in name for word in ("rack", "roof bar", "crossbar", "bracket", "mount", "ladder", "clamp", "adapter", "hardware", "rail")):
+                  category = "vehicles"
+              else:
+                  category = "vehicles"
+
+              key = title.casefold()
+              if key in seen:
+                  continue
+              seen.add(key)
+              products.append([
+                  title, category, link, price, image,
+                  str(item.get("description") or "").strip()
+              ])
+
+          if len(products) < 20:
+              raise SystemExit(f"Only {len(products)} valid in-stock products found; refusing to replace the current catalog.")
+
+          payload = json.dumps(products, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+          encoded = base64.b64encode(gzip.compress(payload, mtime=0)).decode("ascii")
+          Path("data/topoak-products.b64").write_text(encoded + "\\n", encoding="utf-8")
+          print(f"Prepared {len(products)} in-stock TopOak products from {len(lines)} feed records.")
           PY
-      - name: Save feed as a short-lived private workflow artifact
+
+      - name: Commit refreshed public product feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/topoak-products.b64
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh TopOak affiliate product catalog"
+            git push
+          else
+            echo "TopOak feed has no changes; existing catalog remains published."
+          fi
+
+      - name: Keep original feed as a short-lived private artifact
         uses: actions/upload-artifact@v4
         with:
           name: topoak-awin-feed
