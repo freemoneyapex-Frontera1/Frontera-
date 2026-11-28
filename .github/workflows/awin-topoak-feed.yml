@@ -96,7 +96,7 @@ jobs:
 
           payload = json.dumps(products, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
           encoded = base64.b64encode(gzip.compress(payload, mtime=0)).decode("ascii")
-          Path("data/topoak-products.b64").write_text(encoded + "\\n", encoding="utf-8")
+          Path("data/topoak-products.b64").write_text(encoded + "\n", encoding="utf-8")
           print(f"Prepared {len(products)} in-stock TopOak products from {len(lines)} feed records.")
           PY
 
